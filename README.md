@@ -10,14 +10,8 @@ The study materials currently consist of only the implementation of selected num
 
 All the notebooks are stored in this github repository under the `lectures` directory. You may either download all the notebooks as a .zip archive by selecting "Code" and then "Download ZIP", or use `git`:
 
-1. Clone the repository: 
-``` 
-$> git clone https://github.com/valenpe7/numerical_methods.git 
-```
-2. Pull in new changes: 
-``` 
-$> git pull 
-```
+1. **Clone** the repository: ``` $> git clone https://github.com/valenpe7/numerical_methods.git ```
+2. **Pull** in new changes: ``` $> git pull ```
 
 alternatively, you may:
 
