@@ -8,7 +8,7 @@ The study materials currently consist of only the implementation of selected num
 
 ### How to obtain the study materials:
 
-All the notebooks are stored in **[this](https://github.com/valenpe7/numerical_methods)** github repository under the **[lectures](https://github.com/valenpe7/numerical_methods/tree/master/lectures)** directory. You may either **[download](https://github.com/valenpe7/numerical_methods/archive/master.zip)** all the notebooks as a .zip archive by selecting "Code" and then "Download ZIP", or use `git`:
+All the notebooks are stored in this github repository under the `lectures` directory. You may either download all the notebooks as a .zip archive by selecting "Code" and then "Download ZIP", or use `git`:
 
 1. Clone the repository: ``` $> git clone https://github.com/mspieg/intro-numerical-methods.git ```
 2. Pull in new changes: ``` $> git pull ```
