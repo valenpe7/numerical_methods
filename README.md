@@ -19,3 +19,11 @@ alternatively, you may:
 * Launch the notebooks with **Binder** (interactive): https://mybinder.org/v2/gh/valenpe7/numerical_methods/master?filepath=index.ipynb
 
 If you find any mistake, please submit an **[issue](https://github.com/valenpe7/numerical_methods/issues)** to this github project page. 
+
+### Useful links (in Czech):
+
+- Guidelines to lectures and seminars: http://kfe.fjfi.cvut.cz/~limpouch/numet/NMECvic.pdf
+- Outlines of lecture: http://kfe.fjfi.cvut.cz/~limpouch/numet/sylnum.html
+- Transparencies of lectures: http://kfe.fjfi.cvut.cz/~limpouch/numet/lecnum.html
+- References to numerical methods: http://kfe.fjfi.cvut.cz/~limpouch/numet/refnum.html
+- Further study materials: http://kfe.fjfi.cvut.cz/~vachal/edu/nme/
