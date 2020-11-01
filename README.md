@@ -8,3 +8,4 @@ Auxiliary study materials for undergraduate course <b>12NME - Numerical Methods<
 
 * Launch the index notebook with **Binder** (interactive): https://mybinder.org/v2/gh/valenpe7/numerical_methods/master?filepath=index.ipynb
 
+If you find any mistake, please submit an **[issue](https://github.com/valenpe7/numerical_methods/issues)** to this github project page. 
