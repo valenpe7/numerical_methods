@@ -22,7 +22,7 @@ To install Anaconda,
 
 ### How to obtain the study materials:
 
-All the notebooks are stored in this github repository under the `lectures` directory. You may either download all the notebooks as a .zip archive by selecting "Code" and then "Download ZIP", or use `git`:
+All the notebooks are stored in this GitHub repository under the `lectures` directory. You may either download all the notebooks as a .zip archive by selecting "Code" and then "Download ZIP", or use `git`:
 
 1. Clone the repository: ``` $> git clone https://github.com/valenpe7/numerical_methods.git ```
 2. Pull in new changes: ``` $> git pull ```
@@ -49,4 +49,4 @@ Alternatively, if you do not have installed Anaconda, you may launch the noteboo
 - Further study materials: http://kfe.fjfi.cvut.cz/~vachal/edu/nme/
 
 
-The study materials are evolving quickly. Therefore, if you find any mistake, please submit an **[issue](https://github.com/valenpe7/numerical_methods/issues)** to this github project page.
+The study materials are evolving quickly. Therefore, if you find any mistake, please submit an **[issue](https://github.com/valenpe7/numerical_methods/issues)** to this GitHub project page.
