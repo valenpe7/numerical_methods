@@ -4,7 +4,7 @@
 
 This repository contains auxiliary study materials for undergraduate course <b>12NME - Numerical Methods</b> lectured at the Faculty of Nuclear Sciences and Physical Engineering, Czech Technical University in Prague (http://kfe.fjfi.cvut.cz/~valenpe7/).
 
-The study materials currently consist of only the implementation of selected numerical methods and algorithms (without comments). For closer info, you should attend the tutorials. The methods are written in Python, and organized into Jupyter notebooks.
+The study materials currently consist of only the implementation of selected numerical methods and algorithms (without comments). For closer info, you should attend the tutorials. The methods are written in Python 3, and organized into a collection of Jupyter notebooks.
 
 ### How to obtain the study materials:
 
