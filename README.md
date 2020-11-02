@@ -17,7 +17,7 @@ Anaconda is a Python distribution for scientific computing. It includes Jupyter 
 
 To install Anaconda, 
 1. open https://www.anaconda.com/products/individual with your web browser
-2. download the suitable Anaconda installer - Windows/MacOS/Linux (you will find them at the bottom of the web page)
+2. download the suitable Anaconda installer for Windows/MacOS/Linux (you will find them at the bottom of the web page)
 3. install Anaconda using all of the defaults for installation except make sure to check that the Anaconda distribution is the default Python
 
 ### How to obtain the study materials:
@@ -33,7 +33,7 @@ After you have installed Anaconda on your computer and obtained the notebooks, y
 ```
 jupyter notebook
 ```
-This will print some information about the notebook server in your terminal, including the URL of the web application (by default, `http://localhost:8888`), and open your default web browser to this URL. When the notebook opens in your browser, you will see the "Notebook Dashboard", which will show a list of the notebooks, files, and subdirectories in the directory where the notebook server was started. Navigate to the `lectures` directory and click on selected notebook.
+This will print some information about the notebook server in your terminal, including the URL of the web application (by default, `http://localhost:8888`), and open your default web browser to this URL. When Jupyter opens in your browser, you will see the "Notebook Dashboard", which will show a list of the notebooks, files, and subdirectories in the directory where the notebook server was started. Navigate to the `lectures` directory and click on the selected notebook.
 
 Alternatively, if you do not have installed Anaconda, you may launch the notebooks on-line using
 
@@ -47,7 +47,6 @@ Alternatively, if you do not have installed Anaconda, you may launch the noteboo
 - Transparencies of lectures: http://kfe.fjfi.cvut.cz/~limpouch/numet/lecnum.html
 - References to numerical methods: http://kfe.fjfi.cvut.cz/~limpouch/numet/refnum.html
 - Further study materials: http://kfe.fjfi.cvut.cz/~vachal/edu/nme/
-
 
 
 The study materials are evolving quickly. Therefore, if you find any mistake, please submit an **[issue](https://github.com/valenpe7/numerical_methods/issues)** to this github project page.
