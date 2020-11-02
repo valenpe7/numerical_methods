@@ -4,13 +4,21 @@
 
 This repository contains auxiliary study materials for undergraduate course <b>12NME - Numerical Methods</b> lectured at the Faculty of Nuclear Sciences and Physical Engineering, Czech Technical University in Prague (http://kfe.fjfi.cvut.cz/~valenpe7/).
 
-The study materials currently consist of only the implementation of selected numerical methods and algorithms (without comments). For closer info, you should attend the tutorials. The methods are written in Python 3, and organized into a collection of Jupyter notebooks. In addition, they rely on several Python packages - numpy (mainly for data structures), scipy (for several numerical algorithms), and matplotlib (for visualization). Although all these packages can be installed one-by-one, I recommend to obtain them by installing Anaconda.
+The study materials currently consist of only the implementation of selected numerical methods and algorithms (without comments). For closer info, you should attend the tutorials. The methods are written in Python 3, and organized into a collection of Jupyter notebooks. In addition, they rely on several Python packages:
+- numpy (mainly for data structures)
+- scipy (for several numerical algorithms)
+- matplotlib (for visualization)
+
+Although all these packages can be installed one-by-one, I recommend to obtain them by installing Anaconda.
 
 ### What is Anaconda and how to install it:
 
 Anaconda is a Python distribution for scientific computing. It includes Jupyter and dozens of the most popular Python packages for scientific computing, including numpy, scipy and matplotlib. 
 
-To install Anaconda, open https://www.anaconda.com/products/individual with your web browser. At the bottom of the web page, you will find Anaconda installers for Windows, MacOS and Linux. After you have downloaded the suitable installer, install Anaconda using all of the defaults for installation except make sure to check that the Anaconda distribution is the default Python.
+To install Anaconda, 
+1. open https://www.anaconda.com/products/individual with your web browser
+2. download the suitable Anaconda installer - Windows/MacOS/Linux (you will find them at the bottom of the web page)
+3. install Anaconda using all of the defaults for installation except make sure to check that the Anaconda distribution is the default Python
 
 ### How to obtain the study materials:
 
