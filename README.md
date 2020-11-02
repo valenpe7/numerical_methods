@@ -24,16 +24,16 @@ To install Anaconda,
 
 All the notebooks are stored in this github repository under the `lectures` directory. You may either download all the notebooks as a .zip archive by selecting "Code" and then "Download ZIP", or use `git`:
 
-1. **Clone** the repository: ``` $> git clone https://github.com/valenpe7/numerical_methods.git ```
-2. **Pull** in new changes: ``` $> git pull ```
+1. Clone the repository: ``` $> git clone https://github.com/valenpe7/numerical_methods.git ```
+2. Pull in new changes: ``` $> git pull ```
 
 ### How to launch the notebooks:
 
-After you have installed Anaconda on your computer and obtained the notebooks, you are ready to run the notebook server. You can start the notebook server from the command line (using Terminal on MacOS/Linux, Anaconda Prompt on Windows) by running:
+After you have installed Anaconda on your computer and obtained the notebooks, you are ready to run the notebook server. You can start the notebook server from the command line (Terminal on MacOS/Linux, Anaconda Prompt on Windows) by running:
 ```
 jupyter notebook
 ```
-This will print some information about the notebook server in your terminal, including the URL of the web application (by default, `http://localhost:8888`), and open your default web browser to this URL. When Jupyter opens in your browser, you will see the "Notebook Dashboard", which will show a list of the notebooks, files, and subdirectories in the directory where the notebook server was started. Navigate to the `lectures` directory and click on the selected notebook.
+This will print some information about the notebook server in your terminal, including the URL of the web application (by default, `http://localhost:8888`), and open your default web browser to this URL. When Jupyter opens in your browser, you will see the "Notebook Dashboard", which will show a list of the notebooks, files, and subdirectories in the directory where the notebook server has started. Navigate to the `lectures` directory and click on the selected notebook.
 
 Alternatively, if you do not have installed Anaconda, you may launch the notebooks on-line using
 
