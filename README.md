@@ -13,7 +13,7 @@ All the notebooks are stored in this github repository under the `lectures` dire
 1. **Clone** the repository: ``` $> git clone https://github.com/valenpe7/numerical_methods.git ```
 2. **Pull** in new changes: ``` $> git pull ```
 
-Alternatively, you may launch the notebooks with
+Alternatively, you may launch the notebooks on-line with
 
 * **Jupyter NBViwever** (non-interactive): https://nbviewer.jupyter.org/github/valenpe7/numerical_methods/blob/master/index.ipynb
 * **Binder** (interactive): https://mybinder.org/v2/gh/valenpe7/numerical_methods/master?filepath=index.ipynb
