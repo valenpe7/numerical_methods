@@ -4,6 +4,8 @@
 
 This repository contains auxiliary study materials for undergraduate course <b>12NME - Numerical Methods</b> lectured at the Faculty of Nuclear Sciences and Physical Engineering, Czech Technical University in Prague (http://kfe.fjfi.cvut.cz/~valenpe7/).
 
+### About the study materials:
+
 The study materials currently consist of only the implementation of selected numerical methods and algorithms (without comments). For closer info, you should attend the tutorials. The methods are written in Python 3, and organized into a collection of Jupyter notebooks. In addition, they rely on several Python packages:
 - numpy (mainly for data structures)
 - scipy (for several numerical algorithms)
@@ -20,7 +22,7 @@ To install Anaconda,
 2. download the suitable Anaconda installer for Windows/MacOS/Linux (you will find them at the bottom of the web page)
 3. install Anaconda using all of the defaults for installation except make sure to check that the Anaconda distribution is the default Python
 
-### How to obtain the study materials:
+### How to obtain the notebooks:
 
 All the notebooks are stored in this GitHub repository under the `lectures` directory. You may either download all the notebooks as a .zip archive by selecting "Code" and then "Download ZIP", or use `git`:
 
