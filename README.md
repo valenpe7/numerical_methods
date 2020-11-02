@@ -49,4 +49,4 @@ Alternatively, if you do not have installed Anaconda, you may launch the noteboo
 - Further study materials: http://kfe.fjfi.cvut.cz/~vachal/edu/nme/
 
 
-The study materials are evolving quickly. Therefore, if you find any mistake, please submit an **[issue](https://github.com/valenpe7/numerical_methods/issues)** to this GitHub project page.
+The study materials are evolving quickly. Therefore, if you find any mistake, please submit an **[issue](https://github.com/valenpe7/numerical_methods/issues)** to this GitHub project repository.
