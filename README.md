@@ -1,4 +1,4 @@
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/valenpe7/numerical_methods/master?filepath=index.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/valenpe7/numerical_methods/HEAD?filepath=lectures)
 
 # 12NME - Numerical Methods
 
@@ -40,7 +40,7 @@ This will print some information about the notebook server in your terminal, inc
 Alternatively, if you do not have installed Anaconda, you may launch the notebooks on-line using
 
 * **Jupyter NBViwever** (non-interactive): https://nbviewer.jupyter.org/github/valenpe7/numerical_methods/blob/master/index.ipynb
-* **Binder** (interactive): https://mybinder.org/v2/gh/valenpe7/numerical_methods/master?filepath=index.ipynb
+* **Binder** (interactive): https://mybinder.org/v2/gh/valenpe7/numerical_methods/HEAD?filepath=lectures
 
 ### Useful links (in Czech):
 
