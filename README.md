@@ -1,8 +1,8 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/valenpe7/numerical_methods/HEAD?filepath=lectures)
 
-# 12NME - Numerical Methods
+# 12NME1 - Numerical Methods
 
-This repository contains auxiliary study materials for undergraduate course <b>12NME - Numerical Methods</b> lectured at the Faculty of Nuclear Sciences and Physical Engineering, Czech Technical University in Prague (http://kfe.fjfi.cvut.cz/~valenpe7/).
+This repository contains auxiliary study materials for undergraduate course <b>12NME1 - Numerical Methods</b> lectured at the Faculty of Nuclear Sciences and Physical Engineering, Czech Technical University in Prague (https://petrvalenta.eu/teaching/numerical_methods/).
 
 ### About the study materials:
 
