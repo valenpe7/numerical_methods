@@ -1,4 +1,4 @@
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/valenpe7/numerical_methods/HEAD?filepath=lectures)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/valenpe7/numerical_methods/HEAD?filepath=tutorials)
 
 # 12NME1 - Numerical Methods
 
@@ -24,7 +24,7 @@ To install Anaconda,
 
 ### How to obtain the notebooks:
 
-All the notebooks are stored in this GitHub repository under the `lectures` directory. You may either download all the notebooks as a .zip archive by selecting "Code" and then "Download ZIP", or use `git`:
+All the notebooks are stored in this GitHub repository under the `tutorials` directory. You may either download all the notebooks as a .zip archive by selecting "Code" and then "Download ZIP", or use `git`:
 
 1. Clone the repository: ``` $> git clone https://github.com/valenpe7/numerical_methods.git ```
 2. Pull in new changes: ``` $> git pull ```
@@ -35,12 +35,12 @@ After you have installed Anaconda on your computer and obtained the notebooks, y
 ```
 $> jupyter notebook
 ```
-This will print some information about the notebook server in your terminal, including the URL of the web application (by default, `http://localhost:8888`), and open your default web browser to this URL. When Jupyter opens in your browser, you will see the "Notebook Dashboard", which will show a list of the notebooks, files, and subdirectories in the directory where the notebook server was started. Navigate to the `lectures` directory and click on the selected notebook.
+This will print some information about the notebook server in your terminal, including the URL of the web application (by default, `http://localhost:8888`), and open your default web browser to this URL. When Jupyter opens in your browser, you will see the "Notebook Dashboard", which will show a list of the notebooks, files, and subdirectories in the directory where the notebook server was started. Navigate to the `tutorials` directory and click on the selected notebook.
 
 Alternatively, if you do not have installed Anaconda, you may launch the notebooks on-line using
 
 * **Jupyter NBViwever** (non-interactive): https://nbviewer.jupyter.org/github/valenpe7/numerical_methods/blob/master/index.ipynb
-* **Binder** (interactive): https://mybinder.org/v2/gh/valenpe7/numerical_methods/HEAD?filepath=lectures
+* **Binder** (interactive): https://mybinder.org/v2/gh/valenpe7/numerical_methods/HEAD?filepath=tutorials
 
 ### Useful links (in Czech):
 
