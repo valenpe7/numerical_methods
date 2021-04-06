@@ -37,5 +37,5 @@ html:
   extra_navbar: ""
 
 launch_buttons:
-  notebook_interface: "jupyterlab"
+  notebook_interface: "classic"
   thebe: true
