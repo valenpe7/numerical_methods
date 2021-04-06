@@ -1,0 +1,41 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: 12NME1 - Numerical methods
+author: Petr Valenta
+logo: logo.png
+copyright: "2021"
+only_build_toc_files: true
+
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks: off
+  timeout: 60
+
+# Define the name of the latex output file for PDF builds
+#latex:
+#  latex_documents:
+#    targetname: book.tex
+
+# Add a bibtex file so that we can create citations
+#bibtex_bibfiles:
+#  - references.bib
+
+# Information about where the book exists on the web
+repository:
+  url: https://github.com/valenpe7/numerical_methods  # Online location of your book
+  path_to_book: "workbook"  # Optional path to your book, relative to the repository root
+  branch: master  # Which branch of the repository should be used when creating links (optional)
+
+# Add GitHub buttons to your book
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+html:
+  use_repository_button: true
+  use_issues_butto: true
+  use_edit_page_button: false
+  extra_navbar: ""
+
+launch_buttons:
+  notebook_interface: "jupyterlab"
+  thebe: true

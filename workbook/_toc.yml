@@ -1,0 +1,59 @@
+# Table of content
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+- file: ../README
+  title: About this course
+
+- part: Tutorials
+  chapters:
+  - file: ../tutorials/01-introduction
+    title: 01 Intro to Python and Jupyter
+  - file: ../tutorials/02-error_analysis
+    title: 02 Error, accuracy, stability
+  - file: ../tutorials/03-linear_algebra
+    title: 03 Linear algebra
+  - file: ../tutorials/04-linear_algebra_contd
+    title: 04 Linear algebra (cont'd)
+  - file: ../tutorials/05-interpolation
+    title: 05 Function approximation
+  - file: ../tutorials/06-data_sorting
+    title: 06 Data sorting
+  - file: ../tutorials/07-nonlinear_equations
+    title: 07 Nonlinear equations
+  - file: ../tutorials/08-optimization
+    title: 08 Optimization
+  - file: ../tutorials/09-quadrature
+    title: 09 Quadrature
+  - file: ../tutorials/10-initial_value_problems
+    title: 10 Initial value problems
+  - file: ../tutorials/11-boundary_value_problems
+    title: 11 Boundary value problems
+  - file: ../solutions/solutions
+    title: Solutions
+
+- part: Asignments tasks
+  chapters:
+  - file: ../tasks/task_01
+    title: Task 01
+  - file: ../tasks/task_02
+    title: Task 02
+  - file: ../tasks/task_03
+    title: Task 03
+  - file: ../tasks/task_04
+    title: Task 04
+  - file: ../tasks/task_05
+    title: Task 05
+  - file: ../tasks/task_06
+    title: Task 06
+  - file: ../tasks/task_07
+    title: Task 07
+  - file: ../tasks/task_08
+    title: Task 08
+  - file: ../tasks/task_09
+    title: Task 09
+  - file: ../tasks/task_10
+    title: Task 10
+  - file: ../tasks/task_11
+    title: Task 11
+  - file: ../solutions/solutions
+    title: Solutions
