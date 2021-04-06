@@ -1,0 +1,739 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tutorial 07 - Nonlinear equations &#8212; 12NME1 - Numerical methods</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Optimization" href="08-optimization.html" />
+    <link rel="prev" title="Tutorial 06 - Data sorting" href="06-data_sorting.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">12NME1 - Numerical methods</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   12NME1 - Numerical Methods
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-introduction.html">
+   01 Intro to Python and Jupyter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-error_analysis.html">
+   02 Error, accuracy, stability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-linear_algebra.html">
+   03 Linear algebra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-linear_algebra_contd.html">
+   04 Linear algebra (cont'd)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05-interpolation.html">
+   05 Function approximation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-data_sorting.html">
+   06 Data sorting
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   07 Nonlinear equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08-optimization.html">
+   08 Optimization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09-quadrature.html">
+   09 Quadrature
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10-initial_value_problems.html">
+   10 Initial value problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11-boundary_value_problems.html">
+   11 Boundary value problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../solutions/solutions.html">
+   Solutions
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Asignments tasks
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_01.html">
+   Task 01
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_02.html">
+   Task 02
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_03.html">
+   Task 03
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_04.html">
+   Task 04
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_05.html">
+   Task 05
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_06.html">
+   Task 06
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_07.html">
+   Task 07
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_08.html">
+   Task 08
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_09.html">
+   Task 09
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_10.html">
+   Task 10
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_11.html">
+   Task 11
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../solutions/solutions.html">
+   Solutions
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/tutorials/07-nonlinear_equations.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/valenpe7/numerical_methods"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/valenpe7/numerical_methods/master?urlpath=lab/tree/./tutorials/07-nonlinear_equations.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bisection-method">
+   Bisection method
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#secant-method">
+   Secant method
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#false-position-method">
+   False position method
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#newton-raphson-method">
+   Newton-Raphson method
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="tutorial-07-nonlinear-equations">
+<h1>Tutorial 07 - Nonlinear equations<a class="headerlink" href="#tutorial-07-nonlinear-equations" title="Permalink to this headline">¶</a></h1>
+<p>Root finding, bisection method, secant method, false position method, Newton-Raphson method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span><span class="p">,</span> <span class="n">optimize</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="bisection-method">
+<h2>Bisection method<a class="headerlink" href="#bisection-method" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Bisection_method">bisection method</a> is applicable for numerically solving the equation <span class="math notranslate nohighlight">\( f(x) = 0 \)</span> for <span class="math notranslate nohighlight">\( x \in \mathbb{R} \)</span>, where <span class="math notranslate nohighlight">\( f \)</span> is a continuous function defined on an interval <span class="math notranslate nohighlight">\( [a, b] \)</span> and where <span class="math notranslate nohighlight">\( f(a) \)</span> and <span class="math notranslate nohighlight">\( f(b) \)</span> have opposite signs. In this case <span class="math notranslate nohighlight">\( a \)</span> and <span class="math notranslate nohighlight">\( b \)</span> are said to bracket a root.</p>
+<p>At each step the method divides the interval <span class="math notranslate nohighlight">\( [a, b] \)</span> in two by computing the midpoint <span class="math notranslate nohighlight">\( c = (a + b) \ / \ 2 \)</span> of the interval. Unless <span class="math notranslate nohighlight">\( c \)</span> is itself a root (which is very unlikely, but possible) there are now only two possibilities: either <span class="math notranslate nohighlight">\( f(a) \)</span> and <span class="math notranslate nohighlight">\( f(c) \)</span> have opposite signs and bracket a root, or <span class="math notranslate nohighlight">\( f(c) \)</span> and <span class="math notranslate nohighlight">\( f(b) \)</span> have opposite signs and bracket a root. The method selects the subinterval that is guaranteed to be a bracket as the new interval to be used in the next step. The process is continued until the interval is sufficiently small. When implementing the method on a computer, there can be problems with finite precision, so there are often additional convergence tests or limits to the number of iterations.</p>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 07.1:</strong> Implement the bisection method.</p>
+</div>    <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bisection</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">error_tolerance</span><span class="o">=</span><span class="mf">1.0e-15</span><span class="p">,</span> <span class="n">max_iterations</span><span class="o">=</span><span class="mi">500</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Finds the root of a continuous function using bisection method.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        f (function): Continuous function defined on an interval [a, b], where f(a) and f(b) have opposite signs</span>
+<span class="sd">        a (float): Leftmost point of the interval</span>
+<span class="sd">        b (float): Rightmost point of the interval</span>
+<span class="sd">        error_tolerance (float): Error tolerance</span>
+<span class="sd">        max_iterations (int): Maximum number of iterations</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        float: The root of function f</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        RuntimeError: Raises an exception when no root is found within specified error tolerance and maximum number of iterations</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You may evaluate the correctness of your implementation using the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.root_scalar.html"><code class="docutils literal notranslate"><span class="pre">scipy.optimize.root_scalar</span></code></a> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mf">1.0</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_array_almost_equal</span><span class="p">(</span><span class="n">bisection</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">),</span> <span class="n">optimize</span><span class="o">.</span><span class="n">root_scalar</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">bracket</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;bisect&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="n">decimal</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">E</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The implementation is correct.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 07.2:</strong> Find the only real root of the cubic function</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = x^3 - x^2 - 1
+\]</div>
+<p>within the interval <span class="math notranslate nohighlight">\( [-3, 3] \)</span> using the bisection method. Plot the function and mark the solution.</p>
+</div>    <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-info">
+<p><strong>Note:</strong> The root of the cubic function in Exercise 07.2 can be also found analytically and is known as a <a class="reference external" href="https://en.wikipedia.org/wiki/Supergolden_ratio">supergolden ratio</a>.</p>
+</div>   </div>
+<div class="section" id="secant-method">
+<h2>Secant method<a class="headerlink" href="#secant-method" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Secant_method">secant method</a> numerically solves the equation <span class="math notranslate nohighlight">\( f(x) = 0 \)</span>, <span class="math notranslate nohighlight">\( x \in \mathbb{R} \)</span> using a succession of roots of secant lines. The secant method does not require that the root remain bracketed, like the bisection method does, and hence it does not always converge.</p>
+<p>Starting with initial values <span class="math notranslate nohighlight">\( x^{(0)} \)</span> and <span class="math notranslate nohighlight">\( x^{(1)} \)</span>, the method calculates the equation of a secant line <span class="math notranslate nohighlight">\( s(x) = px + q \)</span> passing through the points <span class="math notranslate nohighlight">\( [x^{(0)}, f(x^{(0)})] \)</span> and <span class="math notranslate nohighlight">\( [x^{(1)}, f(x^{(1)})] \)</span>. The slope of the line, <span class="math notranslate nohighlight">\( p \)</span>, and the coefficient, <span class="math notranslate nohighlight">\( q \)</span>, can be easily obtained using basic algebra,</p>
+<div class="math notranslate nohighlight">
+\[ 
+p = \frac{f(x^{(1)}) - f(x^{(0)})}{x^{(1)} - x^{(0)}}, \quad q = f(x^{(0)}) - \frac{f(x^{(1)}) - f(x^{(0)})}{x^{(1)} - x^{(0)}} x^{(0)}. 
+\]</div>
+<p>The point where the secant line intersects the <span class="math notranslate nohighlight">\( x \)</span>-axis can be obtained by solving <span class="math notranslate nohighlight">\( s(x) = 0 \)</span>,</p>
+<div class="math notranslate nohighlight">
+\[ 
+x = \frac{x^{(0)} f(x^{(1)}) - x^{(1)} f(x^{(0)})}{f(x^{(1)}) - f(x^{(0)})}. 
+\]</div>
+<p>This new value of <span class="math notranslate nohighlight">\( x \)</span> is then used as <span class="math notranslate nohighlight">\( x^{(2)} \)</span>, and the process repeats (with <span class="math notranslate nohighlight">\( x^{(1)} \)</span> and <span class="math notranslate nohighlight">\( x^{(2)} \)</span> instead of <span class="math notranslate nohighlight">\( x^{(0)} \)</span> and <span class="math notranslate nohighlight">\( x^{(1)} \)</span>) until the difference between <span class="math notranslate nohighlight">\( x^{(k)} \)</span> and <span class="math notranslate nohighlight">\( x^{(k - 1)}\)</span> is sufficiently small.</p>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 07.3:</strong> Implement the secant method.</p>
+</div>    <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">secant_method</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x_0</span><span class="p">,</span> <span class="n">x_1</span><span class="p">,</span> <span class="n">error_tolerance</span><span class="o">=</span><span class="mf">1.0e-15</span><span class="p">,</span> <span class="n">max_iterations</span><span class="o">=</span><span class="mi">500</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Finds the root of a continuous function using secant method.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        f (function): Continuous function</span>
+<span class="sd">        x_0 (float): First initial guess</span>
+<span class="sd">        x_1 (float): Second initial guess</span>
+<span class="sd">        error_tolerance (float): Error tolerance</span>
+<span class="sd">        max_iterations (int): Maximum number of iterations</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        float: The root of function f</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        RuntimeError: Raises an exception when no root is found within specified error tolerance and maximum number of iterations</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You may evaluate the correctness of your implementation using the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.root_scalar.html"><code class="docutils literal notranslate"><span class="pre">scipy.optimize.root_scalar</span></code></a> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mf">1.0</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_array_almost_equal</span><span class="p">(</span><span class="n">secant_method</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">),</span> <span class="n">optimize</span><span class="o">.</span><span class="n">root_scalar</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">x1</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;secant&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="n">decimal</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">E</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The implementation is correct.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 07.4:</strong> Find the only real root of the cubic function</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = x^3 - x - 1
+\]</div>
+<p>using the secant method (you may start with the initial values <span class="math notranslate nohighlight">\( x_0 = 0 \)</span> and <span class="math notranslate nohighlight">\( x_1 = 2 \)</span>). Plot the function and mark the solution.</p>
+</div>    <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-info">
+<p><strong>Note:</strong> The root of the cubic function in Exercise 07.4 can be also found analytically and is known as a <a class="reference external" href="https://en.wikipedia.org/wiki/Plastic_number">plastic number</a>.</p>
+</div>    </div>
+<div class="section" id="false-position-method">
+<h2>False position method<a class="headerlink" href="#false-position-method" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Regula_falsi">false position method</a> uses the same formula as the secant method. However, it does not apply the formula on <span class="math notranslate nohighlight">\( x^{(k - 1)} \)</span> and <span class="math notranslate nohighlight">\( x^{(k - 2)} \)</span>, like the secant method, but on <span class="math notranslate nohighlight">\( x^{(k - 1)} \)</span> and on the last iterate <span class="math notranslate nohighlight">\( x^{(k)} \)</span> such that <span class="math notranslate nohighlight">\( f(x^{(k)}) \)</span> and <span class="math notranslate nohighlight">\( f(x^{(k - 1)}) \)</span> have a different sign, so that the two points continue to bracket the root. This means that the false position method always converges.</p>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 07.5:</strong> Implement the false position method.</p>
+</div>    <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">false_position_method</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x_0</span><span class="p">,</span> <span class="n">x_1</span><span class="p">,</span> <span class="n">error_tolerance</span><span class="o">=</span><span class="mf">1.0e-15</span><span class="p">,</span> <span class="n">max_iterations</span><span class="o">=</span><span class="mi">500</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Finds the root of a continuous function using false position method.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        f (function): Continuous function defined on an interval [x_0, x_1], where f(x_0) and f(x_1) have opposite signs</span>
+<span class="sd">        x_0 (float): Leftmost point of the interval</span>
+<span class="sd">        x_1 (float): Rightmost point of the interval</span>
+<span class="sd">        error_tolerance (float): Error tolerance</span>
+<span class="sd">        max_iterations (int): Maximum number of iterations</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        float: The root of function f</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        RuntimeError: Raises an exception when no root is found within specified error tolerance and maximum number of iterations</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You may evaluate the correctness of your implementation using the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.root_scalar.html"><code class="docutils literal notranslate"><span class="pre">scipy.optimize.root_scalar</span></code></a> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mf">1.0</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_array_almost_equal</span><span class="p">(</span><span class="n">false_position_method</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">),</span> <span class="n">optimize</span><span class="o">.</span><span class="n">root_scalar</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">x1</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;secant&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="n">decimal</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">E</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The implementation is correct.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="newton-raphson-method">
+<h2>Newton-Raphson method<a class="headerlink" href="#newton-raphson-method" title="Permalink to this headline">¶</a></h2>
+<p><strong><a class="reference external" href="https://en.wikipedia.org/wiki/Newton%27s_method">Newton-Raphson</a> method for one nonlinear equation:</strong></p>
+<p>The root of nonlinear function <span class="math notranslate nohighlight">\( f(x) \)</span>, <span class="math notranslate nohighlight">\( x \in \mathbb{R} \)</span>, whose derivative <span class="math notranslate nohighlight">\( f^{\prime}(x) \)</span> is continuous and nonzero in the neighborhood of the root, is obtained iteratively using the following recursive formula,</p>
+<div class="math notranslate nohighlight">
+\[
+x^{(k + 1)} = x^{(k)} - \frac{f(x^{(k)})}{f^{\prime}(x^{(k)})}
+\]</div>
+<p>with <span class="math notranslate nohighlight">\( x_0 \)</span> being an initial guess. A numerical difference can be used to approximate <span class="math notranslate nohighlight">\( f^{\prime}(x) \)</span> in the Newton-Raphson formula. This is not, however, a recommended procedure, because it may decrease accuracy and the rate of convergence.</p>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 07.6:</strong> Implement the Newton-Raphson method for one-unknown problem (you may use the finite differences to approximate the derivative of given function).</p>
+</div>    <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">newton_raphson</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x_0</span><span class="p">,</span> <span class="n">error_tolerance</span><span class="o">=</span><span class="mf">1.0e-15</span><span class="p">,</span> <span class="n">max_iterations</span><span class="o">=</span><span class="mi">500</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Finds the solution of one nonlinear eqution using Newton-Raphson method.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        f (function): Function whose derivative is continuous and nonzero in the neighborhood of a root</span>
+<span class="sd">        x_0 (float): Initial guess</span>
+<span class="sd">        error_tolerance (float): Error tolerance</span>
+<span class="sd">        max_iterations (int): Maximum number of iterations</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        float: The solution of a given equation</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        RuntimeError: Raises an exception when no solution is found within specified error tolerance and maximum number of iterations</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You may evaluate the correctness of your implementation using the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.root_scalar.html"><code class="docutils literal notranslate"><span class="pre">scipy.optimize.root_scalar</span></code></a> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mf">1.0</span>
+<span class="k">def</span> <span class="nf">df</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">x</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_array_almost_equal</span><span class="p">(</span><span class="n">newton_raphson</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">),</span> <span class="n">optimize</span><span class="o">.</span><span class="n">root_scalar</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">fprime</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;newton&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="n">decimal</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">E</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The implementation is correct.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 07.7:</strong> Find the solution of the equation</p>
+<div class="math notranslate nohighlight">
+\[
+x^3 - \cos x = 0
+\]</div>
+<p>using the Newton-Raphson method with the error tolerance of <span class="math notranslate nohighlight">\( 10^{-15} \)</span>. How does the required number of iterations depends on the value of initial guess?</p>
+</div>    <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 07.8:</strong> Find the solution of the equation</p>
+<div class="math notranslate nohighlight">
+\[
+\sqrt[3]{x} + 2 = 0
+\]</div>
+<p>using the Newton-Raphson method.</p>
+</div>    <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-danger">
+<p><strong>Warning:</strong> The Newton-Raphson method diverges in the case of equation in Exercise 07.8, becuase the tangent line at the root is vertical.</p>
+</div>    <p><strong><a class="reference external" href="https://en.wikipedia.org/wiki/Newton%27s_method">Newton-Raphson</a> method for system of nonlinear equations:</strong></p>
+<p>A system of <span class="math notranslate nohighlight">\( n \)</span> nonlinear equations <span class="math notranslate nohighlight">\( f(x) = 0 \)</span>, where <span class="math notranslate nohighlight">\( x \)</span> and <span class="math notranslate nohighlight">\( f \)</span>, respectively, denote the entire vectors of values <span class="math notranslate nohighlight">\( x_i \)</span> and functions <span class="math notranslate nohighlight">\( f_i \)</span>, <span class="math notranslate nohighlight">\( i = 0, 1, \dots, n - 1 \)</span>, is obtained iteratively using the following recursive formula,</p>
+<div class="math notranslate nohighlight">
+\[
+x^{(k + 1)} = x^{(k)} + \delta_x.
+\]</div>
+<p>The correction <span class="math notranslate nohighlight">\( \delta_x \)</span> is obtained by solving the following system of linear algebraic equations,</p>
+<div class="math notranslate nohighlight">
+\[
+J \cdot \delta_x = -f,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\( J \)</span> is the Jacobian matrix.</p>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 07.9:</strong> Implement the Newton-Raphson method for a two-unknown problem (you may use the finite differences to approximate the derivatives of given functions).</p>
+</div>    <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">newton_raphson_2d</span><span class="p">(</span><span class="n">f_0</span><span class="p">,</span> <span class="n">f_1</span><span class="p">,</span> <span class="n">x_0</span><span class="p">,</span> <span class="n">y_0</span><span class="p">,</span> <span class="n">error_tolerance</span><span class="o">=</span><span class="mf">1.0e-15</span><span class="p">,</span> <span class="n">max_iterations</span><span class="o">=</span><span class="mi">500</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Finds the solution of a sytem of two equations using Newton-Raphson method.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        f_1 (function): Function whose derivative is continuous and nonzero in the neighborhood of a root</span>
+<span class="sd">        f_2 (function): Function whose derivative is continuous and nonzero in the neighborhood of a root</span>
+<span class="sd">        x_0 (float): Initial guess</span>
+<span class="sd">        y_0 (float): Initial guess</span>
+<span class="sd">        error_tolerance (float): Error tolerance</span>
+<span class="sd">        max_iterations (int): Maximum number of iterations</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        list: The vector of solution of a given sytem of equations</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        RuntimeError: Raises an exception when no solution is found within specified error tolerance and maximum number of iterations</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># add your code here</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 07.10:</strong> Solve the following system of nonlinear equations,</p>
+<p>\begin{align}
+&amp; x^2 - y^2 = -4 x + 2 y + 1, \
+&amp; x^2 = -5y + 4,
+\end{align}</p>
+<p>using the Newton-Raphson method. Plot both functions and mark the root.</p>
+</div>    <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "valenpe7/numerical_methods",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./tutorials"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="06-data_sorting.html" title="previous page">Tutorial 06 - Data sorting</a>
+    <a class='right-next' id="next-link" href="08-optimization.html" title="next page">Optimization</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Petr Valenta<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

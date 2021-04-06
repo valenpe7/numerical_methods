@@ -1,0 +1,1109 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tutorial 01 - Introduction to Python and Jupyter &#8212; 12NME1 - Numerical methods</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tutorial 02 - Error, accuracy, stability" href="02-error_analysis.html" />
+    <link rel="prev" title="12NME1 - Numerical Methods" href="../README.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">12NME1 - Numerical methods</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   12NME1 - Numerical Methods
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   01 Intro to Python and Jupyter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-error_analysis.html">
+   02 Error, accuracy, stability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-linear_algebra.html">
+   03 Linear algebra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-linear_algebra_contd.html">
+   04 Linear algebra (cont'd)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05-interpolation.html">
+   05 Function approximation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-data_sorting.html">
+   06 Data sorting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07-nonlinear_equations.html">
+   07 Nonlinear equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08-optimization.html">
+   08 Optimization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09-quadrature.html">
+   09 Quadrature
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10-initial_value_problems.html">
+   10 Initial value problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11-boundary_value_problems.html">
+   11 Boundary value problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../solutions/solutions.html">
+   Solutions
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Asignments tasks
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_01.html">
+   Task 01
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_02.html">
+   Task 02
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_03.html">
+   Task 03
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_04.html">
+   Task 04
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_05.html">
+   Task 05
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_06.html">
+   Task 06
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_07.html">
+   Task 07
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_08.html">
+   Task 08
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_09.html">
+   Task 09
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_10.html">
+   Task 10
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_11.html">
+   Task 11
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../solutions/solutions.html">
+   Solutions
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/tutorials/01-introduction.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/valenpe7/numerical_methods"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/valenpe7/numerical_methods/master?urlpath=lab/tree/./tutorials/01-introduction.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#jupyter">
+   Jupyter
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python">
+   Python
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#variable-assignment-and-basic-operations">
+     Variable assignment and basic operations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conditions">
+     Conditions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loops">
+     Loops
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions">
+     Functions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numpy">
+   Numpy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scipy">
+   Scipy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matplotlib">
+   Matplotlib
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="tutorial-01-introduction-to-python-and-jupyter">
+<h1>Tutorial 01 - Introduction to Python and Jupyter<a class="headerlink" href="#tutorial-01-introduction-to-python-and-jupyter" title="Permalink to this headline">¶</a></h1>
+<p>Basic concepts and features of Python, numeric and math-related functions and data types, Jupyter environment, numpy, scipy, matplotlib modules.</p>
+<div class="section" id="jupyter">
+<h2>Jupyter<a class="headerlink" href="#jupyter" title="Permalink to this headline">¶</a></h2>
+<p>From the official website <a class="reference external" href="https://jupyter.org">jupyter.org</a>:</p>
+<blockquote>
+<div><p>The Jupyter Notebook is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text. Uses include: data cleaning and transformation, numerical simulation, statistical modeling, data visualization, machine learning, and much more.</p>
+</div></blockquote>
+<p>Keyboard shortcuts of the most frequent commands:</p>
+<ul class="simple">
+<li><p>create cell above / below selected: <kbd>A</kbd> / <kbd>B</kbd> <br/></p></li>
+<li><p>delete selected cell: <kbd>D</kbd> + <kbd>D</kbd> <br/></p></li>
+<li><p>change cell to markdown: <kbd>M</kbd> <br/></p></li>
+<li><p>change cell to code: <kbd>Y</kbd> <br/></p></li>
+<li><p>execute cell: <kbd>Ctrl</kbd> + <kbd>Enter</kbd> (or <kbd>Shift</kbd> + <kbd>Enter</kbd>)</p></li>
+<li><p>show keyboard shortcuts: <kbd>H</kbd> <br/></p></li>
+</ul>
+</div>
+<div class="section" id="python">
+<h2>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>high-level, object-oriented, general purpose programming language</p></li>
+<li><p>open source (free to use and distribute, including for commercial purposes)</p></li>
+<li><p>interpreted (no need to compile the code)</p></li>
+<li><p>simple-to-learn syntax and excellent readability</p></li>
+<li><p>large community</p></li>
+<li><p>numerous libraries for scientific computing</p></li>
+</ul>
+<div class="section" id="variable-assignment-and-basic-operations">
+<h3>Variable assignment and basic operations<a class="headerlink" href="#variable-assignment-and-basic-operations" title="Permalink to this headline">¶</a></h3>
+<p>assign number <span class="math notranslate nohighlight">\( 4 \)</span> to variable <span class="math notranslate nohighlight">\( x \)</span> and print the value of <span class="math notranslate nohighlight">\( x \)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>print the type of variable <span class="math notranslate nohighlight">\( x \)</span> using the <a class="reference external" href="https://docs.python.org/3/library/functions.html#type"><code class="docutils literal notranslate"><span class="pre">type</span></code></a> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>single-line comments:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this is a single-line comment</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>multi-line comments:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">this is </span>
+<span class="sd">a multi-line</span>
+<span class="sd">comment</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>assign number <span class="math notranslate nohighlight">\( 2 \)</span> to variable <span class="math notranslate nohighlight">\( a \)</span>, assign number <span class="math notranslate nohighlight">\( 4 \)</span> to variable <span class="math notranslate nohighlight">\( b \)</span>, and print sum, difference, product, and quotient of both variables:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">4</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>assign number <span class="math notranslate nohighlight">\( 2 \)</span> to variable <span class="math notranslate nohighlight">\( c \)</span> and print square-root of <span class="math notranslate nohighlight">\( c \)</span> and <span class="math notranslate nohighlight">\( c \)</span> to the power of <span class="math notranslate nohighlight">\( 2 \)</span> using the <code class="docutils literal notranslate"><span class="pre">**</span></code> operator:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="mi">2</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">**</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>create a list <span class="math notranslate nohighlight">\( l \)</span> of <span class="math notranslate nohighlight">\( 1 \)</span>, <span class="math notranslate nohighlight">\( 2.0 \)</span>, <span class="math notranslate nohighlight">\( 3 \)</span>, and <span class="math notranslate nohighlight">\( c \)</span> (lists can contain any type of variable) and print the content of <span class="math notranslate nohighlight">\( l \)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="conditions">
+<h3>Conditions<a class="headerlink" href="#conditions" title="Permalink to this headline">¶</a></h3>
+<p>check if <span class="math notranslate nohighlight">\( x \)</span> is equal to <span class="math notranslate nohighlight">\( 4 \)</span>, check if <span class="math notranslate nohighlight">\( x \)</span> is not equal to <span class="math notranslate nohighlight">\( 3 \)</span> using the operators <code class="docutils literal notranslate"><span class="pre">==</span></code> and <code class="docutils literal notranslate"><span class="pre">!=</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">4</span><span class="p">,</span> <span class="n">x</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>check if <span class="math notranslate nohighlight">\( x \)</span> is greater than <span class="math notranslate nohighlight">\( 1 \)</span> and less than <span class="math notranslate nohighlight">\( 3 \)</span>, check if <span class="math notranslate nohighlight">\( x \)</span> is equal to <span class="math notranslate nohighlight">\( 3 \)</span> or <span class="math notranslate nohighlight">\( 4 \)</span> using the operators <code class="docutils literal notranslate"><span class="pre">and</span></code> and <code class="docutils literal notranslate"><span class="pre">or</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">,</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">or</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>if the value of variable <span class="math notranslate nohighlight">\( x \)</span> is less than or equal to <span class="math notranslate nohighlight">\( 3 \)</span>, print “x &lt;= 3”, if the value of variable <span class="math notranslate nohighlight">\( x \)</span> is greater than <span class="math notranslate nohighlight">\( 3 \)</span> and less than <span class="math notranslate nohighlight">\( 5 \)</span>, print “3 &lt; x &lt; 5”, else print “x &gt;= 5” using the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#if"><code class="docutils literal notranslate"><span class="pre">if</span></code></a>, <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#elif"><code class="docutils literal notranslate"><span class="pre">elif</span></code></a>, and <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#else"><code class="docutils literal notranslate"><span class="pre">else</span></code></a> statements (note that in Python the code blocks must be indented - both tabs and spaces are supported):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x &lt;= 3&quot;</span><span class="p">)</span> 
+<span class="k">elif</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3 &lt; x &lt; 5&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x &gt;= 5&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>use the <code class="docutils literal notranslate"><span class="pre">in</span></code> operator to check if the list <span class="math notranslate nohighlight">\( l \)</span> contains character <span class="math notranslate nohighlight">\( c \)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;c&quot;</span> <span class="ow">in</span> <span class="n">l</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>use the <code class="docutils literal notranslate"><span class="pre">in</span></code> and <code class="docutils literal notranslate"><span class="pre">not</span></code> operators to check if the number 4 is not in the list <span class="math notranslate nohighlight">\( l \)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">4</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">l</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="loops">
+<h3>Loops<a class="headerlink" href="#loops" title="Permalink to this headline">¶</a></h3>
+<p>print the sequence of numbers from 0 to 2 using the <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#range"><code class="docutils literal notranslate"><span class="pre">range</span></code></a> function and <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#the-for-statement"><code class="docutils literal notranslate"><span class="pre">for</span></code></a> loop (note that the <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#range"><code class="docutils literal notranslate"><span class="pre">range</span></code></a> function is zero based):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>print the sequence of numbers from <span class="math notranslate nohighlight">\( 3 \)</span> to <span class="math notranslate nohighlight">\( 5 \)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>iterate over a sequence given by list:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#while"><code class="docutils literal notranslate"><span class="pre">while</span></code></a> loops repeat as long as a certain boolean condition is met (note that the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#else"><code class="docutils literal notranslate"><span class="pre">else</span></code></a> clause can be used in loops):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">while</span> <span class="n">k</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;k =&quot;</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span> <span class="c1"># or k -= 1</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;k &lt;= 5&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<p>define a function that takes two numbers and returns their product using the <code class="docutils literal notranslate"><span class="pre">def</span></code> keyword:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">multiply</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">multiply</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>generate an exception using the <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#raise"><code class="docutils literal notranslate"><span class="pre">raise</span></code></a> statement (exceptions are used to abort functions when some error condition occurs):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;description of the error&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>use the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#try"><code class="docutils literal notranslate"><span class="pre">try</span></code></a> and <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#except"><code class="docutils literal notranslate"><span class="pre">except</span></code></a> statements to catch the error thrown by <code class="docutils literal notranslate"><span class="pre">multiply</span></code> function when multiplying two strings:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">multiply</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Caught an exception: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>redefine the <code class="docutils literal notranslate"><span class="pre">multiply</span></code> function using the <code class="docutils literal notranslate"><span class="pre">lambda</span></code> keyword:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span>
+
+<span class="n">z</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Further reading: <a class="reference external" href="https://docs.python.org/3/">https://docs.python.org/3/</a></p>
+</div>
+</div>
+<div class="section" id="numpy">
+<h2>Numpy<a class="headerlink" href="#numpy" title="Permalink to this headline">¶</a></h2>
+<p>import the <a class="reference external" href="https://numpy.org/"><code class="docutils literal notranslate"><span class="pre">numpy</span></code></a> module and bind the import to the local variable <code class="docutils literal notranslate"><span class="pre">np</span></code> (to avoid name collisions and shorten module name):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>print <span class="math notranslate nohighlight">\( \sqrt{4} \)</span>, <span class="math notranslate nohighlight">\( \left|-1 \right| \)</span>, <span class="math notranslate nohighlight">\( \exp{(1)} \)</span>, <span class="math notranslate nohighlight">\( \ln{(e)} \)</span>, <span class="math notranslate nohighlight">\( \sin{(\pi)}\)</span>, and <span class="math notranslate nohighlight">\( \cos{(\pi)} \)</span> using the functions from <a class="reference external" href="https://numpy.org/"><code class="docutils literal notranslate"><span class="pre">numpy</span></code></a> module:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">e</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>create a vector <span class="math notranslate nohighlight">\( v \)</span> of numbers from <span class="math notranslate nohighlight">\( 1 \)</span> to <span class="math notranslate nohighlight">\( 9 \)</span> using the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html"><code class="docutils literal notranslate"><span class="pre">array</span></code></a> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>create a <span class="math notranslate nohighlight">\( 3 \times 3 \)</span> matrix <span class="math notranslate nohighlight">\( \mathbb{M} \)</span> of numbers from <span class="math notranslate nohighlight">\( 1 \)</span> to <span class="math notranslate nohighlight">\( 9 \)</span> using the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html"><code class="docutils literal notranslate"><span class="pre">array</span></code></a> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>print the dimensions of the vector <span class="math notranslate nohighlight">\( v \)</span> and matrix <span class="math notranslate nohighlight">\( \mathbb{M} \)</span> using the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.shape.html"><code class="docutils literal notranslate"><span class="pre">shape</span></code></a> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">M</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>print number of elements of the vector <span class="math notranslate nohighlight">\( v \)</span> and matrix <span class="math notranslate nohighlight">\( \mathbb{M} \)</span> using the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.size.html"><code class="docutils literal notranslate"><span class="pre">size</span></code></a> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">M</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>print the scalar product <span class="math notranslate nohighlight">\( v \cdot v \)</span> using the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dot.html"><code class="docutils literal notranslate"><span class="pre">dot</span></code></a> function (compare with the element-wise multiplication using the operator <code class="docutils literal notranslate"><span class="pre">*</span></code>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span> <span class="c1"># alternatively v @ v</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">v</span> <span class="o">*</span> <span class="n">v</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>print the matrix product <span class="math notranslate nohighlight">\( \mathbb{M} \cdot \mathbb{M} \)</span> using the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dot.html"><code class="docutils literal notranslate"><span class="pre">dot</span></code></a> function (compare with the element-wise multiplication using the operator <code class="docutils literal notranslate"><span class="pre">*</span></code>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">M</span><span class="p">))</span>  <span class="c1"># alternatively M @ M</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">M</span> <span class="o">*</span> <span class="n">M</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>print the first, last, and the sixth element of vector <span class="math notranslate nohighlight">\( v \)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>print the first five, last four, and each second element of vector <span class="math notranslate nohighlight">\( v \)</span> using the numpy array <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.indexing.html">indexing</a>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">[:</span><span class="mi">5</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="mi">5</span><span class="p">:],</span> <span class="n">v</span><span class="p">[::</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>print the <span class="math notranslate nohighlight">\( \mathbb{M}_{0, 0} \)</span> element, the first row, and the second column of matrix <span class="math notranslate nohighlight">\( \mathbb{M} \)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="n">M</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>create evenly spaced vector <span class="math notranslate nohighlight">\( x \)</span> of size <span class="math notranslate nohighlight">\( 5 \)</span> from <span class="math notranslate nohighlight">\( -2 \)</span> to <span class="math notranslate nohighlight">\( 2 \)</span> using the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html"><code class="docutils literal notranslate"><span class="pre">linspace</span></code></a> function</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>create evenly spaced vector <span class="math notranslate nohighlight">\( x \)</span> of size <span class="math notranslate nohighlight">\( 5 \)</span> from <span class="math notranslate nohighlight">\( -2 \)</span> to <span class="math notranslate nohighlight">\( 2 \)</span> using the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html"><code class="docutils literal notranslate"><span class="pre">linspace</span></code></a> function and print the step size:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">retstep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>create evenly spaced vector <span class="math notranslate nohighlight">\( x \)</span> from <span class="math notranslate nohighlight">\( -2 \)</span> to <span class="math notranslate nohighlight">\( 2 \)</span> with a step of size <span class="math notranslate nohighlight">\( 1 \)</span> using the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.arange.html"><code class="docutils literal notranslate"><span class="pre">arange</span></code></a> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>create a matrix from the vector <span class="math notranslate nohighlight">\( x \)</span> using the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.meshgrid.html"><code class="docutils literal notranslate"><span class="pre">meshgrid</span></code></a> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">xx</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">yy</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>create a vector of zeros of size <span class="math notranslate nohighlight">\( 3 \)</span> using the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.zeros.html"><code class="docutils literal notranslate"><span class="pre">zeros</span></code></a> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>create a <span class="math notranslate nohighlight">\( 3 \times 3\)</span> matrix of zeros using the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.zeros.html"><code class="docutils literal notranslate"><span class="pre">zeros</span></code></a> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>create a <span class="math notranslate nohighlight">\( 3 \times 3 \)</span> matrix with ones on the diagonal and zeros elsewhere using the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.eye.html"><code class="docutils literal notranslate"><span class="pre">eye</span></code></a> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>create a <span class="math notranslate nohighlight">\( 3 \times 3 \)</span> matrix filled with ones using the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ones.html"><code class="docutils literal notranslate"><span class="pre">ones</span></code></a> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">O</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">O</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>create a <span class="math notranslate nohighlight">\( 3 \times 3 \)</span> matrix filled with random floating point numbers between <span class="math notranslate nohighlight">\( 0 \)</span> and <span class="math notranslate nohighlight">\( 1 \)</span> using the <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.rand.html"><code class="docutils literal notranslate"><span class="pre">rand</span></code></a> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>create a <span class="math notranslate nohighlight">\( 3 \times 3 \)</span> matrix with the vector <span class="math notranslate nohighlight">\( (1, 2, 3) \)</span> on the diagonal using the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.diag.html"><code class="docutils literal notranslate"><span class="pre">diag</span></code></a> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>extract the main diagonal, and the diagonals above and below the main diagonal from matrix <span class="math notranslate nohighlight">\( \mathbb{M} \)</span> using the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.diag.html"><code class="docutils literal notranslate"><span class="pre">diag</span></code></a> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>set all elements of matrix <span class="math notranslate nohighlight">\( \mathbb{M} \)</span> below and above diagonal to zero using the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.triu.html"><code class="docutils literal notranslate"><span class="pre">triu</span></code></a> and <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.tril.html"><code class="docutils literal notranslate"><span class="pre">tril</span></code></a> functions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">triu</span><span class="p">(</span><span class="n">M</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">tril</span><span class="p">(</span><span class="n">M</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>print minimum and maximum elements, index of minimum and maximum elements, and the sum of vector <span class="math notranslate nohighlight">\( v \)</span> using the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.min.html"><code class="docutils literal notranslate"><span class="pre">min</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.max.html"><code class="docutils literal notranslate"><span class="pre">max</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.argmin.html"><code class="docutils literal notranslate"><span class="pre">argmin</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.argmax.html"><code class="docutils literal notranslate"><span class="pre">argmax</span></code></a>, and <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.sum.html"><code class="docutils literal notranslate"><span class="pre">sum</span></code></a> functions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>print even numbers of vector <span class="math notranslate nohighlight">\( v \)</span> and their indices using the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.where.html"><code class="docutils literal notranslate"><span class="pre">where</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.argwhere.html"><code class="docutils literal notranslate"><span class="pre">argwhere</span></code></a>, and <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.mod.html"><code class="docutils literal notranslate"><span class="pre">mod</span></code></a> functions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">even</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">even</span><span class="p">])</span>
+
+<span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">indices</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>assign vector <span class="math notranslate nohighlight">\( v \)</span> to vector <span class="math notranslate nohighlight">\( v_2 \)</span> using the <code class="docutils literal notranslate"><span class="pre">=</span></code> operator (note that if you modify one in place, you’ll see the change through the other one too):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v2</span> <span class="o">=</span> <span class="n">v</span>
+<span class="n">v2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>copy the vector <span class="math notranslate nohighlight">\( v \)</span> to vector <span class="math notranslate nohighlight">\( v_3 \)</span> using the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.copy.html"><code class="docutils literal notranslate"><span class="pre">copy</span></code></a> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<span class="n">v3</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">v3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>create vector <span class="math notranslate nohighlight">\( v_4 \)</span> by appending <span class="math notranslate nohighlight">\( 0 \)</span> to the end of vector <span class="math notranslate nohighlight">\( v \)</span> using the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.append.html"><code class="docutils literal notranslate"><span class="pre">append</span></code></a> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">v4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>create vector <span class="math notranslate nohighlight">\( v_5 \)</span> by inserting <span class="math notranslate nohighlight">\( -5 \)</span> as a sixth element to vector <span class="math notranslate nohighlight">\( v \)</span> using the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.insert.html"><code class="docutils literal notranslate"><span class="pre">insert</span></code></a> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v5</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">v5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>create vector <span class="math notranslate nohighlight">\( v_6 \)</span> by concatenating vectors <span class="math notranslate nohighlight">\( v_4 \)</span> and <span class="math notranslate nohighlight">\( v_5 \)</span> using the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.concatenate.html"><code class="docutils literal notranslate"><span class="pre">concatenate</span></code></a> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v6</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">v4</span><span class="p">,</span> <span class="n">v5</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">v6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>create polynomial <span class="math notranslate nohighlight">\( p = x^3 + 2x^2 + 3x + 2 \)</span> using the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.poly1d.html"><code class="docutils literal notranslate"><span class="pre">poly1d</span></code></a> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">poly1d</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Further reading: <a class="reference external" href="https://numpy.org/doc/stable/reference/">https://numpy.org/doc/stable/reference/</a></p>
+</div>
+<div class="section" id="scipy">
+<h2>Scipy<a class="headerlink" href="#scipy" title="Permalink to this headline">¶</a></h2>
+<p>import scientific constants from the <a class="reference external" href="https://www.scipy.org/"><code class="docutils literal notranslate"><span class="pre">scipy</span></code></a> module and print <span class="math notranslate nohighlight">\( \pi \)</span>, golden_ratio, and speed of light in vacuum:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.constants</span> <span class="kn">import</span> <span class="n">pi</span><span class="p">,</span> <span class="n">golden_ratio</span><span class="p">,</span> <span class="n">c</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pi</span><span class="p">,</span> <span class="n">golden_ratio</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>import various submodules from <a class="reference external" href="https://www.scipy.org/"><code class="docutils literal notranslate"><span class="pre">scipy</span></code></a> that will be useful throughout the course:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="c1"># linear algebra</span>
+<span class="kn">import</span> <span class="nn">scipy.interpolate</span> <span class="c1"># interpolation and curve fitting</span>
+<span class="kn">import</span> <span class="nn">scipy.optimize</span> <span class="c1"># minima, maxima, root finding</span>
+<span class="kn">import</span> <span class="nn">scipy.integrate</span> <span class="c1"># numerical integration and solving of ODEs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Further reading: <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/">https://docs.scipy.org/doc/scipy/reference/</a></p>
+</div>
+<div class="section" id="matplotlib">
+<h2>Matplotlib<a class="headerlink" href="#matplotlib" title="Permalink to this headline">¶</a></h2>
+<p>import <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html"><code class="docutils literal notranslate"><span class="pre">pyplot</span></code></a> submodule from <a class="reference external" href="https://matplotlib.org/"><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a> and bind the import to the local variable <code class="docutils literal notranslate"><span class="pre">plt</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Use the command below to show the plots inside the Jupyter notebook (starting with IPython 5.0 and matplotlib 2.0 you can avoid the use of IPython’s specific commands):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<p>plot <span class="math notranslate nohighlight">\( \sin{(x)} \)</span> and <span class="math notranslate nohighlight">\( \cos{(x)} \)</span> functions for <span class="math notranslate nohighlight">\( x \in [0, 10] \)</span> using the <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html"><code class="docutils literal notranslate"><span class="pre">plot</span></code></a> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>change the linestyles, axes labels, and add legend to the plot above:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;y = sin(x)&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;z = cos(x)&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y (x)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>plot the functions <span class="math notranslate nohighlight">\( y(x) = x \)</span> and <span class="math notranslate nohighlight">\( y(x) = x^2 \)</span> for <span class="math notranslate nohighlight">\( x \in [0, 10] \)</span> and show the plots next to each other:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+    
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>change the size of the figure using the <code class="docutils literal notranslate"><span class="pre">figsize</span></code> parameter:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;title&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>save the figure above as “figure.png”:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;figure.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>create a 2D plot of Gaussian function, <span class="math notranslate nohighlight">\( f(x, y) = \exp{(-x^2 - y^2)} \)</span>, for <span class="math notranslate nohighlight">\( x, y \in [-2, 2] \)</span> using the <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.pcolormesh.html"><code class="docutils literal notranslate"><span class="pre">pcolormesh</span></code></a> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">function</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">xx</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">yy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;jet&quot;</span><span class="p">,</span> <span class="n">shading</span><span class="o">=</span><span class="s2">&quot;gouraud&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;2D plot of Gaussian function&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$ exp(-x^2 - y^2) $&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>create a contour plot of function <span class="math notranslate nohighlight">\( f(x, y) = x^2 - 2 \sin(x + y) \)</span> using the <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.contour.html"><code class="docutils literal notranslate"><span class="pre">contour</span></code></a> function and draw a mark at the coordinates <span class="math notranslate nohighlight">\( (0, \ \pi \, / \, 2) \)</span> using the <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html"><code class="docutils literal notranslate"><span class="pre">scatter</span></code></a> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">function_2</span> <span class="o">=</span> <span class="n">xx</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">xx</span> <span class="o">+</span> <span class="n">yy</span><span class="p">)</span> 
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">contours</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">function_2</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">clabel</span><span class="p">(</span><span class="n">contours</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;contour plot&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Further reading: <a class="reference external" href="https://matplotlib.org/">https://matplotlib.org/</a></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "valenpe7/numerical_methods",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./tutorials"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../README.html" title="previous page">12NME1 - Numerical Methods</a>
+    <a class='right-next' id="next-link" href="02-error_analysis.html" title="next page">Tutorial 02 - Error, accuracy, stability</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Petr Valenta<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

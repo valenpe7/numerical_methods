@@ -1,0 +1,833 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tutorial 02 - Error, accuracy, stability &#8212; 12NME1 - Numerical methods</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tutorial 03 - Linear algebra" href="03-linear_algebra.html" />
+    <link rel="prev" title="Tutorial 01 - Introduction to Python and Jupyter" href="01-introduction.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">12NME1 - Numerical methods</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   12NME1 - Numerical Methods
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-introduction.html">
+   01 Intro to Python and Jupyter
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   02 Error, accuracy, stability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-linear_algebra.html">
+   03 Linear algebra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-linear_algebra_contd.html">
+   04 Linear algebra (cont'd)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05-interpolation.html">
+   05 Function approximation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-data_sorting.html">
+   06 Data sorting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07-nonlinear_equations.html">
+   07 Nonlinear equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08-optimization.html">
+   08 Optimization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09-quadrature.html">
+   09 Quadrature
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10-initial_value_problems.html">
+   10 Initial value problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11-boundary_value_problems.html">
+   11 Boundary value problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../solutions/solutions.html">
+   Solutions
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Asignments tasks
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_01.html">
+   Task 01
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_02.html">
+   Task 02
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_03.html">
+   Task 03
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_04.html">
+   Task 04
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_05.html">
+   Task 05
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_06.html">
+   Task 06
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_07.html">
+   Task 07
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_08.html">
+   Task 08
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_09.html">
+   Task 09
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_10.html">
+   Task 10
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_11.html">
+   Task 11
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../solutions/solutions.html">
+   Solutions
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/tutorials/02-error_analysis.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/valenpe7/numerical_methods"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/valenpe7/numerical_methods/master?urlpath=lab/tree/./tutorials/02-error_analysis.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-definitions">
+   Basic definitions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#roundoff-error">
+   Roundoff error
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#representation-of-real-numbers-in-computer">
+     Representation of real numbers in computer
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implementation-of-floating-point-systems">
+     Implementation of floating-point systems
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#summary">
+     Summary
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#representation-of-integers-in-computer">
+     Representation of integers in computer
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#truncation-error">
+   Truncation error
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#combination-of-errors">
+   Combination of errors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numerical-stability">
+   Numerical stability
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#condition-number">
+   Condition number
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="tutorial-02-error-accuracy-stability">
+<h1>Tutorial 02 - Error, accuracy, stability<a class="headerlink" href="#tutorial-02-error-accuracy-stability" title="Permalink to this headline">¶</a></h1>
+<p>Floating point representation of numbers, roundoff error, truncation error, numerical stability and condition number.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Main sources of numerical errors:</p>
+<ul class="simple">
+<li><p>rounding and cancellation (due to the use of finite-precision arithmetic)</p></li>
+<li><p>truncation or approximation errors (due to approximation of infinite sequences or continuous functions by a finite number of samples)</p></li>
+</ul>
+<div class="section" id="basic-definitions">
+<h2>Basic definitions<a class="headerlink" href="#basic-definitions" title="Permalink to this headline">¶</a></h2>
+<p><strong>Absolute and relative error:</strong></p>
+<p>If <span class="math notranslate nohighlight">\( \tilde{x} \)</span> is an approximation for <span class="math notranslate nohighlight">\( x \)</span>, then:</p>
+<ul class="simple">
+<li><p>absolute error <span class="math notranslate nohighlight">\( A(x) = | \tilde{x} - x | \)</span></p></li>
+<li><p>relative error <span class="math notranslate nohighlight">\( R(x) = | \tilde{x} - x | \, / \, | x | \)</span></p></li>
+</ul>
+<p><strong>Decimal precision:</strong></p>
+<p>Given a relative error <span class="math notranslate nohighlight">\( R \)</span>, the decimal precision <span class="math notranslate nohighlight">\( p \)</span> is the largest integer such that <span class="math notranslate nohighlight">\( R \leq 5 \times 10^{-p} \)</span></p>
+<p><strong>Big-O notation:</strong></p>
+<p>The error term in an approximation to a mathematical function can be described by the <a class="reference external" href="https://en.wikipedia.org/wiki/Big_O_notation">big-O</a> notation:</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) =  O(g(x)) \quad \text{as} \quad x \rightarrow a
+\]</div>
+<p>if and only if</p>
+<div class="math notranslate nohighlight">
+\[
+|f(x)| \leq M |g(x)| \quad \text{as}\quad  |x - a| &lt; \delta \quad \text{where} \quad M, a &gt; 0.
+\]</div>
+</div>
+<div class="section" id="roundoff-error">
+<h2>Roundoff error<a class="headerlink" href="#roundoff-error" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="representation-of-real-numbers-in-computer">
+<h3>Representation of real numbers in computer<a class="headerlink" href="#representation-of-real-numbers-in-computer" title="Permalink to this headline">¶</a></h3>
+<p>Most widely used representation of real numbers in computers is the floating-point representation. Floating-point representations have a base <span class="math notranslate nohighlight">\( \beta \)</span>, exponent <span class="math notranslate nohighlight">\( E \)</span> and precision <span class="math notranslate nohighlight">\( p \)</span>. In general, a floating-point number is represented as</p>
+<div class="math notranslate nohighlight">
+\[ f = \pm \, d_1.d_2d_3 \dots d_p \times \beta^E, \]</div>
+<p>where <span class="math notranslate nohighlight">\( d_1.d_2d_3 \dots d_p \)</span> is called significand (also mantissa).</p>
+<p><strong>Properties of floating-point systems:</strong></p>
+<ul class="simple">
+<li><p>Smallest positive number (<a class="reference external" href="https://en.wikipedia.org/wiki/Arithmetic_underflow">underflow</a> if below)</p></li>
+<li><p>Largest number (<a class="reference external" href="https://en.wikipedia.org/wiki/Integer_overflow">overflow</a> if above)</p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Machine_epsilon">Machine epsilon</a>, <span class="math notranslate nohighlight">\( \varepsilon \)</span>, defined as the difference between 1 and the next larger floating point number (upper bound on the relative error due to rounding in floating point arithmetic)</p></li>
+<li><p>Special values: zero (<code class="docutils literal notranslate"><span class="pre">0</span></code>), infinities (<code class="docutils literal notranslate"><span class="pre">+Inf</span></code>, <code class="docutils literal notranslate"><span class="pre">-Inf</span></code>), <a class="reference external" href="https://en.wikipedia.org/wiki/NaN">not a number</a> (<code class="docutils literal notranslate"><span class="pre">NaN</span></code>)</p></li>
+</ul>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 02.1:</strong> Consider a decimal system of floating-point numbers defined as <span class="math notranslate nohighlight">\( f = \pm \, d_1.d_2 \cdot \beta^E, \)</span> where <span class="math notranslate nohighlight">\( \beta = 10 \)</span> and <span class="math notranslate nohighlight">\( E \in \{-2, -1, 0 \} \)</span>.</p>
+<ol class="simple">
+<li><p>How many numbers such system represents?</p></li>
+<li><p>What is the smallest positive number and the largest number?</p></li>
+<li><p>What is the machine epsilon?</p></li>
+<li><p>What is the distribution of numbers on the real line?</p></li>
+</ol>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 02.2:</strong> Consider a binary system of floating-point numbers defined as <span class="math notranslate nohighlight">\( f = \pm \, d_1.d_2 \cdot \beta^E, \)</span> where <span class="math notranslate nohighlight">\( \beta = 2 \)</span> and <span class="math notranslate nohighlight">\( E = \{-1, 0, 1 \} \)</span>.</p>
+<ol class="simple">
+<li><p>How many numbers such system represents?</p></li>
+<li><p>What is the smallest positive number and the largest number?</p></li>
+<li><p>What is the machine epsilon?</p></li>
+<li><p>What is the distribution of numbers on the real line?</p></li>
+</ol>
+</div>    <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that unlike the real number system (which is continuous), a floating-point systems have always gaps between numbers. If a number is not exactly representable, then it must be approximated by one of the nearest representable values. Furthermore, the distribution of numbers on the real line is not uniform.</p>
+</div>
+<div class="section" id="implementation-of-floating-point-systems">
+<h3>Implementation of floating-point systems<a class="headerlink" href="#implementation-of-floating-point-systems" title="Permalink to this headline">¶</a></h3>
+<p>Over the years, a variety of floating-point representations have been used in computers. In 1985, the <a class="reference external" href="https://en.wikipedia.org/wiki/IEEE_754">IEEE 754</a> standard for floating-point arithmetic was established. Since then, most implementations of the floating-point systems in computers conform to the rules defined by IEEE.</p>
+<p><strong>Half precision</strong> (<a class="reference external" href="https://en.wikipedia.org/wiki/IEEE_754-2008_revision">IEEE 754-2008</a>):</p>
+<p>Total storage alloted is 16 bits (10 bits for mantissa, 5 bits for exponent, 1 bit for sign)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float16</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Single precision:</strong></p>
+<p>Total storage alloted is 32 bits (23 bits for mantissa, 8 bits for exponent, 1 bit for sign)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Double precision:</strong></p>
+<p>Total storage allocated is 64 bits (52 bits for mantissa, 11 bits for exponent, 1 bit for sign)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The IEEE 754 standard alse defines algorithm for addition, subtraction, multiplication, division and square root, and requires that implementations produce the same result as that algorithm. Thus, when a program is moved from one machine to another, the results of the basic operations will be the same in every bit if both machines support the IEEE 754 standard.</p>
+<div class="alert alert-block alert-success">
+<p><strong>Example:</strong> Using the double precision floating-point format, compare that <span class="math notranslate nohighlight">\( 0.1 + 0.2 = 0.3 \)</span>.</p>
+</div>  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">((</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">)</span> <span class="o">==</span> <span class="mf">0.3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The result above is not a Python bug (read more e.g. <a class="reference external" href="https://docs.python.org/3/faq/design.html#why-are-floating-point-calculations-so-inaccurate">here</a> or <a class="reference external" href="https://docs.python.org/3/tutorial/floatingpoint.html">here</a>). Representing infinitely many real numbers by a finite number of bits requires an approximate representation. Given any fixed number of bits, most calculations with real numbers will produce quantities that cannot be exactly represented using that many bits. None of the numbers 0.1, 0.2, and 0.3 (actually most of the decimal fractions) has an exact representation as a binary floating-point number, no matter how many base 2 digits you’re willing to use.</p>
+<div class="alert alert-block alert-info">
+<p><strong>Note:</strong> The decimal numbers could be represented exactly by the base-10 floating-point systems. However, base-10 implementations are rare because base-2 (binary) arithmetic is so much faster on computers.</p>
+</div>    <p>Python by default displays always a rounded value (to keep the number of digits manageable):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>but the actual stored value is the nearest representable binary fraction:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">format</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="s2">&quot;.55f&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 02.3:</strong> Using the double precision floating-point format, calculate <span class="math notranslate nohighlight">\( x = 0.1 + 0.2 - 0.3 \)</span>. Afterwards, perform <span class="math notranslate nohighlight">\( 100 \ \times \)</span> the operation <span class="math notranslate nohighlight">\( x := x + x \)</span> and display the value of <span class="math notranslate nohighlight">\( x \)</span>.</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 02.4:</strong> Consider the following function,</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = \frac{1 - \cos{x}}{x^2}.
+\]</div>
+<p>The behaviour of this function as <span class="math notranslate nohighlight">\( x \)</span> approaches zero can be determined by evaluating the limit</p>
+<div class="math notranslate nohighlight">
+\[ 
+\lim_{x \to 0} f(x) = \frac{1}{2}. 
+\]</div>
+<p>Can be found the same result using the floating-point representation?</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 02.5:</strong> Calculate the sum of the following series,</p>
+<div class="math notranslate nohighlight">
+\[
+0.9^0, \ 0.9^1, \ \dots, \ 0.9^n,
+\]</div>
+<p>for <span class="math notranslate nohighlight">\( n = 400 \)</span> in the forward and backward directions. Compare the results.</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-info">
+<p><strong>Note:</strong> When summing a series of numbers using floating-point systems, always sum the smaller numbers first.</p>
+</div>    <div class="alert alert-block alert-info">
+<p><strong>Note:</strong> To improve accuracy when summing numbers, consider the <a class="reference external" href="https://en.wikipedia.org/wiki/Kahan_summation_algorithm">Kahan summation algorithm</a>.</p>
+</div>    </div>
+<div class="section" id="summary">
+<h3>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Floating point arithmetic is not commutative, associative, and not necessarily distributive:</p></li>
+</ul>
+<p>valid operations:</p>
+<p>\begin{align}
+&amp; 1 \cdot x = x, \
+&amp; x \cdot y = y \cdot x, \
+&amp; x + x = 2 \cdot x
+\end{align}</p>
+<p>not necessarily valid operations:</p>
+<p>\begin{align}
+&amp; x \cdot x^{-1} = 1, \
+&amp; (1 + x) - 1 = x, \
+&amp; (x + y) + z = x + (y + z)
+\end{align}</p>
+<ul class="simple">
+<li><p>Errors propagate between calculations. A small error in the input may result in a large error in the output.</p></li>
+</ul>
+<p><strong>Which operations should I avoid in order to minimize the roundoff error?</strong></p>
+<ul class="simple">
+<li><p>subtractions of numbers that are nearly equal</p></li>
+<li><p>additions and subtractions of numbers that differ greatly in magnitude</p></li>
+</ul>
+</div>
+<div class="section" id="representation-of-integers-in-computer">
+<h3>Representation of integers in computer<a class="headerlink" href="#representation-of-integers-in-computer" title="Permalink to this headline">¶</a></h3>
+<p>Although standard arithmetic operations are safe, some care may be necessary when working with large numbers</p>
+<p><strong>16 bit unsigned</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">iinfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint16</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>16 bit signed</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">iinfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>32 bit signed</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">iinfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="truncation-error">
+<h2>Truncation error<a class="headerlink" href="#truncation-error" title="Permalink to this headline">¶</a></h2>
+<p>The discrepancy between the true answer and the answer obtained by a numerical method regardless the roundoff error. Truncation error would persist even if we would have an infinitely accurate representation of numbers.</p>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 02.6:</strong> Construct a Taylor series of the function</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = e^x
+\]</div>
+<p>using the first 3 elements.</p>
+<ol class="simple">
+<li><p>Plot the Taylor series in <span class="math notranslate nohighlight">\( x \in [-1, 1] \)</span> and compare the approximation with <span class="math notranslate nohighlight">\( f(x) \)</span>.</p></li>
+<li><p>Calculate and plot the absolute and relative errors of the approximation. Find the maximum values.</p></li>
+</ol>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="combination-of-errors">
+<h2>Combination of errors<a class="headerlink" href="#combination-of-errors" title="Permalink to this headline">¶</a></h2>
+<p>In general, the roundoff errors and the truncation errors may combine.</p>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 02.7:</strong> Calculate the derivative of the function</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = \sin{x}
+\]</div>
+<p>in <span class="math notranslate nohighlight">\( x \in [-2 \pi, 2 \pi] \)</span> using finite differences with <a class="reference external" href="https://en.wikipedia.org/wiki/Finite_difference#Basic_types">forward and central</a> schemes, respectively, i.e.,</p>
+<div class="math notranslate nohighlight">
+\[
+f_{f}^{\prime}(x) = \frac{f(x + h) - f(x)}{h}, \qquad f_{c}^{\prime}(x) = \frac{f(x + h) - f(x - h)}{2 h},
+\]</div>
+<p>where <span class="math notranslate nohighlight">\( h \)</span> is a finite step.</p>
+<ol class="simple">
+<li><p>Compare the approximations with <span class="math notranslate nohighlight">\( f^{\prime}(x) = \cos{x}.\)</span></p></li>
+<li><p>Calculate the relative error of the approximations above for <span class="math notranslate nohighlight">\( x = 1 \)</span> and <span class="math notranslate nohighlight">\( h = 2^{-n} \)</span>, where <span class="math notranslate nohighlight">\( n \in \{ 1, \dots, 60 \} \)</span>. Find the optimal value of <span class="math notranslate nohighlight">\( h \)</span> for each approximation.</p></li>
+</ol>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The relative error drops faster in the case of central scheme, because it is second order of accuracy, i.e.,</p>
+<div class="math notranslate nohighlight">
+\[
+f(x + h) = f(x) + h f^{\prime}(x) + \frac{h^2}{2} f^{\prime\prime}(x) + \mathcal{O}(h^3),
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+f(x - h) = f(x) - h f^{\prime}(x) + \frac{h^2}{2} f^{\prime\prime}(x) + \mathcal{O}(h^3),
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\to f^{\prime}(x) = \frac{f(x + h) - f(x - h)}{2 h} + \mathcal{O}(h^2),
+\]</div>
+<p>while the forward scheme is first order of accuracy, i.e.,</p>
+<div class="math notranslate nohighlight">
+\[
+f(x + h) = f(x) + h f^{\prime}(x) + \mathcal{O}(h^2) \ \to \ f^{\prime}(x) = \frac{f(x + h) - f(x)}{h} + \mathcal{O}(h).
+\]</div>
+</div>
+<div class="section" id="numerical-stability">
+<h2>Numerical stability<a class="headerlink" href="#numerical-stability" title="Permalink to this headline">¶</a></h2>
+<p>Numerical method may magnify the roundoff error introduced into the computation at an early stage. Such a method is called unstable.</p>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 02.8:</strong> Solve the 1st order ordinary differential equation</p>
+<div class="math notranslate nohighlight">
+\[
+y^{\prime}(x) + y(x) = 0, \quad y(0) = 1
+\]</div>
+<p>in <span class="math notranslate nohighlight">\( x \in [0, 10] \)</span> using forward and central differencing schemes with <span class="math notranslate nohighlight">\( h = 0.1 \)</span>. Compare both results with analytical solution <span class="math notranslate nohighlight">\( y(x) = \exp(-x) \)</span>.</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-info">
+<p><strong>Note:</strong> Even though the central differencing scheme has higher order of accuracy than the forward scheme, it it not always better. The suitability has to be examined for each problem separately.</p>
+</div>    <div class="alert alert-block alert-warning">
+<p><strong>Exercise 02.9:</strong> Using the half-precision floating-point format, calculate the first 20 integer powers of the number called “golden mean”,</p>
+<div class="math notranslate nohighlight">
+\[
+\phi = \frac{\sqrt{5} - 1}{2}.
+\]</div>
+<p>with the following recursive algorithm,</p>
+<div class="math notranslate nohighlight">
+\[
+\phi^n = \phi^{n-1} - \phi^{n}.
+\]</div>
+<p>Compare the calculated values with the ones obtained by the simple multiplication.</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="condition-number">
+<h2>Condition number<a class="headerlink" href="#condition-number" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Condition_number">Condition number</a> measures how much the output value of the function can change for a small change in the input argument (i.e., sensitivity to input error). Given the problem <span class="math notranslate nohighlight">\( f \)</span> and the input <span class="math notranslate nohighlight">\( x \)</span>, the condition number <span class="math notranslate nohighlight">\( C_p \)</span> is defined as</p>
+<div class="math notranslate nohighlight">
+\[
+C_p = \frac{\| \delta f(x) \| \, / \, \| f(x) \|}{\| \delta x \| \, / \, \| x \|}.
+\]</div>
+<ul class="simple">
+<li><p>A problem with <span class="math notranslate nohighlight">\( C_p \approx 1 \)</span> is said to be well-conditioned</p></li>
+<li><p>A problem with <span class="math notranslate nohighlight">\( C_p &gt; 100 \)</span> is said to be ill-conditioned</p></li>
+<li><p>A problem with <span class="math notranslate nohighlight">\( C_p &gt; \varepsilon^{-1} \)</span> is not solvable within the specified precision</p></li>
+</ul>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 02.10:</strong> Find the condition number of the following system of equations,</p>
+<div class="math notranslate nohighlight">
+\[ 
+x + \alpha y = 1, 
+\]</div>
+<div class="math notranslate nohighlight">
+\[ 
+\alpha x + y = 0, 
+\]</div>
+<p>depending on the parameter <span class="math notranslate nohighlight">\( \alpha \in [-2, 2] \)</span>. Plot the result and decide for which <span class="math notranslate nohighlight">\( \alpha \)</span> the system is ill-conditioned.</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "valenpe7/numerical_methods",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./tutorials"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="01-introduction.html" title="previous page">Tutorial 01 - Introduction to Python and Jupyter</a>
+    <a class='right-next' id="next-link" href="03-linear_algebra.html" title="next page">Tutorial 03 - Linear algebra</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Petr Valenta<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,924 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tutorial 03 - Linear algebra &#8212; 12NME1 - Numerical methods</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tutorial 04 - Linear algebra (cont’d)" href="04-linear_algebra_contd.html" />
+    <link rel="prev" title="Tutorial 02 - Error, accuracy, stability" href="02-error_analysis.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">12NME1 - Numerical methods</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   12NME1 - Numerical Methods
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-introduction.html">
+   01 Intro to Python and Jupyter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-error_analysis.html">
+   02 Error, accuracy, stability
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   03 Linear algebra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-linear_algebra_contd.html">
+   04 Linear algebra (cont'd)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05-interpolation.html">
+   05 Function approximation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-data_sorting.html">
+   06 Data sorting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07-nonlinear_equations.html">
+   07 Nonlinear equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08-optimization.html">
+   08 Optimization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09-quadrature.html">
+   09 Quadrature
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10-initial_value_problems.html">
+   10 Initial value problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11-boundary_value_problems.html">
+   11 Boundary value problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../solutions/solutions.html">
+   Solutions
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Asignments tasks
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_01.html">
+   Task 01
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_02.html">
+   Task 02
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_03.html">
+   Task 03
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_04.html">
+   Task 04
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_05.html">
+   Task 05
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_06.html">
+   Task 06
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_07.html">
+   Task 07
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_08.html">
+   Task 08
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_09.html">
+   Task 09
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_10.html">
+   Task 10
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_11.html">
+   Task 11
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../solutions/solutions.html">
+   Solutions
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/tutorials/03-linear_algebra.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/valenpe7/numerical_methods"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/valenpe7/numerical_methods/master?urlpath=lab/tree/./tutorials/03-linear_algebra.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-operations">
+   Basic operations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#scalar-product">
+     Scalar product
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#matrix-vector-product">
+     Matrix-vector product
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#matrix-matrix-product">
+     Matrix-matrix product
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#direct-methods-for-linear-algebraic-equations">
+   Direct methods for linear algebraic equations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#forward-substitution">
+     Forward substitution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#backward-substitution">
+     Backward substitution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gaussian-elimination">
+     Gaussian elimination
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lu-decomposition">
+     LU decomposition
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#thomas-algorithm">
+     Thomas algorithm
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="tutorial-03-linear-algebra">
+<h1>Tutorial 03 - Linear algebra<a class="headerlink" href="#tutorial-03-linear-algebra" title="Permalink to this headline">¶</a></h1>
+<p>Basic linear algebra operations, direct methods for solving linear equation systems, forward and backward substitution, Gaussian elimination, LU decomposition, Thomas algorithm.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">la</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="basic-operations">
+<h2>Basic operations<a class="headerlink" href="#basic-operations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="scalar-product">
+<h3>Scalar product<a class="headerlink" href="#scalar-product" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Dot_product">scalar product</a> of two vectors <span class="math notranslate nohighlight">\( x \in \mathbb{R}^{n} \)</span> and <span class="math notranslate nohighlight">\( y \in \mathbb{R}^{n} \)</span> is defined as</p>
+<div class="math notranslate nohighlight">
+\[
+x \cdot y = \sum_{i=0}^{n-1} x_i y_i.
+\]</div>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 03.1:</strong> Write a function that calculates the scalar product of two vectors (do not use the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dot.html"><code class="docutils literal notranslate"><span class="pre">numpy.dot</span></code></a> function nor the <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> operator).</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">scalar_product</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates scalar product of two vectors.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        x (array_like): Vector of size n</span>
+<span class="sd">        y (array_like): Vector of size n</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.float: scalar product of x and y</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You may evaluate the correctness of your implementation using the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dot.html"><code class="docutils literal notranslate"><span class="pre">numpy.dot</span></code></a> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_array_almost_equal</span><span class="p">(</span><span class="n">scalar_product</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">decimal</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">E</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The implementation is correct.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="matrix-vector-product">
+<h3>Matrix-vector product<a class="headerlink" href="#matrix-vector-product" title="Permalink to this headline">¶</a></h3>
+<p>The product of matrix <span class="math notranslate nohighlight">\( \mathbb{A} \in \mathbb{R}^{m \ \times \ n} \)</span> and vector <span class="math notranslate nohighlight">\( x \in \mathbb{R}^{n} \)</span> is defined as</p>
+<div class="math notranslate nohighlight">
+\[
+(\mathbb{A} \cdot x)_i = \sum_{j = 0}^{n-1} a_{ij} x_j, \quad i = 0, 1, \dots, m-1.
+\]</div>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 03.2:</strong> Write a function that calculates the product of a matrix and a vector (do not use the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dot.html"><code class="docutils literal notranslate"><span class="pre">numpy.dot</span></code></a> function nor the <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> operator).</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">matrix_vector_product</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates matrix-vector product.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        A (array_like): A m-by-n matrix</span>
+<span class="sd">        x (array_like): Vector of size n</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.ndarray: Matrix-vector product</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You may evaluate the correctness of your implementation using the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dot.html"><code class="docutils literal notranslate"><span class="pre">numpy.dot</span></code></a> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_array_almost_equal</span><span class="p">(</span><span class="n">matrix_vector_product</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span> <span class="n">decimal</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">E</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The implementation is correct.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="matrix-matrix-product">
+<h3>Matrix-matrix product<a class="headerlink" href="#matrix-matrix-product" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Matrix_multiplication">product of two matrices</a> <span class="math notranslate nohighlight">\( \mathbb{A} \in \mathbb{R}^{m \ \times \ n}  \)</span> and <span class="math notranslate nohighlight">\( \mathbb{B} \in \mathbb{R}^{n \ \times \ p}  \)</span> is defined as</p>
+<div class="math notranslate nohighlight">
+\[
+(\mathbb{A} \cdot \mathbb{B})_{ij} = \sum_{k = 0}^{n-1} a_{ik} b_{kj}, \qquad i = 0, 1, \dots, m-1, \quad j = 0, 1, \dots, p-1.
+\]</div>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 03.3:</strong> Write a function that calculates the product of two matrices (do not use the <code class="docutils literal notranslate"><span class="pre">numpy.dot</span></code> function nor the <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> operator).</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">matrix_matrix_product</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates matrix-matrix product.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        A (array_like): A m-by-n matrix</span>
+<span class="sd">        B (array_like): A n-by-p matrix</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.ndarray: Matrix-matrix product</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You may evaluate the correctness of your implementation using the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dot.html"><code class="docutils literal notranslate"><span class="pre">numpy.dot</span></code></a> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_array_almost_equal</span><span class="p">(</span><span class="n">matrix_matrix_product</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">),</span> <span class="n">decimal</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">E</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The implementation is correct.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="direct-methods-for-linear-algebraic-equations">
+<h2>Direct methods for linear algebraic equations<a class="headerlink" href="#direct-methods-for-linear-algebraic-equations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="forward-substitution">
+<h3>Forward substitution<a class="headerlink" href="#forward-substitution" title="Permalink to this headline">¶</a></h3>
+<p>A system of linear algebraic equations <span class="math notranslate nohighlight">\( \mathbb{A} x = b \)</span> with lower triangular coefficient matrix <span class="math notranslate nohighlight">\( \mathbb{A} \in \mathbb{R}^{n \ \times \ n} \)</span> can be solved by the <a class="reference external" href="https://en.wikipedia.org/wiki/Triangular_matrix#Forward_and_back_substitution">forward substitution</a> algorithm,</p>
+<div class="math notranslate nohighlight">
+\[
+x_i := \frac{1}{a_{ii}} \left( b_i - \sum_{j = 0}^{i - 1} a_{ij} x_j \right), \qquad i = 0, 1, \dots, n-1.
+\]</div>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 03.4:</strong> Implement the forward substitution algorithm.</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">forward_substitution</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Solves a system of linear equations with lower triangular matrix.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        A (array_like): A n-by-n lower triangular matrix</span>
+<span class="sd">        b (array_like): RHS vector of size n</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.ndarray: Vector of solution</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You may evaluate the correctness of your implementation using the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve.html"><code class="docutils literal notranslate"><span class="pre">scipy.linalg.solve</span></code></a> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tril</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="c1"># create a lower triangular matrix from a random matrix</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_array_almost_equal</span><span class="p">(</span><span class="n">forward_substitution</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">la</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">decimal</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">E</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The implementation is correct.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="backward-substitution">
+<h3>Backward substitution<a class="headerlink" href="#backward-substitution" title="Permalink to this headline">¶</a></h3>
+<p>A system of linear algebraic equations <span class="math notranslate nohighlight">\( \mathbb{A} x = b \)</span> with upper triangular coefficient matrix <span class="math notranslate nohighlight">\( \mathbb{A} \in \mathbb{R}^{n \ \times \ n} \)</span> can be solved by the <a class="reference external" href="https://en.wikipedia.org/wiki/Triangular_matrix#Forward_and_back_substitution">backward substitution</a> algorithm,</p>
+<div class="math notranslate nohighlight">
+\[
+x_i := \frac{1}{a_{ii}} \left( b_i - \sum_{j = i + 1}^{n-1} a_{ij} x_j \right), \qquad i = n-1, n-2, \dots, 0.
+\]</div>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 03.5:</strong> Implement the backward substitution algorithm.</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">backward_substitution</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Solves a system of linear equation with upper triangular matrix.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        A (array_like): A n-by-n upper triangular matrix</span>
+<span class="sd">        b (array_like): RHS vector of size n</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.ndarray: Vector of solution</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You may evaluate the correctness of your implementation using the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve.html"><code class="docutils literal notranslate"><span class="pre">scipy.linalg.solve</span></code></a> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">triu</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="c1"># create an upper triangular matrix from a random matrix</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_array_almost_equal</span><span class="p">(</span><span class="n">backward_substitution</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">la</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">decimal</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">E</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The implementation is correct.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="gaussian-elimination">
+<h3>Gaussian elimination<a class="headerlink" href="#gaussian-elimination" title="Permalink to this headline">¶</a></h3>
+<p>A matrix <span class="math notranslate nohighlight">\( \mathbb{A} \in \mathbb{R}^{n \ \times \ n} \)</span> can be transformed into an upper triangular form using the <a class="reference external" href="https://en.wikipedia.org/wiki/Gaussian_elimination">Gaussian elimination</a> algorithm,</p>
+<div class="math notranslate nohighlight">
+\[
+a_{jk} := a_{jk} - \frac{a_{ji}}{a_{ii}} a_{ik}, \qquad i = 0, 1, \dots, n-1, \quad j = i + 1, i + 2, \dots, n-1, \quad k = 0, 1, \dots, n-1.
+\]</div>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 03.6:</strong> Implement the Gaussian elimination algorithm.</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gaussian_elimination</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Transforms given matrix into an upper triangular form using the Gaussian elimination algorithm.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        A (array_like): A n-by-n matrix</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.ndarray: Upper triangular matrix</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Use the function above to transform the following matrix <span class="math notranslate nohighlight">\( \mathbb{A} \)</span> into an upper triangular form,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbb{A} = \begin{pmatrix}
+0 &amp; 1 \\
+1 &amp; 1
+\end{pmatrix}.
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-danger">
+<p><strong>Warning:</strong> The Gaussian elimination algorithm itself is unable to transform the matrix above into an upper triangular form because it leads to division by zero.</p>
+</div><p><strong>Pivoting:</strong> The <a class="reference external" href="https://en.wikipedia.org/wiki/Pivot_element">pivot or pivot element</a> is the element of a matrix, or an array, which is selected by an algorithm to do certain calculations. In the case of Gaussian elimination, the algorithm requires that pivot elements are distinct from zero. Therefore, interchanging rows or columns in the case of a zero pivot element is necessary. Furthermore, it is generally desirable to choose a pivot element with large absolute value, which dramatically reduces the round-off error.</p>
+<p>In partial pivoting, the algorithm selects the entry with largest absolute value from the column of the matrix that is currently being considered as the pivot element. In complete pivoting, the algorithm interchanges both rows and columns in order to use the largest (by absolute value) element in the matrix as the pivot. For Gaussian elination, partial pivoting is usually sufficient.</p>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 03.7:</strong> Implement pivoting into the Gaussian elimination algorithm.</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gaussian_elimination_with_pivoting</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Transforms given matrix into an upper triangular form using the Gaussian elimination algorithm with pivoting.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        A (array_like): A n-by-n matrix</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.ndarray: Upper triangular matrix</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Use the function above to transform the following matrix <span class="math notranslate nohighlight">\( \mathbb{A} \)</span> into an upper triangular form,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbb{A} = \begin{pmatrix}
+0 &amp; 1 \\
+1 &amp; 1
+\end{pmatrix}.
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 03.8:</strong> Pass the right-hand side vector into the Gaussian elimination algorithm and perform the identical operations on it.</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gaussian_elimination_with_pivoting_vector</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Transforms given matrix into an upper triangular form using the Gaussian elimination algorithm with pivoting, </span>
+<span class="sd">    performs identical operations on RHS vector.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        A (array_like): A n-by-n regular matrix</span>
+<span class="sd">        b (array_like): RHS vector of size n</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.ndarray: Upper triangular matrix</span>
+<span class="sd">        numpy.ndarray: RHS vector corresponding to upper triangular matrix</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You may evaluate the correctness of your implementation using the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve.html"><code class="docutils literal notranslate"><span class="pre">scipy.linalg.solve</span></code></a> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">A_upper</span><span class="p">,</span> <span class="n">bb</span> <span class="o">=</span> <span class="n">gaussian_elimination_with_pivoting_vector</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_array_almost_equal</span><span class="p">(</span><span class="n">backward_substitution</span><span class="p">(</span><span class="n">A_upper</span><span class="p">,</span> <span class="n">bb</span><span class="p">),</span> <span class="n">la</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">decimal</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">E</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The implementation is correct.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-info">
+<p><strong>Note:</strong> The code above uses Gaussian elimination to transform a given random matrix into an upper triangular form, solves a system of linear algebraic equations with the transformed matrix using the backward substitution, and compare the result with the one obtained by <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve.html"><code class="docutils literal notranslate"><span class="pre">scipy.linalg.solve</span></code></a> function.</p>
+</div></div>
+<div class="section" id="lu-decomposition">
+<h3>LU decomposition<a class="headerlink" href="#lu-decomposition" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/LU_decomposition">LU decomposition</a> factors a matrix as the product of a lower triangular matrix and an upper triangular matrix. LU decomposition can be achieved by <a class="reference external" href="https://en.wikipedia.org/wiki/Crout_matrix_decomposition">Crout algorithm</a>,</p>
+<div class="math notranslate nohighlight">
+\[
+u_{ij} = a_{ij} - \sum_{k = 1}^{i - 1} l_{ik} u_{kj}, 
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+l_{ji} = \frac{1}{u_{ii}} \left( a_{ji} - \sum_{k = 1}^{i - 1} l_{jk} u_{ki} \right), 
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+i = 1, 2, \dots, n, \quad j = i, i + 1, \dots, n.
+\]</div>
+<p>A system of linear algebraic equations <span class="math notranslate nohighlight">\( \mathbb{A} x = b \)</span> can be solved using LU decomposition as follows,</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{A} x = (\mathbb{L} \mathbb{U}) x = \mathbb{L} ( \mathbb{U} x) = b, 
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{L} y = b, 
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{U} x = y.
+\]</div>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 03.9:</strong> Implement the LU decomposition algorithm.</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">lu_decomposition</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Factors given matrix as the product of a lower and an upper triangular matrix using LU decomposition.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        A (array_like): A n-by-n matrix</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.ndarray: Lower triangular matrix</span>
+<span class="sd">        numpy.ndarray: Upper triangular matrix</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You may evaluate the correctness of your implementation using the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve.html"><code class="docutils literal notranslate"><span class="pre">scipy.linalg.solve</span></code></a> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">L</span><span class="p">,</span> <span class="n">U</span> <span class="o">=</span> <span class="n">lu_decomposition</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_array_almost_equal</span><span class="p">(</span><span class="n">backward_substitution</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">forward_substitution</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">b</span><span class="p">)),</span> <span class="n">la</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">decimal</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">E</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The implementation is correct.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-info">
+<p><strong>Note:</strong> The code above decomposes a given random matrix using the LU decomposition, solves the systems of algebraic equations using the forward and backward substitutions, and compare the result with the one obtained by <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve.html"><code class="docutils literal notranslate"><span class="pre">scipy.linalg.solve</span></code></a> function.</p>
+</div></div>
+<div class="section" id="thomas-algorithm">
+<h3>Thomas algorithm<a class="headerlink" href="#thomas-algorithm" title="Permalink to this headline">¶</a></h3>
+<p>A system of linear algebraic equations <span class="math notranslate nohighlight">\( \mathbb{A} x = b \)</span> with tridiagonal coefficient matrix <span class="math notranslate nohighlight">\( \mathbb{A} \)</span> can be efficiently solved by the <a class="reference external" href="https://en.wikipedia.org/wiki/Tridiagonal_matrix_algorithm">Thomas algorithm</a>. Tridiagonal matrix <span class="math notranslate nohighlight">\( \mathbb{A} \)</span> can be represented by three vectors <span class="math notranslate nohighlight">\( p \)</span>, <span class="math notranslate nohighlight">\( q \)</span>, and <span class="math notranslate nohighlight">\( r \)</span>, as follows,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbb{A} = \begin{pmatrix}
+q_0 &amp; p_0 &amp; 0 &amp; 0 &amp; \cdots &amp; 0 &amp; 0 &amp; 0 \\
+r_1 &amp; q_1 &amp; p_1 &amp; 0 &amp; \cdots &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; r_2 &amp; q_2 &amp; p_2 &amp; \cdots &amp; 0 &amp; 0 &amp; 0 \\
+\vdots  &amp; \vdots  &amp; \ddots &amp; \ddots &amp; \ddots &amp; \vdots &amp; \vdots &amp; \vdots \\
+\vdots  &amp; \vdots  &amp; \vdots &amp; \ddots &amp; \ddots &amp; \ddots &amp; \vdots &amp; \vdots \\
+\vdots  &amp; \vdots  &amp; \vdots &amp; \vdots &amp; \ddots &amp; \ddots &amp; \ddots &amp; \vdots \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; \cdots &amp; r_{n-2} &amp; q_{n-2} &amp; p_{n-2} \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; \cdots &amp; 0 &amp; r_{n-1} &amp; q_{n-1}
+\end{pmatrix},
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\( p_{n-1} = 0 \)</span> and <span class="math notranslate nohighlight">\( r_0 = 0 \)</span>. The solution of <span class="math notranslate nohighlight">\( \mathbb{A} x = b \)</span> is then obtained iteratively as</p>
+<div class="math notranslate nohighlight">
+\[
+x_i = \mu_i x_{i+1} + \rho_i, \qquad i = n-1, n-2, \dots, 0,
+\]</div>
+<p>where the coefficients <span class="math notranslate nohighlight">\( \mu_i \)</span> and <span class="math notranslate nohighlight">\( \rho_i \)</span> are</p>
+<div class="math notranslate nohighlight">
+\[
+\mu_i = -\frac{p_i}{r_i \mu_{i-1} + q_i}, \qquad \rho_i = \frac{b_i - r_i \rho_{i-1}}{r_i \mu_{i-1} + q_i}, \qquad i = 1, 2, \dots, n-1
+\]</div>
+<p>with <span class="math notranslate nohighlight">\( \mu_0 = -p_0 \, / \, q_0 \)</span> and <span class="math notranslate nohighlight">\( \rho_0 = b_0 \, / \, q_0 \)</span>.</p>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 03.10:</strong> Implement the Thomas algorithm.</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">thomas_algorithm</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Solves system of linear equations with a tridiagonal matrix using Thomas algorithm.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        A (array_like): A n-by-n regular matrix</span>
+<span class="sd">        b (array_like): RHS vector of size n</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.ndarray: Vector of solution</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You may evaluate the correctness of your implementation using the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve.html"><code class="docutils literal notranslate"><span class="pre">scipy.linalg.solve</span></code></a> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">triu</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">tril</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="mi">1</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># create a tridiagonal matrix from random matrix</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_array_almost_equal</span><span class="p">(</span><span class="n">thomas_algorithm</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">la</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">decimal</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">E</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The implementation is correct.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "valenpe7/numerical_methods",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./tutorials"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="02-error_analysis.html" title="previous page">Tutorial 02 - Error, accuracy, stability</a>
+    <a class='right-next' id="next-link" href="04-linear_algebra_contd.html" title="next page">Tutorial 04 - Linear algebra (cont’d)</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Petr Valenta<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

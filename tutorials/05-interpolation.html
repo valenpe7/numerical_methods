@@ -1,0 +1,848 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tutorial 05 - Function approximation &#8212; 12NME1 - Numerical methods</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tutorial 06 - Data sorting" href="06-data_sorting.html" />
+    <link rel="prev" title="Tutorial 04 - Linear algebra (cont’d)" href="04-linear_algebra_contd.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">12NME1 - Numerical methods</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   12NME1 - Numerical Methods
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-introduction.html">
+   01 Intro to Python and Jupyter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-error_analysis.html">
+   02 Error, accuracy, stability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-linear_algebra.html">
+   03 Linear algebra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-linear_algebra_contd.html">
+   04 Linear algebra (cont'd)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   05 Function approximation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-data_sorting.html">
+   06 Data sorting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07-nonlinear_equations.html">
+   07 Nonlinear equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08-optimization.html">
+   08 Optimization
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09-quadrature.html">
+   09 Quadrature
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10-initial_value_problems.html">
+   10 Initial value problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11-boundary_value_problems.html">
+   11 Boundary value problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../solutions/solutions.html">
+   Solutions
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Asignments tasks
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_01.html">
+   Task 01
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_02.html">
+   Task 02
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_03.html">
+   Task 03
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_04.html">
+   Task 04
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_05.html">
+   Task 05
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_06.html">
+   Task 06
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_07.html">
+   Task 07
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_08.html">
+   Task 08
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_09.html">
+   Task 09
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_10.html">
+   Task 10
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_11.html">
+   Task 11
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../solutions/solutions.html">
+   Solutions
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/tutorials/05-interpolation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/valenpe7/numerical_methods"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/valenpe7/numerical_methods/master?urlpath=lab/tree/./tutorials/05-interpolation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#local-interpolation">
+   Local interpolation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linear-interpolation">
+     Linear interpolation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#global-interpolation">
+   Global interpolation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lagrange-interpolation">
+     Lagrange interpolation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#neville-s-algorithm">
+     Neville’s algorithm
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#chebyshev-interpolation">
+     Chebyshev interpolation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#curve-fitting">
+   Curve fitting
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#least-squares-approximation">
+     Least squares approximation
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="tutorial-05-function-approximation">
+<h1>Tutorial 05 - Function approximation<a class="headerlink" href="#tutorial-05-function-approximation" title="Permalink to this headline">¶</a></h1>
+<p>Piece-wise linear interpolation, Lagrange interpolation and Neville’s algorithm, Chebyshev polynomials and approximation, polynomial least squares fit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span><span class="p">,</span> <span class="n">interpolate</span><span class="p">,</span> <span class="n">special</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="local-interpolation">
+<h2>Local interpolation<a class="headerlink" href="#local-interpolation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="linear-interpolation">
+<h3>Linear interpolation<a class="headerlink" href="#linear-interpolation" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Linear_interpolation">Linear interpolation</a> is defined as a concatenation of straight lines connecting each pair of the set of known points. If the two known points are given by the coordinates <span class="math notranslate nohighlight">\( (x_{i}, y_{i}) \)</span> and <span class="math notranslate nohighlight">\( (x_{i + 1}, y_{i + 1}) \)</span>, the linear interpolation in the interval <span class="math notranslate nohighlight">\( (x_{i}, x_{i + 1}) \)</span> is given by the following formula,</p>
+<div class="math notranslate nohighlight">
+\[
+y = y_i + \alpha (x - x_i), \qquad x \in [x_i, x_{i+1}],
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+\alpha = \frac{y_{i+1} - y_{i}}{x_{i + 1} - x_{i}}.
+\]</div>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 05.1:</strong> Implement a function that calculates the linear interpolation.</p>
+</div>    <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">linear_interpolation</span><span class="p">(</span><span class="n">x_p</span><span class="p">,</span> <span class="n">y_p</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates the linear interpolation.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        x_p (array_like): X-coordinates of a set of datapoints</span>
+<span class="sd">        y_p (array_like): Y-coordinates of a set of datapoints</span>
+<span class="sd">        x (array_like): An array on which the interpolation is calculated</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.ndarray: The linear interpolation</span>
+<span class="sd">    &quot;&quot;&quot;</span>   
+
+    <span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You may evaluate the correctness of your implementation using the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.interp1d.html"><code class="docutils literal notranslate"><span class="pre">scipy.interpolate.interp1d</span></code></a> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">y_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x_p</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x_p</span><span class="p">),</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_array_almost_equal</span><span class="p">(</span><span class="n">linear_interpolation</span><span class="p">(</span><span class="n">x_p</span><span class="p">,</span> <span class="n">y_p</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span><span class="n">x_p</span><span class="p">,</span> <span class="n">y_p</span><span class="p">)(</span><span class="n">x</span><span class="p">),</span> <span class="n">decimal</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">E</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The implementation is correct.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 05.2:</strong> Approximate the <span class="math notranslate nohighlight">\( \sin x \)</span> function with the linear interpolation using <span class="math notranslate nohighlight">\( 8 \)</span> uniformly spaced points <span class="math notranslate nohighlight">\( x_i \)</span> from the <span class="math notranslate nohighlight">\( [-\pi, \ \pi] \)</span> interval, calculate the absolute error of the approximation, and plot the results.</p>
+</div>    <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="global-interpolation">
+<h2>Global interpolation<a class="headerlink" href="#global-interpolation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="lagrange-interpolation">
+<h3>Lagrange interpolation<a class="headerlink" href="#lagrange-interpolation" title="Permalink to this headline">¶</a></h3>
+<p>Given a set of <span class="math notranslate nohighlight">\( n \)</span> known data points <span class="math notranslate nohighlight">\( (x_{i}, y_{i}) \)</span>, <span class="math notranslate nohighlight">\( i = 0, 1, \dots, n-1 \)</span>, where no two <span class="math notranslate nohighlight">\( x_i \)</span> are the same, the <a class="reference external" href="https://en.wikipedia.org/wiki/Lagrange_polynomial">Lagrange interpolation</a> is the <span class="math notranslate nohighlight">\( (n-1) \)</span>-th degree polynomial given by a linear combination</p>
+<div class="math notranslate nohighlight">
+\[
+L(x) = \sum_{i = 0}^{n-1} y_i F_i(x)
+\]</div>
+<p>of Lagrange basis polynomials</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+F_i(x) = \prod_{\substack{j = 0 \\ j \neq i}}^{n-1} \frac{x - x_j}{x_i - x_j}.
+\end{split}\]</div>
+<p>The resulting Lagrange interpolating polynomial is unique.</p>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 05.3:</strong> Implement a function that calculates the Lagrange interpolating polynomial.</p>
+</div>    <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">lagrange_interpolation</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates a Lagrange interpolating polynomial.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        x (array_like): X-coordinates of a set of datapoints</span>
+<span class="sd">        y (array_like): Y-coordinates of a set of datapoints</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.poly1d: The Lagrange interpolating polynomial</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You may evaluate the correctness of your implementation using the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.lagrange.html"><code class="docutils literal notranslate"><span class="pre">scipy.interpolate.lagrange</span></code></a> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">y_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_array_almost_equal</span><span class="p">(</span><span class="n">lagrange_interpolation</span><span class="p">(</span><span class="n">x_p</span><span class="p">,</span> <span class="n">y_p</span><span class="p">),</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">lagrange</span><span class="p">(</span><span class="n">x_p</span><span class="p">,</span> <span class="n">y_p</span><span class="p">),</span> <span class="n">decimal</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">E</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The implementation is correct.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 05.4:</strong> Approximate the <span class="math notranslate nohighlight">\( \sin x \)</span> function with the Lagrange interpolating polynomial using <span class="math notranslate nohighlight">\( 8 \)</span> uniformly spaced points <span class="math notranslate nohighlight">\( x_i \)</span> from the <span class="math notranslate nohighlight">\( [-\pi, \ \pi] \)</span> interval, calculate the absolute error of the approximation, and plot the results.</p>
+</div>    <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="neville-s-algorithm">
+<h3>Neville’s algorithm<a class="headerlink" href="#neville-s-algorithm" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Neville%27s_algorithm">Neville’s algorithm</a> is used for recursive evaluation of Lagrange interpolating polynomial. The recurence is given by the following relation,</p>
+<div class="math notranslate nohighlight">
+\[
+L_{i, j} = \frac{(x - x_j) L_{i, j-1} - (x - x_i) L_{i+1, j}}{x_i - x_j}, \qquad L_{i, i} = y_i, \qquad i, j = 0, 1, \dots, n-1.
+\]</div>
+<p>The Lagrange interpolating polynomial is then <span class="math notranslate nohighlight">\( L(x) = L_{0, n-1} \)</span>.</p>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 05.5:</strong> Implement a function that calculates the Lagrange interpolating polynomial using the Neville’s algorithm.</p>
+</div>    <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">neville_algorithm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates a Lagrange interpolating polynomial using Neville&#39;s algorithm.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        x (array_like): X-coordinates of a set of datapoints</span>
+<span class="sd">        y (array_like): Y-coordinates of a set of datapoints</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.poly1d: The Lagrange interpolating polynomial</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You may evaluate the correctness of your implementation using the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.lagrange.html"><code class="docutils literal notranslate"><span class="pre">scipy.interpolate.lagrange</span></code></a> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">y_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_array_almost_equal</span><span class="p">(</span><span class="n">neville_algorithm</span><span class="p">(</span><span class="n">x_p</span><span class="p">,</span> <span class="n">y_p</span><span class="p">),</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">lagrange</span><span class="p">(</span><span class="n">x_p</span><span class="p">,</span> <span class="n">y_p</span><span class="p">),</span> <span class="n">decimal</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">E</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The implementation is correct.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 05.6:</strong> Approximate the Runge’s function</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = \frac{1}{1 + 25x^2}
+\]</div>
+<p>with the Lagrange interpolating polynomial using <span class="math notranslate nohighlight">\( 12 \)</span> uniformly spaced points <span class="math notranslate nohighlight">\( x_i \)</span> from the <span class="math notranslate nohighlight">\( [-1, \ 1] \)</span> interval, calculate the absolute error of the approximation, and plot the results.</p>
+</div>    <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="chebyshev-interpolation">
+<h3>Chebyshev interpolation<a class="headerlink" href="#chebyshev-interpolation" title="Permalink to this headline">¶</a></h3>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 05.7:</strong> Write a function that calculates a <a class="reference external" href="https://en.wikipedia.org/wiki/Chebyshev_polynomials">Chebyshev polynomial</a> of degree <span class="math notranslate nohighlight">\( n \)</span> using the following recursive formula,</p>
+<div class="math notranslate nohighlight">
+\[
+T_{n}(x) = 2 x T_{n-1}(x) - T_{n-2}(x), \quad T_0(x) = 1, \ T_1(x) = x.
+\]</div>
+</div>    <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">chebyshev_polynomial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates a Chebyshev polynomial of degree n using recursive formula.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        n (int): Degree of the polynomial</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.poly1d: The Chebyshev polynomial of degree n</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You may evaluate the correctness of your implementation using the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.eval_chebyt.html"><code class="docutils literal notranslate"><span class="pre">scipy.special.eval_chebyt</span></code></a> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_array_almost_equal</span><span class="p">(</span><span class="n">chebyshev_polynomial</span><span class="p">(</span><span class="n">n</span><span class="p">)(</span><span class="n">x</span><span class="p">),</span> <span class="n">special</span><span class="o">.</span><span class="n">eval_chebyt</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span> <span class="n">decimal</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">E</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The implementation is correct.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 05.8:</strong> Plot the first <span class="math notranslate nohighlight">\( 5 \)</span> Chebyshev polynomials on <span class="math notranslate nohighlight">\( x \in [-1, 1] \)</span>.</p>
+</div>    <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 05.9:</strong> Write a function that returns roots of a Chebyshev polynomial of degree <span class="math notranslate nohighlight">\( n \)</span>.</p>
+</div>    <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">chebyshev_roots</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates roots of a Chebyshev polynomial of degree n.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        n (int): Degree of the polynomial</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.ndarray: Roots of a Chebyshev polynomial of degree n</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You may evaluate the correctness of your implementation using the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.roots_chebyt.html"><code class="docutils literal notranslate"><span class="pre">scipy.special.roots_chebyt</span></code></a> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_array_almost_equal</span><span class="p">(</span><span class="n">chebyshev_roots</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">special</span><span class="o">.</span><span class="n">roots_chebyt</span><span class="p">(</span><span class="n">n</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">decimal</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">E</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The implementation is correct.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 05.10:</strong> Approximate the Runge’s function</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = \frac{1}{1 + 25x^2}
+\]</div>
+<p>in the <span class="math notranslate nohighlight">\([ -1, \ 1] \)</span> interval with the Lagrange interpolating polynomial using the roots of <span class="math notranslate nohighlight">\( 12 \)</span>-th degree Chebyshev polynomial, calculate the absolute error of the approximation, and plot the results.</p>
+</div>    <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-info">
+<p><strong>Note:</strong> If the interpolation interval <span class="math notranslate nohighlight">\( [a, b] \neq [-1, 1] \)</span>, then the nodes <span class="math notranslate nohighlight">\( x_i \)</span> of the Chebyshev interpolation can be found using affine transformation</p>
+<div class="math notranslate nohighlight">
+\[
+x_i = \frac{a + b}{2} + \frac{b - a}{2} z_i, \qquad i = 0, 1, \dots, n - 1.
+\]</div>
+<p>where <span class="math notranslate nohighlight">\( z_i \)</span> is the <span class="math notranslate nohighlight">\( i \)</span>-th root of the <span class="math notranslate nohighlight">\( n \)</span>-th degree Chebyshev polynomial.</p>
+</div>    </div>
+</div>
+<div class="section" id="curve-fitting">
+<h2>Curve fitting<a class="headerlink" href="#curve-fitting" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="least-squares-approximation">
+<h3>Least squares approximation<a class="headerlink" href="#least-squares-approximation" title="Permalink to this headline">¶</a></h3>
+<p>Given a set of <span class="math notranslate nohighlight">\( n \)</span> known data points <span class="math notranslate nohighlight">\( (x_{i}, y_{i}) \)</span>, <span class="math notranslate nohighlight">\( i = 0, 1, \dots, n-1 \)</span>, the <a class="reference external" href="https://en.wikipedia.org/wiki/Least_squares">least squares method</a> finds an approximation to the data by minimizing the sum of the squares of the residuals,</p>
+<div class="math notranslate nohighlight">
+\[
+S = \sum_{i = 0}^{n - 1} r_i^2, \qquad r_i = y_i - f(x_i; \beta),
+\]</div>
+<p>where <span class="math notranslate nohighlight">\( f(x_i; \beta) \)</span> is the model function and <span class="math notranslate nohighlight">\( \beta \)</span> is the vector of <span class="math notranslate nohighlight">\( m \)</span> adjustable parameters. The minimum of <span class="math notranslate nohighlight">\( S \)</span> is found by setting its gradient to <span class="math notranslate nohighlight">\( 0 \)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial S}{\partial \beta_j} = \sum_{i = 0}^{n - 1} 2 r_i \frac{\partial r_i}{\partial \beta_j} = \sum_{i = 0}^{n - 1} -2 \left( y_i - f(x_i; \beta) \right) \frac{\partial f(x_i; \beta)}{\partial \beta_j} = 0, \qquad j = 0, 1, \dots, m - 1. 
+\]</div>
+<p><strong>Polynomial least squares fit:</strong></p>
+<p>In the case of polynomial least squares fit, the model function can be written in the following form,</p>
+<div class="math notranslate nohighlight">
+\[
+f(x; \beta) = \beta_{m-1} x^{m-1} + \beta_{m-2} x^{m-2} + \dots + \beta_1 x + \beta_0.
+\]</div>
+<p>The values of vector <span class="math notranslate nohighlight">\( \beta \)</span> that minimize <span class="math notranslate nohighlight">\( S \)</span> can be thus obtained by solving a system of <span class="math notranslate nohighlight">\( m \)</span> linear algebraic equations,</p>
+<div class="math notranslate nohighlight">
+\[
+\sum_{i = 0}^{n - 1} \left( y_i - \beta_{m-1} x^{m-1} - \beta_{m-2} x^{m-2} - \dots - \beta_1 x - \beta_0 \right) x_i^j = 0, \qquad j = 0, 1, \dots, m - 1.
+\]</div>
+<p>The system of equations can be expressed as</p>
+<div class="math notranslate nohighlight">
+\[
+\beta_0 \sum_{i = 0}^{n - 1} x_i^j + \beta_1 \sum_{i = 0}^{n - 1} x_i^{j+1} + \dots + \sum_{i = 0}^{n - 1} \beta_{m-2} x_i^{j + m - 2} + \beta_{m-1} \sum_{i = 0}^{n - 1} x_i^{j + m-1} = \sum_{i = 0}^{n - 1} y_i x_i^j  
+\]</div>
+<p>and in the matrix form,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+\sum 1 &amp; \sum x_i &amp; \cdots &amp; \sum x_i^{m-2} &amp; \sum x_i^{m-1} \\
+\sum x_i &amp; \sum x_i^2 &amp; \cdots &amp; \sum x_i^{m-1} &amp; \sum x_i^{m} \\
+\vdots &amp; \vdots &amp; \ddots  &amp; \vdots &amp; \vdots \\
+\sum x_i^{m-2} &amp; \sum x_i^{m-1} &amp; \cdots &amp; \sum x_i^{2m-4} &amp; \sum x_i^{2m-3} \\
+\sum x_i^{m-1} &amp; \sum x_i^{m} &amp; \cdots &amp; \sum x_i^{2m-3} &amp; \sum x_i^{2m-2} \\
+\end{pmatrix} 
+\begin{pmatrix}
+\beta_0 \\
+\beta_1 \\
+\vdots\\
+\beta_{m-2} \\
+\beta_{m-1}
+\end{pmatrix} 
+=
+\begin{pmatrix}
+\sum y_i \\
+\sum y_i x_i \\
+\vdots\\
+\sum y_i x_i^{m-2} \\
+\sum y_i x_i^{m-1}
+\end{pmatrix}.
+\end{split}\]</div>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 05.11:</strong> Implement the n-th degree polynomial least squares approximation.</p>
+</div>    <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">polynomial_least_squares</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates the n-th degree polynomial least squares approximation.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        x (array_like): X-coordinates of a set of datapoints</span>
+<span class="sd">        y (array_like): Y-coordinates of a set of datapoints</span>
+<span class="sd">        n (int): degree of the approximating polynomial</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.poly1d: The n-th degree polynomial least squares approximation</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You may evaluate the correctness of your implementation using the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.polyfit.html"><code class="docutils literal notranslate"><span class="pre">numpy.polyfit</span></code></a> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">y_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_array_almost_equal</span><span class="p">(</span><span class="n">polynomial_least_squares</span><span class="p">(</span><span class="n">x_p</span><span class="p">,</span> <span class="n">y_p</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x_p</span><span class="p">,</span> <span class="n">y_p</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span> <span class="n">decimal</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">E</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The implementation is correct.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 05.12:</strong> Consider a set of <span class="math notranslate nohighlight">\( 100 \)</span> random points distributed along a linear function with a Gaussian noise. Fit the data using the 1st degree polynomial least squares approximation.</p>
+</div>    <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-warning">
+<p><strong>Exercise 05.13:</strong>  Consider a set of <span class="math notranslate nohighlight">\( 100 \)</span> random points distributed along a quadratic function with a Gaussian noise. Fit the data using the 2nd degree polynomial least squares approximation.</p>
+</div>    <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "valenpe7/numerical_methods",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./tutorials"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="04-linear_algebra_contd.html" title="previous page">Tutorial 04 - Linear algebra (cont’d)</a>
+    <a class='right-next' id="next-link" href="06-data_sorting.html" title="next page">Tutorial 06 - Data sorting</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Petr Valenta<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
