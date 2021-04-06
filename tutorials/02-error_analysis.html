@@ -581,9 +581,7 @@ f(x) = \frac{1 - \cos{x}}{x^2}.
 </div>
 </div>
 <div class="alert alert-block alert-info">
-<p><strong>Note:</strong> When summing a series of numbers using floating-point systems, always sum the smaller numbers first.</p>
-</div>    <div class="alert alert-block alert-info">
-<p><strong>Note:</strong> To improve accuracy when summing numbers, consider the <a class="reference external" href="https://en.wikipedia.org/wiki/Kahan_summation_algorithm">Kahan summation algorithm</a>.</p>
+<p><strong>Note:</strong> When summing a series of numbers using floating-point systems, always sum the smaller numbers first. To improve accuracy when summing numbers, consider the <a class="reference external" href="https://en.wikipedia.org/wiki/Kahan_summation_algorithm">Kahan summation algorithm</a>.</p>
 </div>    </div>
 <div class="section" id="summary">
 <h3>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h3>
@@ -591,17 +589,23 @@ f(x) = \frac{1 - \cos{x}}{x^2}.
 <li><p>Floating point arithmetic is not commutative, associative, and not necessarily distributive:</p></li>
 </ul>
 <p>valid operations:</p>
-<p>\begin{align}
-&amp; 1 \cdot x = x, \
-&amp; x \cdot y = y \cdot x, \
-&amp; x + x = 2 \cdot x
-\end{align}</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+&amp; 1 \cdot x = x, \\
+&amp; x \cdot y = y \cdot x, \\
+&amp; x + x = 2 \cdot x 
+\end{align}
+\end{split}\]</div>
 <p>not necessarily valid operations:</p>
-<p>\begin{align}
-&amp; x \cdot x^{-1} = 1, \
-&amp; (1 + x) - 1 = x, \
-&amp; (x + y) + z = x + (y + z)
-\end{align}</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+&amp; x \cdot x^{-1} = 1, \\
+&amp; (1 + x) - 1 = x, \\
+&amp; (x + y) + z = x + (y + z) 
+\end{align}
+\end{split}\]</div>
 <ul class="simple">
 <li><p>Errors propagate between calculations. A small error in the input may result in a large error in the output.</p></li>
 </ul>
