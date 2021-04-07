@@ -28,7 +28,7 @@
     #title: 10 Initial value problems
     #- file: tutorials/11-boundary_value_problems
     #title: 11 Boundary value problems
-  - file: solutions/solutions
+  - file: tutorials/solutions
     title: Solutions
 
 - part: Asignments tasks
@@ -55,5 +55,5 @@
     #title: Task 10
     #- file: tasks/task_11
     #title: Task 11
-  - file: solutions/solutions
+  - file: tasks/solutions
     title: Solutions
