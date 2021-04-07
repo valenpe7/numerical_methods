@@ -56,7 +56,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Task 01" href="../tasks/task_01.html" />
-    <link rel="prev" title="Tutorial 07 - Nonlinear equations" href="../tutorials/07-nonlinear_equations.html" />
+    <link rel="prev" title="Tutorial 07 - Nonlinear equations" href="07-nonlinear_equations.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -100,37 +100,37 @@
 </p>
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../tutorials/01-introduction.html">
+  <a class="reference internal" href="01-introduction.html">
    01 Intro to Python and Jupyter
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../tutorials/02-error_analysis.html">
+  <a class="reference internal" href="02-error_analysis.html">
    02 Error, accuracy, stability
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../tutorials/03-linear_algebra.html">
+  <a class="reference internal" href="03-linear_algebra.html">
    03 Linear algebra
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../tutorials/04-linear_algebra_contd.html">
+  <a class="reference internal" href="04-linear_algebra_contd.html">
    04 Linear algebra (cont'd)
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../tutorials/05-interpolation.html">
+  <a class="reference internal" href="05-interpolation.html">
    05 Function approximation
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../tutorials/06-data_sorting.html">
+  <a class="reference internal" href="06-data_sorting.html">
    06 Data sorting
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../tutorials/07-nonlinear_equations.html">
+  <a class="reference internal" href="07-nonlinear_equations.html">
    07 Nonlinear equations
   </a>
  </li>
@@ -145,7 +145,7 @@
   Asignments tasks
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../tasks/task_01.html">
    Task 01
@@ -181,8 +181,8 @@
    Task 07
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/solutions.html">
    Solutions
   </a>
  </li>
@@ -222,7 +222,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/solutions/solutions.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/tutorials/solutions.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -242,7 +242,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/valenpe7/numerical_methods/issues/new?title=Issue%20on%20page%20%2Fsolutions/solutions.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/valenpe7/numerical_methods/issues/new?title=Issue%20on%20page%20%2Ftutorials/solutions.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -263,7 +263,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/valenpe7/numerical_methods/master?urlpath=tree/./solutions/solutions.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/valenpe7/numerical_methods/master?urlpath=tree/./tutorials/solutions.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -296,40 +296,10 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">la</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span>
 </pre></div>
 </div>
-</div>
-</div>
-<p><strong>Assignment task 01:</strong></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum_of_series</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">10.0</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">sum_of_series</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
-
-<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-    <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">sum_of_series</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-56.05201335500862
-</pre></div>
-</div>
-<img alt="../_images/solutions_3_1.png" src="../_images/solutions_3_1.png" />
 </div>
 </div>
 <p><strong>Exercise 02.1:</strong></p>
@@ -358,7 +328,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/solutions_5_0.png" src="../_images/solutions_5_0.png" />
+<img alt="../_images/solutions_3_0.png" src="../_images/solutions_3_0.png" />
 </div>
 </div>
 <p><strong>Exercise 02.2:</strong></p>
@@ -387,7 +357,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/solutions_7_0.png" src="../_images/solutions_7_0.png" />
+<img alt="../_images/solutions_5_0.png" src="../_images/solutions_5_0.png" />
 </div>
 </div>
 <p><strong>Exercise 02.3:</strong></p>
@@ -432,7 +402,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/solutions_11_0.png" src="../_images/solutions_11_0.png" />
+<img alt="../_images/solutions_9_0.png" src="../_images/solutions_9_0.png" />
 </div>
 </div>
 <p><strong>Exercise 02.5:</strong></p>
@@ -485,8 +455,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/solutions_15_0.png" src="../_images/solutions_15_0.png" />
-<img alt="../_images/solutions_15_1.png" src="../_images/solutions_15_1.png" />
+<img alt="../_images/solutions_13_0.png" src="../_images/solutions_13_0.png" />
+<img alt="../_images/solutions_13_1.png" src="../_images/solutions_13_1.png" />
 </div>
 </div>
 <p><strong>Exercise 02.7:</strong></p>
@@ -524,8 +494,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/solutions_17_0.png" src="../_images/solutions_17_0.png" />
-<img alt="../_images/solutions_17_1.png" src="../_images/solutions_17_1.png" />
+<img alt="../_images/solutions_15_0.png" src="../_images/solutions_15_0.png" />
+<img alt="../_images/solutions_15_1.png" src="../_images/solutions_15_1.png" />
 </div>
 </div>
 <p><strong>Exercise 02.8:</strong></p>
@@ -555,7 +525,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/solutions_19_0.png" src="../_images/solutions_19_0.png" />
+<img alt="../_images/solutions_17_0.png" src="../_images/solutions_17_0.png" />
 </div>
 </div>
 <p><strong>Exercise 02.9:</strong></p>
@@ -581,7 +551,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/solutions_21_0.png" src="../_images/solutions_21_0.png" />
+<img alt="../_images/solutions_19_0.png" src="../_images/solutions_19_0.png" />
 </div>
 </div>
 <p><strong>Exercise 02.10:</strong></p>
@@ -597,52 +567,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/solutions_23_0.png" src="../_images/solutions_23_0.png" />
-</div>
-</div>
-<p><strong>Assignment task 02:</strong></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">maclaurin_series</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Calculates the Maclaurin series of sin(x) using n terms.</span>
-<span class="sd">    Args:</span>
-<span class="sd">        n (int): Number of terms of the Maclaurin series</span>
-<span class="sd">    Returns:</span>
-<span class="sd">        numpy.ploy1d: Maclaurin polynomial</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">coeff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
-        <span class="n">coeff</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">i</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">poly1d</span><span class="p">(</span><span class="n">coeff</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-
-<span class="k">def</span> <span class="nf">relative_error</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Calculates the relative error of the Maclaurin series.</span>
-<span class="sd">    Args:</span>
-<span class="sd">        x (float): Coordinate x</span>
-<span class="sd">        n (int): Number of terms of the Maclaurin series</span>
-<span class="sd">    Returns:</span>
-<span class="sd">        float: Relative error</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">maclaurin_series</span><span class="p">(</span><span class="n">n</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="nb">format</span><span class="p">(</span><span class="n">relative_error</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="s2">&quot;.16f&quot;</span><span class="p">))</span>
-
-<span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">relative_error</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">200.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span><span class="p">):</span>
-        <span class="k">break</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0045248555348174
-8
-</pre></div>
-</div>
+<img alt="../_images/solutions_21_0.png" src="../_images/solutions_21_0.png" />
 </div>
 </div>
 <p><strong>Exercise 03.1:</strong></p>
@@ -891,56 +816,6 @@
 </div>
 </div>
 </div>
-<p><strong>Assignment task 03:</strong></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gauss_jordan_elimination</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Calculates the inverse matrix using Gauss-Jordan elimination algorithm.</span>
-<span class="sd">    Args:</span>
-<span class="sd">        A (array_like): A n-by-n invertible matrix</span>
-<span class="sd">    Returns:</span>
-<span class="sd">        numpy.ndarray: Inverse matrix</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">n</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span>
-    <span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">n</span><span class="p">))</span>
-    <span class="n">U</span><span class="p">[:,</span> <span class="p">:</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span>
-    <span class="n">U</span><span class="p">[:,</span> <span class="n">n</span><span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>  
-        <span class="n">max_row</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">U</span><span class="p">[</span><span class="n">i</span><span class="p">:,</span> <span class="n">i</span><span class="p">]))</span>
-        <span class="k">if</span> <span class="n">max_row</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">row_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">U</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:])</span>
-            <span class="n">U</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">U</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">max_row</span><span class="p">,</span> <span class="p">:]</span>
-            <span class="n">U</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">max_row</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">row_i</span>     
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-            <span class="n">U</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">U</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-</span> <span class="p">(</span><span class="n">U</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="n">U</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">])</span> <span class="o">*</span> <span class="n">U</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span>  
-        <span class="n">U</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span> <span class="o">/=</span> <span class="n">U</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)):</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)):</span>
-            <span class="n">U</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">U</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">U</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">U</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span> 
-    <span class="k">return</span> <span class="n">U</span><span class="p">[:,</span> <span class="n">n</span><span class="p">:]</span>
-
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">gauss_jordan_elimination</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
-
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_array_almost_equal</span><span class="p">(</span><span class="n">gauss_jordan_elimination</span><span class="p">(</span><span class="n">A</span><span class="p">),</span> <span class="n">la</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="p">),</span> <span class="n">decimal</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
-<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">E</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The implementation is correct.&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.2  0.2  0. ]
- [-0.2  0.3  1. ]
- [ 0.2 -0.3 -0. ]]
-The implementation is correct.
-</pre></div>
-</div>
-</div>
-</div>
 <p><strong>Exercise 04.1:</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -958,7 +833,7 @@ The implementation is correct.
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
     <span class="n">x_new</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
     <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="n">la</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">error_tolerance</span><span class="p">:</span>
+    <span class="k">while</span> <span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">error_tolerance</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
             <span class="n">x_new</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">])</span> <span class="o">*</span> <span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> 
                 <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:</span><span class="n">i</span><span class="p">],</span> <span class="n">x</span><span class="p">[:</span><span class="n">i</span><span class="p">])</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:],</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:]))</span>           
@@ -986,7 +861,7 @@ The implementation is correct.
     <span class="n">n</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
     <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="n">la</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">error_tolerance</span><span class="p">:</span>
+    <span class="k">while</span> <span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">error_tolerance</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
             <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">])</span> <span class="o">*</span> <span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> 
                 <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:</span><span class="n">i</span><span class="p">],</span> <span class="n">x</span><span class="p">[:</span><span class="n">i</span><span class="p">])</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:],</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:]))</span>     
@@ -1014,7 +889,7 @@ The implementation is correct.
     <span class="n">n</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
     <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="n">la</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">error_tolerance</span><span class="p">:</span>
+    <span class="k">while</span> <span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">error_tolerance</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
             <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">omega</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span>  <span class="p">(</span><span class="n">omega</span> <span class="o">/</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">])</span> <span class="o">*</span> <span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> 
                 <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:</span><span class="n">i</span><span class="p">],</span> <span class="n">x</span><span class="p">[:</span><span class="n">i</span><span class="p">])</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:],</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:]))</span>
@@ -1037,9 +912,9 @@ The implementation is correct.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>96
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>97
 92
-62
+64
 </pre></div>
 </div>
 </div>
@@ -1065,7 +940,7 @@ The implementation is correct.
         <span class="n">alpha</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">r</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">A</span> <span class="o">@</span> <span class="n">p</span><span class="p">)</span> 
         <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">p</span>
         <span class="n">r_new</span> <span class="o">=</span> <span class="n">r</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">A</span> <span class="o">@</span> <span class="n">p</span> 
-        <span class="k">if</span> <span class="n">la</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">r_new</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">error_tolerance</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">r_new</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">error_tolerance</span><span class="p">:</span>
             <span class="k">break</span>          
         <span class="n">beta</span> <span class="o">=</span> <span class="p">(</span><span class="n">r_new</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">r_new</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">r</span><span class="p">)</span>
         <span class="n">p</span> <span class="o">=</span> <span class="n">r_new</span> <span class="o">+</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">p</span> 
@@ -1092,74 +967,11 @@ The implementation is correct.
     <span class="n">e_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_it</span><span class="p">):</span>
         <span class="n">e_vec_new</span> <span class="o">=</span> <span class="n">A</span> <span class="o">@</span> <span class="n">e_vec</span>
-        <span class="n">e_vec</span> <span class="o">=</span> <span class="n">e_vec_new</span> <span class="o">/</span> <span class="n">la</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">e_vec_new</span><span class="p">)</span>
-    <span class="n">e_val</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">A</span> <span class="o">@</span> <span class="n">e_vec</span><span class="p">)</span>
+        <span class="n">e_vec</span> <span class="o">=</span> <span class="n">e_vec_new</span> <span class="o">/</span> <span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">e_vec_new</span><span class="p">)</span>
+    <span class="n">e_val</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">A</span> <span class="o">@</span> <span class="n">e_vec</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">e_vec</span><span class="p">,</span> <span class="n">e_val</span>
 </pre></div>
 </div>
-</div>
-</div>
-<p><strong>Asignment task 04:</strong></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">conjugate_gradient_method</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">error_tolerance</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Solves system of linear equations using conjugate gradient method.</span>
-<span class="sd">    Args:</span>
-<span class="sd">        A (array_like): A n-by-n real, symmetric, and positive-definite matrix</span>
-<span class="sd">        b (array_like): RHS vector of size n</span>
-<span class="sd">        error_tolerance (float): Error tolerance</span>
-<span class="sd">    Returns:</span>
-<span class="sd">        list: List of all iterations</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">n</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">b</span> <span class="o">-</span> <span class="n">A</span> <span class="o">@</span> <span class="n">x</span>
-    <span class="n">p</span> <span class="o">=</span> <span class="n">r</span>
-    <span class="n">list_of_iterations</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span>
-    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="n">alpha</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">r</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">A</span> <span class="o">@</span> <span class="n">p</span><span class="p">)</span> 
-        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">p</span>
-        <span class="n">list_of_iterations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="n">r_new</span> <span class="o">=</span> <span class="n">r</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">A</span> <span class="o">@</span> <span class="n">p</span>
-        <span class="k">if</span> <span class="n">la</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">r_new</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">error_tolerance</span><span class="p">:</span>
-            <span class="k">break</span>
-        <span class="n">beta</span> <span class="o">=</span> <span class="p">(</span><span class="n">r_new</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">r_new</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">r</span><span class="p">)</span>
-        <span class="n">p</span> <span class="o">=</span> <span class="n">r_new</span> <span class="o">+</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">p</span> 
-        <span class="n">r</span> <span class="o">=</span> <span class="n">r_new</span>
-    <span class="k">return</span> <span class="n">list_of_iterations</span>
-
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
-
-<span class="n">solution</span> <span class="o">=</span> <span class="n">conjugate_gradient_method</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mf">1.0e-15</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">solution</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-    
-<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">x_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-<span class="n">x_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-<span class="n">X_1</span><span class="p">,</span> <span class="n">X_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x_1</span><span class="p">,</span> <span class="n">x_2</span><span class="p">)</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">X_1</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">],</span> <span class="n">X_2</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]])</span>
-        <span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">x</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">A</span> <span class="o">@</span> <span class="n">x</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">b</span>
-        
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">x_1</span><span class="p">,</span> <span class="n">x_2</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">solution</span><span class="p">:</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0. 0.]
-[0.25 0.5 ]
-[0.09090909 0.63636364]
-</pre></div>
-</div>
-<img alt="../_images/solutions_61_1.png" src="../_images/solutions_61_1.png" />
 </div>
 </div>
 </div>
@@ -1177,7 +989,7 @@ The implementation is correct.
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./solutions"
+            path: "./tutorials"
         },
         predefinedOutput: true
     }
@@ -1189,7 +1001,7 @@ The implementation is correct.
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../tutorials/07-nonlinear_equations.html" title="previous page">Tutorial 07 - Nonlinear equations</a>
+    <a class='left-prev' id="prev-link" href="07-nonlinear_equations.html" title="previous page">Tutorial 07 - Nonlinear equations</a>
     <a class='right-next' id="next-link" href="../tasks/task_01.html" title="next page">Task 01</a>
 
         </div>
