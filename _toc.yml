@@ -20,14 +20,14 @@
     title: 06 Data sorting
   - file: tutorials/07-nonlinear_equations
     title: 07 Nonlinear equations
-  - file: tutorials/08-optimization
-    title: 08 Optimization
-  - file: tutorials/09-quadrature
-    title: 09 Quadrature
-  - file: tutorials/10-initial_value_problems
-    title: 10 Initial value problems
-  - file: tutorials/11-boundary_value_problems
-    title: 11 Boundary value problems
+    #- file: tutorials/08-optimization
+    #title: 08 Optimization
+    #- file: tutorials/09-quadrature
+    #title: 09 Quadrature
+    #- file: tutorials/10-initial_value_problems
+    #title: 10 Initial value problems
+    #- file: tutorials/11-boundary_value_problems
+    #title: 11 Boundary value problems
   - file: solutions/solutions
     title: Solutions
 
@@ -47,13 +47,13 @@
     title: Task 06
   - file: tasks/task_07
     title: Task 07
-  - file: tasks/task_08
-    title: Task 08
-  - file: tasks/task_09
-    title: Task 09
-  - file: tasks/task_10
-    title: Task 10
-  - file: tasks/task_11
-    title: Task 11
+    #- file: tasks/task_08
+    #title: Task 08
+    #- file: tasks/task_09
+    #title: Task 09
+    #- file: tasks/task_10
+    #title: Task 10
+    #- file: tasks/task_11
+    #title: Task 11
   - file: solutions/solutions
     title: Solutions
