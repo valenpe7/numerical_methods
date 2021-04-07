@@ -137,26 +137,6 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../tutorials/08-optimization.html">
-   08 Optimization
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../tutorials/09-quadrature.html">
-   09 Quadrature
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../tutorials/10-initial_value_problems.html">
-   10 Initial value problems
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../tutorials/11-boundary_value_problems.html">
-   11 Boundary value problems
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../solutions/solutions.html">
    Solutions
   </a>
@@ -201,26 +181,6 @@
  <li class="toctree-l1">
   <a class="reference internal" href="task_07.html">
    Task 07
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="task_08.html">
-   Task 08
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="task_09.html">
-   Task 09
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="task_10.html">
-   Task 10
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="task_11.html">
-   Task 11
   </a>
  </li>
  <li class="toctree-l1">
@@ -336,11 +296,21 @@
   <div class="section" id="task-02">
 <h1>Task 02<a class="headerlink" href="#task-02" title="Permalink to this headline">¶</a></h1>
 <p><strong>deadline: 07/03/2021 23:59 CET</strong></p>
-<ol class="simple">
-<li><p>Write a function that takes <span class="math notranslate nohighlight">\( n \in \mathbb{N}_0 \)</span> as an argument and returns the Maclaurin series of the function <span class="math notranslate nohighlight">\( \sin{x} \)</span> up to order <span class="math notranslate nohighlight">\( n \)</span> in the form of <code class="docutils literal notranslate"><span class="pre">numpy.poly1d</span></code> (in order to evaluate the factorial, you may use the function <code class="docutils literal notranslate"><span class="pre">numpy.math.factorial</span></code>).</p></li>
-<li><p>Write a function that calculates the relative error of the function above for arbitrary point <span class="math notranslate nohighlight">\( x \in \mathbb{R} \)</span> and <span class="math notranslate nohighlight">\( n \in \mathbb{N} \)</span>. Print the relative error for <span class="math notranslate nohighlight">\( x = \pi \, / \, 2 \)</span> and <span class="math notranslate nohighlight">\( n = 2\)</span> on 16 decimal places.</p></li>
-<li><p>Find <span class="math notranslate nohighlight">\( n \)</span> for which the relative error at <span class="math notranslate nohighlight">\( x = \pi \, / \, 2 \)</span> is less than <span class="math notranslate nohighlight">\( 200 \, \varepsilon \)</span>, where <span class="math notranslate nohighlight">\( \varepsilon \)</span> is the machine epsilon of the 64-bit representation of IEEE floating point numbers. Print that number.</p></li>
-</ol>
+<p><strong>[0.5 points]:</strong> Write a function that takes <span class="math notranslate nohighlight">\( n \in \mathbb{N}_0 \)</span> as an argument and returns the first <span class="math notranslate nohighlight">\( n \)</span> terms of the Maclaurin series of the function <span class="math notranslate nohighlight">\( \sin{x} \)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+\sum_{k = 0}^{n} \frac{(-1)^k}{(2 k + 1)!} x^{2k + 1}
+\]</div>
+<p>in the form of <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.poly1d.html"><code class="docutils literal notranslate"><span class="pre">numpy.poly1d</span></code></a> (in order to evaluate the factorial, you may use the function <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.factorial.html"><code class="docutils literal notranslate"><span class="pre">scipy.special.factorial</span></code></a>).</p>
+<p><strong>[0.25 points]:</strong> Write a function that calculates the relative error of the function above for arbitrary point <span class="math notranslate nohighlight">\( x \in \mathbb{R} \)</span> and <span class="math notranslate nohighlight">\( n \in \mathbb{N}_0 \)</span>. Print the relative error for <span class="math notranslate nohighlight">\( x = \pi \, / \, 2 \)</span> and <span class="math notranslate nohighlight">\( n = 2\)</span> on 16 decimal places.</p>
+<p><strong>[0.25 points]:</strong> Find <span class="math notranslate nohighlight">\( n \)</span> for which the relative error at <span class="math notranslate nohighlight">\( x = \pi \, / \, 2 \)</span> is less than <span class="math notranslate nohighlight">\( 200 \, \varepsilon \)</span>, where <span class="math notranslate nohighlight">\( \varepsilon \)</span> is the machine epsilon of the 64-bit representation of IEEE floating point numbers. Print that number.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">

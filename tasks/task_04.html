@@ -137,26 +137,6 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../tutorials/08-optimization.html">
-   08 Optimization
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../tutorials/09-quadrature.html">
-   09 Quadrature
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../tutorials/10-initial_value_problems.html">
-   10 Initial value problems
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../tutorials/11-boundary_value_problems.html">
-   11 Boundary value problems
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../solutions/solutions.html">
    Solutions
   </a>
@@ -201,26 +181,6 @@
  <li class="toctree-l1">
   <a class="reference internal" href="task_07.html">
    Task 07
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="task_08.html">
-   Task 08
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="task_09.html">
-   Task 09
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="task_10.html">
-   Task 10
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="task_11.html">
-   Task 11
   </a>
  </li>
  <li class="toctree-l1">
@@ -336,8 +296,8 @@
   <div class="section" id="task-04">
 <h1>Task 04<a class="headerlink" href="#task-04" title="Permalink to this headline">¶</a></h1>
 <p><strong>deadline: 21/03/2021 23:59 CET</strong></p>
-<p><strong>[0.5 points]:</strong> Edit the conjugate gradient method so that it returns a list of all iterations <span class="math notranslate nohighlight">\( x^{(k)} \)</span> (including the initial guess).</p>
-<p><strong>[0.5 points]:</strong> Solve the following system of linear equations</p>
+<p><strong>[0.25 points]:</strong> Edit the conjugate gradient method so that it returns a list of all iterations <span class="math notranslate nohighlight">\( x^{(k)} \)</span> (including the initial guess).</p>
+<p><strong>[0.25 points]:</strong> Solve the following system of linear equations</p>
 <div class="math notranslate nohighlight">
 \[ 
 4 x_1 + x_2 = 1,
@@ -347,7 +307,19 @@
 x_1 + 3x_2 = 2
 \]</div>
 <p>using the edited conjugate gradient method withe the error tolerance of <span class="math notranslate nohighlight">\( 10^{-15} \)</span>. Print the list of all iterations <span class="math notranslate nohighlight">\( x^{(k)} \)</span>.</p>
-<p><strong>Bonus [0.5 points]:</strong> Plot the iterations <span class="math notranslate nohighlight">\( x^{(k)} \)</span> and the contours of the function <span class="math notranslate nohighlight">\( f(x) = 1 \, / \, 2 \, x^T \mathbb{A} x - x^T b, \ x \in [-1, 1] \times [-1, 1] \)</span>, where <span class="math notranslate nohighlight">\( \mathbb{A} \)</span> is the coefficient matrix and <span class="math notranslate nohighlight">\( b \)</span> is the right-hand side vector, using the <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot.scatter</span></code> and the <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot.contour</span></code> functions, respectively.</p>
+<p><strong>[0.5 points]:</strong> Plot the iterations <span class="math notranslate nohighlight">\( x^{(k)} \)</span> and the contours of the function</p>
+<div class="math notranslate nohighlight">
+\[ 
+f(x) = 1 \, / \, 2 \, x^T \mathbb{A} x - x^T b, \ x \in [-1, 1] \times [-1, 1],
+\]</div>
+<p>where <span class="math notranslate nohighlight">\( \mathbb{A} \)</span> is the coefficient matrix and <span class="math notranslate nohighlight">\( b \)</span> is the right-hand side vector, using the <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html"><code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot.scatter</span></code></a> and the <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.contour.html"><code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot.contour</span></code></a> functions, respectively.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
