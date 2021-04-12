@@ -52,6 +52,8 @@
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -294,6 +296,14 @@
   <div class="section" id="task-07">
 <h1>Task 07<a class="headerlink" href="#task-07" title="Permalink to this headline">¶</a></h1>
 <p><strong>deadline: 18/04/2021 23:59 CET</strong></p>
+<p><strong>[0.75 points]:</strong> Edit the Newton-Raphson’s method so that it can solve systems of three nonlinear equations in three unknowns.</p>
+<p><strong>[0.25 points]:</strong> Solve the following system of three nonlinear equations in three unknowns,</p>
+<p>\begin{align}
+&amp; x_0^2 + x_1^2 = 2 x_2, \
+&amp; x_0^2 + x_2^2 = 0.5, \
+&amp; x_0^2 + x_1^2 + x_2^2 = 1,
+\end{align}</p>
+<p>using Newton-Raphson’s method with initial estimate <span class="math notranslate nohighlight">\( (1, 1, 0) \)</span>, error tolerance <span class="math notranslate nohighlight">\( 10^{-7} \)</span>, and maximum of <span class="math notranslate nohighlight">\( 10 \)</span> iterations. Print the solution.</p>
 </div>
 
     <script type="text/x-thebe-config">
