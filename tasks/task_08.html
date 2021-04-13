@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Task 04 &#8212; 12NME1 - Numerical methods</title>
+    <title>Task 08 &#8212; 12NME1 - Numerical methods</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -52,13 +52,11 @@
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Task 05" href="task_05.html" />
-    <link rel="prev" title="Task 03" href="task_03.html" />
+    <link rel="next" title="Solutions" href="solutions.html" />
+    <link rel="prev" title="Task 07" href="task_07.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -168,8 +166,8 @@
    Task 03
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="task_04.html">
    Task 04
   </a>
  </li>
@@ -188,8 +186,8 @@
    Task 07
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="task_08.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Task 08
   </a>
  </li>
@@ -238,7 +236,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/tasks/task_04.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/tasks/task_08.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -258,7 +256,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/valenpe7/numerical_methods/issues/new?title=Issue%20on%20page%20%2Ftasks/task_04.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/valenpe7/numerical_methods/issues/new?title=Issue%20on%20page%20%2Ftasks/task_08.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -279,7 +277,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/valenpe7/numerical_methods/master?urlpath=tree/./tasks/task_04.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/valenpe7/numerical_methods/master?urlpath=tree/./tasks/task_08.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -307,33 +305,9 @@
         
               <div>
                 
-  <div class="section" id="task-04">
-<h1>Task 04<a class="headerlink" href="#task-04" title="Permalink to this headline">¶</a></h1>
-<p><strong>deadline: 21/03/2021 23:59 CET</strong></p>
-<p><strong>[0.25 points]:</strong> Edit the conjugate gradient method so that it returns a list of all iterations <span class="math notranslate nohighlight">\( x^{(k)} \)</span> (including the initial guess).</p>
-<p><strong>[0.25 points]:</strong> Solve the following system of linear equations</p>
-<div class="math notranslate nohighlight">
-\[ 
-4 x_1 + x_2 = 1,
-\]</div>
-<div class="math notranslate nohighlight">
-\[
-x_1 + 3x_2 = 2
-\]</div>
-<p>using the edited conjugate gradient method withe the error tolerance of <span class="math notranslate nohighlight">\( 10^{-15} \)</span>. Print the list of all iterations <span class="math notranslate nohighlight">\( x^{(k)} \)</span>.</p>
-<p><strong>[0.5 points]:</strong> Plot the iterations <span class="math notranslate nohighlight">\( x^{(k)} \)</span> and the contours of the function</p>
-<div class="math notranslate nohighlight">
-\[ 
-f(x) = 1 \, / \, 2 \, x^T \mathbb{A} x - x^T b, \ x \in [-1, 1] \times [-1, 1],
-\]</div>
-<p>where <span class="math notranslate nohighlight">\( \mathbb{A} \)</span> is the coefficient matrix and <span class="math notranslate nohighlight">\( b \)</span> is the right-hand side vector, using the <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html"><code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot.scatter</span></code></a> and the <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.contour.html"><code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot.contour</span></code></a> functions, respectively.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
-</pre></div>
-</div>
-</div>
-</div>
+  <div class="section" id="task-08">
+<h1>Task 08<a class="headerlink" href="#task-08" title="Permalink to this headline">¶</a></h1>
+<p><strong>deadline: 25/04/2021 23:59 CET</strong></p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -361,8 +335,8 @@ f(x) = 1 \, / \, 2 \, x^T \mathbb{A} x - x^T b, \ x \in [-1, 1] \times [-1, 1],
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="task_03.html" title="previous page">Task 03</a>
-    <a class='right-next' id="next-link" href="task_05.html" title="next page">Task 05</a>
+    <a class='left-prev' id="prev-link" href="task_07.html" title="previous page">Task 07</a>
+    <a class='right-next' id="next-link" href="solutions.html" title="next page">Solutions</a>
 
         </div>
         

@@ -57,7 +57,7 @@
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Solutions" href="solutions.html" />
+    <link rel="next" title="Tutorial 08 - Optimization" href="08-optimization.html" />
     <link rel="prev" title="Tutorial 06 - Data sorting" href="06-data_sorting.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -137,6 +137,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="08-optimization.html">
+   08 Optimization
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="solutions.html">
    Solutions
   </a>
@@ -184,6 +189,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../tasks/task_08.html">
+   Task 08
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../tasks/solutions.html">
    Solutions
   </a>
@@ -191,6 +201,10 @@
 </ul>
 
 </nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+   
+</div>
 
 </div>
 
@@ -355,7 +369,7 @@
 <span class="sd">    Returns:</span>
 <span class="sd">        float: The root of function f</span>
 <span class="sd">    Raises:</span>
-<span class="sd">        RuntimeError: Raises an exception when no root is found within specified error tolerance and maximum number of iterations</span>
+<span class="sd">        RuntimeError: Raises an exception when the root is not found</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># add your code here</span>
@@ -425,7 +439,7 @@ x = \frac{x^{(0)} f(x^{(1)}) - x^{(1)} f(x^{(0)})}{f(x^{(1)}) - f(x^{(0)})}.
 <span class="sd">    Returns:</span>
 <span class="sd">        float: The root of function f</span>
 <span class="sd">    Raises:</span>
-<span class="sd">        RuntimeError: Raises an exception when no root is found within specified error tolerance and maximum number of iterations</span>
+<span class="sd">        RuntimeError: Raises an exception when the root is not found</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># add your code here</span>
@@ -484,7 +498,7 @@ f(x) = x^3 - x - 1
 <span class="sd">    Returns:</span>
 <span class="sd">        float: The root of function f</span>
 <span class="sd">    Raises:</span>
-<span class="sd">        RuntimeError: Raises an exception when no root is found within specified error tolerance and maximum number of iterations</span>
+<span class="sd">        RuntimeError: Raises an exception when the root is not found</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># add your code here</span>
@@ -532,7 +546,7 @@ x^{(k + 1)} = x^{(k)} - \frac{f(x^{(k)})}{f^{\prime}(x^{(k)})}
 <span class="sd">    Returns:</span>
 <span class="sd">        float: The solution of a given equation</span>
 <span class="sd">    Raises:</span>
-<span class="sd">        RuntimeError: Raises an exception when no solution is found within specified error tolerance and maximum number of iterations</span>
+<span class="sd">        RuntimeError: Raises an exception when the solution is not found</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># add your code here</span>
@@ -616,7 +630,7 @@ J \cdot \delta_x = -f,
 <span class="sd">    Returns:</span>
 <span class="sd">        list: The vector of solution of a given sytem of equations</span>
 <span class="sd">    Raises:</span>
-<span class="sd">        RuntimeError: Raises an exception when no solution is found within specified error tolerance and maximum number of iterations</span>
+<span class="sd">        RuntimeError: Raises an exception when the solution is not found</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># add your code here</span>
@@ -627,7 +641,7 @@ J \cdot \delta_x = -f,
 <div class="alert alert-block alert-warning">
 <p><strong>Exercise 07.10:</strong> Solve the following system of nonlinear equations,</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}
+\[\begin{split}  
 \begin{align}
 &amp; x^2 - y^2 = -4 x + 2 y + 1, \\
 &amp; x^2 = -5y + 4,
@@ -670,7 +684,7 @@ J \cdot \delta_x = -f,
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="06-data_sorting.html" title="previous page">Tutorial 06 - Data sorting</a>
-    <a class='right-next' id="next-link" href="solutions.html" title="next page">Solutions</a>
+    <a class='right-next' id="next-link" href="08-optimization.html" title="next page">Tutorial 08 - Optimization</a>
 
         </div>
         
