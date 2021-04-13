@@ -34,7 +34,7 @@ html:
   use_repository_button: true
   use_issues_button: true
   use_edit_page_button: false
-  extra_navbar: ""
+  extra_navbar: " "
   favicon: "./favicon.png"
 
 launch_buttons:

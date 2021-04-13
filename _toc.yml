@@ -20,8 +20,8 @@
     title: 06 Data sorting
   - file: tutorials/07-nonlinear_equations
     title: 07 Nonlinear equations
-    #- file: tutorials/08-optimization
-    #title: 08 Optimization
+  - file: tutorials/08-optimization
+    title: 08 Optimization
     #- file: tutorials/09-quadrature
     #title: 09 Quadrature
     #- file: tutorials/10-initial_value_problems
@@ -47,8 +47,8 @@
     title: Task 06
   - file: tasks/task_07
     title: Task 07
-    #- file: tasks/task_08
-    #title: Task 08
+  - file: tasks/task_08
+    title: Task 08
     #- file: tasks/task_09
     #title: Task 09
     #- file: tasks/task_10
