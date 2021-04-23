@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Task 05 &#8212; 12NME1 - Numerical methods</title>
+    <title>Task 09 &#8212; 12NME1 - Numerical methods</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -49,13 +49,11 @@
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="shortcut icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Task 06" href="task_06.html" />
-    <link rel="prev" title="Task 04" href="task_04.html" />
+    <link rel="next" title="Solutions to assignment tasks" href="solutions.html" />
+    <link rel="prev" title="Task 08" href="task_08.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -175,8 +173,8 @@
    Task 04
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="task_05.html">
    Task 05
   </a>
  </li>
@@ -195,8 +193,8 @@
    Task 08
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="task_09.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Task 09
   </a>
  </li>
@@ -246,7 +244,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/tasks/task_05.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/tasks/task_09.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -266,7 +264,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/valenpe7/numerical_methods/issues/new?title=Issue%20on%20page%20%2Ftasks/task_05.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/valenpe7/numerical_methods/issues/new?title=Issue%20on%20page%20%2Ftasks/task_09.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -287,7 +285,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/valenpe7/numerical_methods/master?urlpath=tree/./tasks/task_05.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/valenpe7/numerical_methods/master?urlpath=tree/./tasks/task_09.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -315,27 +313,9 @@
         
               <div>
                 
-  <div class="section" id="task-05">
-<h1>Task 05<a class="headerlink" href="#task-05" title="Permalink to this headline">¶</a></h1>
-<p><strong>deadline: 28/03/2021 23:59 CET</strong></p>
-<p><strong>[0.5 points]:</strong> Approximate the function</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-f(x) =
-\begin{cases}
--1 &amp; \text{if $ x \leq 5 $} \\
-1 &amp; \text{if $ x &gt; 5 $}
-\end{cases}
-\end{split}\]</div>
-<p>in the <span class="math notranslate nohighlight">\( [0, 10] \)</span> interval with the Lagrange interpolating polynomial using the roots of the <span class="math notranslate nohighlight">\( 10 \)</span>-th degree Chebyshev polynomial (you may use the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.lagrange.html"><code class="docutils literal notranslate"><span class="pre">scipy.interpolate.lagrange</span></code></a> and <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.roots_chebyt.html"><code class="docutils literal notranslate"><span class="pre">scipy.special.roots_chebyt</span></code></a> functions). Print the interpolating polynomial.</p>
-<p><strong>[0.5 points]:</strong> Plot the function <span class="math notranslate nohighlight">\( f(x) \)</span>, the interpolating polynomial, and the absolute error of the approximation.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
-</pre></div>
-</div>
-</div>
-</div>
+  <div class="section" id="task-09">
+<h1>Task 09<a class="headerlink" href="#task-09" title="Permalink to this headline">¶</a></h1>
+<p><strong>deadline: 02/05/2021 23:59 CET</strong></p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -363,8 +343,8 @@ f(x) =
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="task_04.html" title="previous page">Task 04</a>
-    <a class='right-next' id="next-link" href="task_06.html" title="next page">Task 06</a>
+    <a class='left-prev' id="prev-link" href="task_08.html" title="previous page">Task 08</a>
+    <a class='right-next' id="next-link" href="solutions.html" title="next page">Solutions to assignment tasks</a>
 
         </div>
         
