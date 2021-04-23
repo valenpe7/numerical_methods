@@ -22,8 +22,8 @@
     title: 07 Nonlinear equations
   - file: tutorials/08-optimization
     title: 08 Optimization
-    #- file: tutorials/09-quadrature
-    #title: 09 Quadrature
+  - file: tutorials/09-quadrature
+    title: 09 Quadrature
     #- file: tutorials/10-initial_value_problems
     #title: 10 Initial value problems
     #- file: tutorials/11-boundary_value_problems
@@ -49,8 +49,8 @@
     title: Task 07
   - file: tasks/task_08
     title: Task 08
-    #- file: tasks/task_09
-    #title: Task 09
+  - file: tasks/task_09
+    title: Task 09
     #- file: tasks/task_10
     #title: Task 10
     #- file: tasks/task_11
