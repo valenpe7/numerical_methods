@@ -318,6 +318,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span>
 </pre></div>
@@ -980,9 +981,9 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100
-95
-65
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>103
+98
+66
 </pre></div>
 </div>
 </div>
@@ -1348,7 +1349,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x138a96ee0a0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x2a030e73100&gt;]
 </pre></div>
 </div>
 <img alt="../_images/solutions_77_1.png" src="../_images/solutions_77_1.png" />
@@ -1375,7 +1376,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x138a9aaf760&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x2a030e377c0&gt;]
 </pre></div>
 </div>
 <img alt="../_images/solutions_79_1.png" src="../_images/solutions_79_1.png" />
@@ -1586,41 +1587,41 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bubble sort:
-36.4 µs ± 555 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+29 µs ± 776 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
 selection sort:
-30.2 µs ± 824 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+29.2 µs ± 998 ns per loop (mean ± std. dev. of 7 runs, 10000 loops each)
 insertion sort:
-20.4 µs ± 1.52 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+13.2 µs ± 374 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
 shell sort:
-20.9 µs ± 1.13 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+20.7 µs ± 1.8 µs per loop (mean ± std. dev. of 7 runs, 100000 loops each)
 quicksort:
-314 µs ± 4.68 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+342 µs ± 6.12 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
 heapsort:
-41.1 µs ± 1.1 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+44 µs ± 1.23 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
 bubble sort:
-3.4 ms ± 30.7 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+3.43 ms ± 112 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 selection sort:
-2.16 ms ± 140 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+1.89 ms ± 45.3 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
 insertion sort:
-1.45 ms ± 3.14 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+1.36 ms ± 40.8 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
 shell sort:
-513 µs ± 3.12 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+493 µs ± 10 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
 quicksort:
-5.23 ms ± 7.45 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+5.54 ms ± 60.9 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 heapsort:
-926 µs ± 23.9 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+901 µs ± 18.9 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
 bubble sort:
-366 ms ± 21.2 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+339 ms ± 11.2 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 selection sort:
-195 ms ± 5.3 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+183 ms ± 2.5 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
 insertion sort:
-160 ms ± 4.67 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+155 ms ± 6.42 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
 shell sort:
-8.65 ms ± 264 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+8.59 ms ± 439 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 quicksort:
-95.3 ms ± 2.3 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+92.8 ms ± 3.9 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
 heapsort:
-15.2 ms ± 671 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+15 ms ± 700 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 </pre></div>
 </div>
 <img alt="../_images/solutions_93_1.png" src="../_images/solutions_93_1.png" />
@@ -1919,6 +1920,255 @@ heapsort:
 </pre></div>
 </div>
 <img alt="../_images/solutions_113_1.png" src="../_images/solutions_113_1.png" />
+</div>
+</div>
+<p><strong>Exercise 08.1:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">golden_section_search</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">error_tolerance</span><span class="o">=</span><span class="mf">1.0e-15</span><span class="p">,</span> <span class="n">max_iterations</span><span class="o">=</span><span class="mi">500</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Finds the minimum of function using golden section search.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        f (function): A strictly unimodal function on [a, b]</span>
+<span class="sd">        a (float): Left endpoint of the interval</span>
+<span class="sd">        b (float): Right endpoint of the interval</span>
+<span class="sd">        error_tolerance (float): Error tolerance</span>
+<span class="sd">        max_iterations (int): Maximum number of iterations</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        float: A coordinate of minimum</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        RuntimeError: Raises an exception when the minimum is not found</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">gr</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">5.0</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="n">gr</span> 
+    <span class="n">d</span> <span class="o">=</span> <span class="n">b</span> <span class="o">-</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="n">gr</span>
+    <span class="k">while</span> <span class="n">k</span> <span class="o">&lt;=</span> <span class="n">max_iterations</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">f</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">f</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="n">d</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="n">c</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="n">gr</span> 
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="n">c</span> 
+            <span class="n">c</span> <span class="o">=</span> <span class="n">d</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="n">b</span> <span class="o">-</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="n">gr</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">error_tolerance</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;minimum found within tolerance&quot;</span><span class="p">,</span> <span class="n">error_tolerance</span><span class="p">,</span> <span class="s2">&quot;using&quot;</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="s2">&quot;iterations&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;minimum not found within tolerance&quot;</span><span class="p">,</span> <span class="n">error_tolerance</span><span class="p">,</span> <span class="s2">&quot;using&quot;</span><span class="p">,</span> <span class="n">max_iterations</span><span class="p">,</span> <span class="s2">&quot;iterations&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 08.2:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mf">3.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mf">3.0</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mf">5.0</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">x_min</span> <span class="o">=</span> <span class="n">golden_section_search</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="mf">1.0e-7</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x_min</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x_min</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>minimum found within tolerance 1e-07 using 39 iterations
+2.215301416536189
+</pre></div>
+</div>
+<img alt="../_images/solutions_117_1.png" src="../_images/solutions_117_1.png" />
+</div>
+</div>
+<p><strong>Exercise 08.3:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">parabolic_interpolation_search</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">error_tolerance</span><span class="o">=</span><span class="mf">1.0e-15</span><span class="p">,</span> <span class="n">max_iterations</span><span class="o">=</span><span class="mi">500</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Finds the minimum of function using parabolic interpolation search.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        f (function): A strictly unimodal function on [a, b]</span>
+<span class="sd">        a (float): Left endpoint of the interval</span>
+<span class="sd">        b (float): Point inside the interval</span>
+<span class="sd">        c (float): Right endpoint of the interval</span>
+<span class="sd">        error_tolerance (float): Error tolerance</span>
+<span class="sd">        max_iterations (int): Maximum number of iterations</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        float: A coordinate of minimum</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        RuntimeError: Raises an exception when the minimum is not found</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">k</span> <span class="o">&lt;=</span> <span class="n">max_iterations</span><span class="p">:</span>
+        <span class="n">x_min</span> <span class="o">=</span> <span class="n">b</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">((</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">c</span><span class="p">))</span> <span class="o">-</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">c</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)))</span> <span class="o">/</span> <span class="p">((</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span>
+                <span class="o">*</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">c</span><span class="p">))</span> <span class="o">-</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">c</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)))</span>
+        <span class="k">if</span> <span class="n">x_min</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">f</span><span class="p">(</span><span class="n">x_min</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+                <span class="n">c</span> <span class="o">=</span> <span class="n">b</span>
+                <span class="n">b</span> <span class="o">=</span> <span class="n">x_min</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">a</span> <span class="o">=</span> <span class="n">x_min</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">f</span><span class="p">(</span><span class="n">x_min</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+                <span class="n">a</span> <span class="o">=</span> <span class="n">b</span>
+                <span class="n">b</span> <span class="o">=</span> <span class="n">x_min</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">c</span> <span class="o">=</span> <span class="n">x_min</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">error_tolerance</span><span class="p">:</span>
+            <span class="c1">#print(&quot;minimum found within tolerance&quot;, error_tolerance, &quot;using&quot;, k, &quot;iterations&quot;)</span>
+            <span class="k">return</span> <span class="n">b</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;minimum not found within tolerance&quot;</span><span class="p">,</span> <span class="n">error_tolerance</span><span class="p">,</span> <span class="s2">&quot;using&quot;</span><span class="p">,</span> <span class="n">max_iterations</span><span class="p">,</span> <span class="s2">&quot;iterations&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 08.4:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">x_min</span> <span class="o">=</span> <span class="n">parabolic_interpolation_search</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="mf">1.0e-7</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x_min</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x_min</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.211659172323886
+</pre></div>
+</div>
+<img alt="../_images/solutions_121_1.png" src="../_images/solutions_121_1.png" />
+</div>
+</div>
+<p><strong>Exercise 08.5:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">steepest_descent</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x_0</span><span class="p">,</span> <span class="n">step</span><span class="p">,</span> <span class="n">error_tolerance</span><span class="o">=</span><span class="mf">1.0e-15</span><span class="p">,</span> <span class="n">max_iterations</span><span class="o">=</span><span class="mf">1e5</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Finds the minimum of function using the method of steepest descent.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        f (function): A strictly unimodal and differentiable function in a neighborhood of a point x_0</span>
+<span class="sd">        x_0 (float): Initial guess</span>
+<span class="sd">        step (float): Step size multiplier</span>
+<span class="sd">        error_tolerance (float): Error tolerance</span>
+<span class="sd">        n_max (int): Maximum number of iterations</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        float: A coordinate of minimum</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        RuntimeError: Raises an exception when the minimum is not found</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">grad</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1.0e-8</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">/</span> <span class="n">h</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">max_iterations</span><span class="p">:</span>
+        <span class="n">x_1</span> <span class="o">=</span> <span class="n">x_0</span> <span class="o">-</span> <span class="n">step</span> <span class="o">*</span> <span class="n">grad</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x_0</span><span class="p">)</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x_1</span> <span class="o">-</span> <span class="n">x_0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">error_tolerance</span><span class="p">:</span>
+            <span class="c1">#print(&quot;minimum found within tolerance&quot;, error_tolerance, &quot;using&quot;, k, &quot;iterations&quot;)</span>
+            <span class="k">return</span> <span class="n">x_1</span>
+        <span class="n">x_0</span> <span class="o">=</span> <span class="n">x_1</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;minimum not found within tolerance&quot;</span><span class="p">,</span> <span class="n">error_tolerance</span><span class="p">,</span> <span class="s2">&quot;using&quot;</span><span class="p">,</span> <span class="n">max_iterations</span><span class="p">,</span> <span class="s2">&quot;iterations&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 08.6:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">x_min</span> <span class="o">=</span> <span class="n">steepest_descent</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0e-3</span><span class="p">,</span> <span class="mf">1.0e-7</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x_min</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x_min</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.1952907012523994
+</pre></div>
+</div>
+<img alt="../_images/solutions_125_1.png" src="../_images/solutions_125_1.png" />
+</div>
+</div>
+<p><strong>Exercise 08.7:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">steepest_descent_nd</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x_0</span><span class="p">,</span> <span class="n">step</span><span class="p">,</span> <span class="n">error_tolerance</span><span class="o">=</span><span class="mf">1.0e-15</span><span class="p">,</span> <span class="n">max_iterations</span><span class="o">=</span><span class="mf">1e5</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Finds the minimum of function using the method of steepest descent.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        f (function): A strictly unimodal and differentiable function in a neighborhood of a point x_0</span>
+<span class="sd">        x_0 (float): Initial guess</span>
+<span class="sd">        step (float): Step size multiplier</span>
+<span class="sd">        error_tolerance (float): Error tolerance</span>
+<span class="sd">        n_max (int): Maximum number of iterations</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        float: A coordinate of minimum</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        RuntimeError: Raises an exception when the minimum is not found</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">grad</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1.0e-8</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">h</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">)[</span><span class="n">j</span><span class="p">])</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">/</span> <span class="n">h</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">)])</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">max_iterations</span><span class="p">:</span>
+        <span class="n">x_1</span> <span class="o">=</span> <span class="n">x_0</span> <span class="o">-</span> <span class="n">step</span> <span class="o">*</span> <span class="n">grad</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x_0</span><span class="p">)</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x_1</span> <span class="o">-</span> <span class="n">x_0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">error_tolerance</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;minimum found within tolerance&quot;</span><span class="p">,</span> <span class="n">error_tolerance</span><span class="p">,</span> <span class="s2">&quot;using&quot;</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="s2">&quot;iterations&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">x_1</span>
+        <span class="n">x_0</span> <span class="o">=</span> <span class="n">x_1</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;minimum not found within tolerance&quot;</span><span class="p">,</span> <span class="n">error_tolerance</span><span class="p">,</span> <span class="s2">&quot;using&quot;</span><span class="p">,</span> <span class="n">max_iterations</span><span class="p">,</span> <span class="s2">&quot;iterations&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise 08.8:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> 
+    <span class="k">return</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mf">2.0</span>  <span class="o">+</span> <span class="mf">100.0</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mf">2.0</span><span class="p">)</span><span class="o">**</span><span class="mf">2.0</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+
+<span class="n">x_min</span> <span class="o">=</span> <span class="n">steepest_descent_nd</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]),</span> <span class="mf">1.0e-3</span><span class="p">,</span> <span class="mf">1.0e-7</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x_min</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">norm</span><span class="o">=</span><span class="n">mpl</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">LogNorm</span><span class="p">(),</span> <span class="n">shading</span><span class="o">=</span><span class="s2">&quot;gouraud&quot;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">norm</span><span class="o">=</span><span class="n">mpl</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">LogNorm</span><span class="p">(),</span> <span class="n">colors</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_min</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x_min</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>minimum found within tolerance 1e-07 using 19777 iterations
+[0.99988525 0.99977007]
+</pre></div>
+</div>
+<img alt="../_images/solutions_129_1.png" src="../_images/solutions_129_1.png" />
 </div>
 </div>
 </div>
