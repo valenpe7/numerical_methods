@@ -728,6 +728,45 @@ The implementation is correct.
 <img alt="../_images/solutions_17_1.png" src="../_images/solutions_17_1.png" />
 </div>
 </div>
+<p><strong>Assignment task 09:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">midpoint_rule</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates definite integral of 1D function using rectangular rule.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        f (function): A function defined on interval [a, b]</span>
+<span class="sd">        a (float): Left-hand side point of the interval</span>
+<span class="sd">        b (float): Right-hand side point of the interval</span>
+<span class="sd">        N (int): Number of subdivisions of the interval [a, b]</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        float: Definite integral</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">retstep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">I</span> <span class="o">+=</span> <span class="n">h</span> <span class="o">*</span> <span class="n">f</span><span class="p">((</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">I</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">4</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">I</span> <span class="o">=</span> <span class="n">midpoint_rule</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="mf">22.0</span> <span class="o">/</span> <span class="mf">7.0</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">-</span> <span class="n">I</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0012644494821294993 3.978522017844717e-08
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
