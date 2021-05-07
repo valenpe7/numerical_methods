@@ -376,13 +376,13 @@
 <p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Shooting_method">shooting method</a> has its origin in artillery. When firing a cannon towards a target, the first shot is fired in the general direction of the target. If the cannon ball hits too far to the right, the cannon is pointed a little to the left for the second shot, and vice versa. This way, the cannon balls will hit ever closer to the target. Consider the following boundary value problem,</p>
 <div class="math notranslate nohighlight">
 \[
-\tag{1}
+\tag{1} \label{eq:shooting_bvp}
 y^{\prime \prime}(x) = f(x, y(x), y^{\prime}(x)), \quad x \in [a, b], \quad y(a) = \alpha, \quad y(b) = \beta.
 \]</div>
 <p>Let <span class="math notranslate nohighlight">\( y(x; \gamma) \)</span> denote the solution of the initial value problem</p>
 <div class="math notranslate nohighlight">
 \[
-\tag{2}
+\tag{2} \label{eq:shooting_ivp}
 y^{\prime \prime}(x) = f(x, y(x), y^{\prime}(x)), \quad x \in [a, b], \quad y(a) = \alpha, \quad y^{\prime}(a) = \gamma.
 \]</div>
 <p>Define the function <span class="math notranslate nohighlight">\( F(\gamma) \)</span> as the difference between <span class="math notranslate nohighlight">\( y(b; \, \gamma) \)</span> and the specified boundary value <span class="math notranslate nohighlight">\( \beta \)</span>,</p>
@@ -390,7 +390,7 @@ y^{\prime \prime}(x) = f(x, y(x), y^{\prime}(x)), \quad x \in [a, b], \quad y(a)
 \[
 F(\gamma) = y(b; \, \gamma) - \beta.
 \]</div>
-<p>If <span class="math notranslate nohighlight">\( \gamma_0 \)</span> is a root of <span class="math notranslate nohighlight">\( F(\gamma) \)</span> then the solution <span class="math notranslate nohighlight">\( y(x; \gamma_0) \)</span> of initial value problem <span class="math notranslate nohighlight">\( (2) \)</span> is also a solution of boundary value problem <span class="math notranslate nohighlight">\( (1) \)</span>. The usual methods for finding roots may be employed here, such as the <a class="reference external" href="https://en.wikipedia.org/wiki/Bisection_method">bisection method</a> or <a class="reference external" href="https://en.wikipedia.org/wiki/Newton%27s_method">Newton-Raphson method</a>.</p>
+<p>If <span class="math notranslate nohighlight">\( \gamma_0 \)</span> is a root of <span class="math notranslate nohighlight">\( F(\gamma) \)</span> then the solution <span class="math notranslate nohighlight">\( y(x; \gamma_0) \)</span> of initial value problem <span class="math notranslate nohighlight">\( \eqref{eq:shooting_ivp} \)</span> is also a solution of boundary value problem <span class="math notranslate nohighlight">\( \eqref{eq:shooting_bvp} \)</span>. The usual methods for finding roots may be employed here, such as the <a class="reference external" href="https://en.wikipedia.org/wiki/Bisection_method">bisection method</a> or <a class="reference external" href="https://en.wikipedia.org/wiki/Newton%27s_method">Newton-Raphson method</a>.</p>
 <div class="alert alert-block alert-info">
 <p><strong>Note:</strong> The <span class="math notranslate nohighlight">\( 2^{nd} \)</span> order explicit ordinary differential equation</p>
 <div class="math notranslate nohighlight">
@@ -474,7 +474,7 @@ y \left( x \right) \approx 2 \cosh \left( \frac{x}{2} \right) - 2.255
 <p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Finite_difference_method">finite difference method</a> is a numerical technique for solving differential equations by approximating derivatives with finite differences. Consider the following boundary value problem,</p>
 <div class="math notranslate nohighlight">
 \[
-\tag{3}
+\tag{3} \label{eq:fdm_bvp}
 p \left(x \right) y^{\prime \prime} \left( x \right) + q \left(x \right) y^{\prime} \left( x \right) + r \left(x \right) y \left( x \right) + s \left(x \right) = 0, \quad x \in [a, b], \quad y(a) = \alpha, \quad y(b) = \beta.
 \]</div>
 <p>Let</p>
@@ -482,13 +482,13 @@ p \left(x \right) y^{\prime \prime} \left( x \right) + q \left(x \right) y^{\pri
 \[
 y_i^{\prime} \approx \frac{y_{i + 1} - y_{i}}{h} \quad \mathrm{and} \quad y_i^{\prime \prime} \approx \frac{y_{i + 1} - 2 y_{i} + y_{i - 1}}{h^2}, \quad i = 0, \dots, n - 1,
 \]</div>
-<p>be the finite difference approximations of <span class="math notranslate nohighlight">\( y^{\prime} \left( x_i \right) \)</span> and <span class="math notranslate nohighlight">\( y^{\prime \prime} \left( x_i \right) \)</span>, respectively, where <span class="math notranslate nohighlight">\( h &gt; 0 \)</span> is a step size. Boundary value problem <span class="math notranslate nohighlight">\( (3) \)</span> can be then rewritten as a system of linear algebraic equations</p>
+<p>be the finite difference approximations of <span class="math notranslate nohighlight">\( y^{\prime} \left( x_i \right) \)</span> and <span class="math notranslate nohighlight">\( y^{\prime \prime} \left( x_i \right) \)</span>, respectively, where <span class="math notranslate nohighlight">\( h &gt; 0 \)</span> is a step size. Boundary value problem <span class="math notranslate nohighlight">\( \eqref{eq:fdm_bvp} \)</span> can be then rewritten as a system of linear algebraic equations</p>
 <div class="math notranslate nohighlight">
 \[
-\tag{4}
+\tag{4} \label{eq:fdm_system}
 \tilde{p_i} y_{i - 1} + \tilde{q_i} y_i + \tilde{r_i} y_{i + 1} = \tilde{s_i}, \quad y_0 = \alpha, \quad y_{n - 1} = \beta.
 \]</div>
-<p>where <span class="math notranslate nohighlight">\( \tilde{p_i} = p_i \)</span>, <span class="math notranslate nohighlight">\( \tilde{q_i} = \left( -2 p_i - q_i h + r_i h^2 \right) \)</span>, <span class="math notranslate nohighlight">\( \tilde{r_i} = \left(p_i + q_i h \right) \)</span>, and <span class="math notranslate nohighlight">\( \tilde{s_i} = -s_i h^2 \)</span>. In the matrix form, system of equations <span class="math notranslate nohighlight">\( (4) \)</span> reads as</p>
+<p>where <span class="math notranslate nohighlight">\( \tilde{p_i} = p_i \)</span>, <span class="math notranslate nohighlight">\( \tilde{q_i} = \left( -2 p_i - q_i h + r_i h^2 \right) \)</span>, <span class="math notranslate nohighlight">\( \tilde{r_i} = \left(p_i + q_i h \right) \)</span>, and <span class="math notranslate nohighlight">\( \tilde{s_i} = -s_i h^2 \)</span>. In the matrix form, system of equations <span class="math notranslate nohighlight">\( \eqref{eq:fdm_system} \)</span> reads as</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{pmatrix}
@@ -583,10 +583,10 @@ y \left( x \right) = -\frac{\exp{\left( -t \right)} \sin \left[ 3 \sqrt{11} \lef
 <p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Finite_element_method">finite element method</a> is a numerical technique for solving differential equations, commonly in <a class="reference external" href="https://en.wikipedia.org/wiki/Weak_formulation">weak formulation</a>, by applying linear constraints determined by finite sets of basis functions. Consider the following boundary value problem,</p>
 <div class="math notranslate nohighlight">
 \[
-\tag{5}
+\tag{5} \label{eq:fem_bvp}
 y^{\prime \prime} \left( x \right) = f \left( x \right), \quad x \in \left[a, \, b \right], \quad y \left( a \right) = \alpha, \quad y \left( b \right) = \beta.
 \]</div>
-<p>We are looking for the solution of <span class="math notranslate nohighlight">\( (5) \)</span> in the folowing form,</p>
+<p>We are looking for the solution of <span class="math notranslate nohighlight">\( \eqref{eq:fem_bvp} \)</span> in the folowing form,</p>
 <div class="math notranslate nohighlight">
 \[
 \tilde{y} \left(x \right) = \sum_{j = 0}^{n - 1} q_j \phi_j \left( x \right),
@@ -614,10 +614,10 @@ y^{\prime \prime} \left( x \right) = f \left( x \right), \quad x \in \left[a, \,
 <p>where <span class="math notranslate nohighlight">\( h &gt; 0 \)</span> is a step size, and setting each <span class="math notranslate nohighlight">\( \Pi_i \left( \tilde{y} \right) \)</span> to zero, one obtains a system of linear algebraic equations for unknowns <span class="math notranslate nohighlight">\( q_i \)</span>,</p>
 <div class="math notranslate nohighlight">
 \[
-\tag{6}
+\tag{6} \label{eq:fem_system}
 \frac{1}{h} q_{i - 1} - \frac{2}{h} q_{i} + \frac{1}{h} q_{i + 1} = \frac{x_{i + 1} - x_{i - 1}}{2} f \left( x_i \right), \quad q_0 = \alpha, \quad q_{n - 1} = \beta.
 \]</div>
-<p>In the matrix form, system of equations <span class="math notranslate nohighlight">\( (6) \)</span> reads as</p>
+<p>In the matrix form, system of equations <span class="math notranslate nohighlight">\( \eqref{eq:fem_system} \)</span> reads as</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{pmatrix}
