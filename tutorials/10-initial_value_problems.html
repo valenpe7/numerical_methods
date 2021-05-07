@@ -358,7 +358,7 @@
      <span class="math notranslate nohighlight">
       \(3^{rd}\)
      </span>
-     order method:
+     order method
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -367,12 +367,12 @@
      <span class="math notranslate nohighlight">
       \(4^{th}\)
      </span>
-     order method:
+     order method
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#backward-implicit-euler-method">
-     Backward (implicit) Euler method:
+     Backward (implicit) Euler method
     </a>
    </li>
   </ul>
@@ -422,6 +422,7 @@
                 
   <div class="section" id="tutorial-10-initial-value-problems">
 <h1>Tutorial 10 - Initial value problems<a class="headerlink" href="#tutorial-10-initial-value-problems" title="Permalink to this headline">¶</a></h1>
+<p>nitial value problems of ordinary differential equations, explicit and implicit Euler method, Runge-Kutta methods, Leap-frog, Adams-Bashford, Adams-Moulton, predictor-corrector, Bulirsch-Stoer algorithm, stiff equations.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -433,8 +434,42 @@
 </div>
 <div class="section" id="runge-kutta-methods">
 <h2>Runge-Kutta methods<a class="headerlink" href="#runge-kutta-methods" title="Permalink to this headline">¶</a></h2>
-<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_Runge%E2%80%93Kutta_methods">list of Runge-Kutta methods</a></p>
-<div class="section" id="forward-explicit-euler-method">
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods">Runge–Kutta methods</a> are a family of <a class="reference external" href="https://en.wikipedia.org/wiki/Explicit_and_implicit_methods">explicit and implicit</a> <a class="reference external" href="https://en.wikipedia.org/wiki/Iterative_method">iterative</a> methods for the numerical solution of the <a class="reference external" href="https://en.wikipedia.org/wiki/Initial_value_problem">initial value problem</a></p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dy}{dx} = f(x, y), \quad y(x_0) = y_0.
+\]</div>
+<p>Here <span class="math notranslate nohighlight">\( y \)</span> is an unknown function (scalar or vector) of <span class="math notranslate nohighlight">\( x \)</span>. The function <span class="math notranslate nohighlight">\( f \)</span> and the <a class="reference external" href="https://en.wikipedia.org/wiki/Initial_condition">initial conditions</a> <span class="math notranslate nohighlight">\( x_0 \)</span>, <span class="math notranslate nohighlight">\( y_0 \)</span> are given. The Runge–Kutta methods take the form</p>
+<div class="math notranslate nohighlight">
+\[
+y_{i + 1} = y_{i} + h \sum_{j = 1}^{r} b_{j} k_{j}(h), \quad i = 0, \dots, n - 1.
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+k_j = f(x_i + c_j h, y_i + h \sum_{l = 1}^{j - 1} a_{jl} k_l)
+\]</div>
+<p>in the case of explicit methods and</p>
+<div class="math notranslate nohighlight">
+\[
+k_j = f(x_i + c_j h, y_i + h \sum_{l = 1}^{r}  a_{jl} k_l)
+\]</div>
+<p>in the case of implicit methods. Here, <span class="math notranslate nohighlight">\( y_i \)</span> and <span class="math notranslate nohighlight">\( y_{i + 1} \)</span> are the approximations of <span class="math notranslate nohighlight">\( y(x_i)\)</span> and <span class="math notranslate nohighlight">\( y(x_{i + 1}) \)</span>, respectively, and <span class="math notranslate nohighlight">\( h &gt; 0 \)</span> is a step size. To specify a particular method, one needs to provide the integer <span class="math notranslate nohighlight">\( r \)</span> (the number of stages), and the coefficients <span class="math notranslate nohighlight">\( a_{ij} \)</span>, <span class="math notranslate nohighlight">\( b_i \)</span>, and <span class="math notranslate nohighlight">\( c_i \)</span> (see the <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_Runge%E2%80%93Kutta_methods">list of Runge-Kutta methods</a>). The matrix <span class="math notranslate nohighlight">\( (a_{ij}) \)</span> is called the Runge–Kutta matrix, while the <span class="math notranslate nohighlight">\( b_i \)</span> and <span class="math notranslate nohighlight">\( c_i \)</span> are known as the weights and the nodes. These data can be arranged in a Butcher tableau:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}
+{c|cccc}
+c_1 &amp; a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1r} \\
+c_2 &amp; a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2r} \\
+\vdots &amp; \vdots &amp; \vdots  &amp; \ddots &amp; \vdots \\
+c_r &amp; a_{r1} &amp; a_{r2} &amp; \cdots &amp; a_{rr}\\
+\hline
+&amp; b_1 &amp; b_2 &amp; \cdots &amp; b_{r}
+\end{array}
+\end{split}\]</div>
+<div class="alert alert-block alert-info">
+<p><strong>Note:</strong> In the case of explicit methods the Runge-Kutta matrix is lower triangular.</p>
+</div><div class="section" id="forward-explicit-euler-method">
 <h3>Forward (explicit) Euler method<a class="headerlink" href="#forward-explicit-euler-method" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Euler_method">forward Euler method</a></p>
 <div class="alert alert-block alert-warning">
@@ -442,7 +477,7 @@
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">forward_euler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x_0</span><span class="p">,</span> <span class="n">x_n</span><span class="p">,</span> <span class="n">y_0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span> <span class="c1"># Runge-Kutta 1st order method</span>
-    
+
     <span class="c1"># add your code here</span>
 </pre></div>
 </div>
@@ -468,19 +503,17 @@
 <p><strong>Exercise 10.2:</strong> The fundamental law of radioactive decay can be mathematically expressed as</p>
 <div class="math notranslate nohighlight">
 \[
-\frac{dN}{dt} = - \lambda N, \qquad \lambda = \frac{\ln(2)}{t_{1/2}},
+\frac{dN(t)}{dt} = - \lambda N(t), \qquad N(t_0) = N_0,
 \]</div>
-<p>where <span class="math notranslate nohighlight">\( N \)</span> is the number of radioactive nuclei, <span class="math notranslate nohighlight">\( t \)</span> is time, <span class="math notranslate nohighlight">\( \lambda \)</span> is the decay constant and <span class="math notranslate nohighlight">\( t_{1/2} \)</span> is the half-life of the decaying quantity. The analytical solution of the decay equation is</p>
+<p>where <span class="math notranslate nohighlight">\( N \)</span> is the number of radioactive nuclei, <span class="math notranslate nohighlight">\( t \)</span> is time, <span class="math notranslate nohighlight">\( \lambda = \ln(2) \, / \, t_{1/2} \)</span> is the decay constant and <span class="math notranslate nohighlight">\( t_{1/2} \)</span> is the half-life of the decaying quantity. The analytical solution of the decay equation is</p>
 <div class="math notranslate nohighlight">
 \[
-N(t) = N_0 e^{-\lambda t},
+N(t) = N_0 e^{-\lambda t}.
 \]</div>
-<p>where <span class="math notranslate nohighlight">\( N_0 \)</span> is the initial quantity of the substance that will decay.</p>
 <p>Solve the decay equation for <a class="reference external" href="https://en.wikipedia.org/wiki/Isotopes_of_radium#Radium-226">Ra-226</a> using the forward Euler method and compare the numerical and analytical solutions.</p>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>    
-<span class="c1"># add your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
 </pre></div>
 </div>
 </div>
@@ -493,7 +526,7 @@ N(t) = N_0 e^{-\lambda t},
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">runge_kutta_2</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x_0</span><span class="p">,</span> <span class="n">x_n</span><span class="p">,</span> <span class="n">y_0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-    
+
     <span class="c1"># add your code here</span>
 </pre></div>
 </div>
@@ -519,21 +552,20 @@ N(t) = N_0 e^{-\lambda t},
 <p><strong>Exercise 10.4:</strong> Solve the decay equation for <a class="reference external" href="https://en.wikipedia.org/wiki/Isotopes_of_radium#Radium-226">Ra-226</a> using the Runge-Kutta <span class="math notranslate nohighlight">\( 2^{\mathrm{nd}} \)</span> order method and compare the numerical and analytical solutions.</p>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>    
-<span class="c1"># add your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="runge-kutta-3-rd-order-method">
-<h3>Runge-Kutta <span class="math notranslate nohighlight">\(3^{rd}\)</span> order method:<a class="headerlink" href="#runge-kutta-3-rd-order-method" title="Permalink to this headline">¶</a></h3>
+<h3>Runge-Kutta <span class="math notranslate nohighlight">\(3^{rd}\)</span> order method<a class="headerlink" href="#runge-kutta-3-rd-order-method" title="Permalink to this headline">¶</a></h3>
 <div class="alert alert-block alert-warning">
 <p><strong>Exercise 10.5:</strong> Implement the Runge-Kutta <span class="math notranslate nohighlight">\( 3^{\mathrm{rd}} \)</span> order method.</p>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">runge_kutta_3</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x_0</span><span class="p">,</span> <span class="n">x_n</span><span class="p">,</span> <span class="n">y_0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-    
+
     <span class="c1"># add your code here</span>
 </pre></div>
 </div>
@@ -559,21 +591,20 @@ N(t) = N_0 e^{-\lambda t},
 <p><strong>Exercise 10.6:</strong> Solve the decay equation for <a class="reference external" href="https://en.wikipedia.org/wiki/Isotopes_of_radium#Radium-226">Ra-226</a> using the Runge-Kutta <span class="math notranslate nohighlight">\( 3^{\mathrm{rd}} \)</span> order method and compare the numerical and analytical solutions.</p>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>    
-<span class="c1"># add your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="runge-kutta-4-th-order-method">
-<h3>Runge-Kutta <span class="math notranslate nohighlight">\(4^{th}\)</span> order method:<a class="headerlink" href="#runge-kutta-4-th-order-method" title="Permalink to this headline">¶</a></h3>
+<h3>Runge-Kutta <span class="math notranslate nohighlight">\(4^{th}\)</span> order method<a class="headerlink" href="#runge-kutta-4-th-order-method" title="Permalink to this headline">¶</a></h3>
 <div class="alert alert-block alert-warning">
 <p><strong>Exercise 10.7:</strong> Implement the Runge-Kutta <span class="math notranslate nohighlight">\( 4^{\mathrm{th}} \)</span> order method.</p>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">runge_kutta_4</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x_0</span><span class="p">,</span> <span class="n">x_n</span><span class="p">,</span> <span class="n">y_0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-    
+
     <span class="c1"># add your code here</span>
 </pre></div>
 </div>
@@ -599,21 +630,20 @@ N(t) = N_0 e^{-\lambda t},
 <p><strong>Exercise 10.8:</strong> Solve the decay equation for <a class="reference external" href="https://en.wikipedia.org/wiki/Isotopes_of_radium#Radium-226">Ra-226</a> using the Runge-Kutta <span class="math notranslate nohighlight">\( 4^{\mathrm{th}} \)</span> order method and compare the numerical and analytical solutions.</p>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>    
-<span class="c1"># add your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="backward-implicit-euler-method">
-<h3>Backward (implicit) Euler method:<a class="headerlink" href="#backward-implicit-euler-method" title="Permalink to this headline">¶</a></h3>
+<h3>Backward (implicit) Euler method<a class="headerlink" href="#backward-implicit-euler-method" title="Permalink to this headline">¶</a></h3>
 <div class="alert alert-block alert-warning">
 <p><strong>Exercise 10.9:</strong> Implement the backward Euler method.</p>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">backward_euler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x_0</span><span class="p">,</span> <span class="n">x_n</span><span class="p">,</span> <span class="n">y_0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span> <span class="c1"># implicit method</span>
-    
+
     <span class="c1"># add your code here</span>
 </pre></div>
 </div>
@@ -649,8 +679,7 @@ y(x) = (y_0 - 1) e^{-100x} + 1
 <p>and with the solution obtained by the forward Euler method.</p>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>    
-<span class="c1"># add your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
 </pre></div>
 </div>
 </div>
@@ -666,7 +695,7 @@ y(x) = (y_0 - 1) e^{-100x} + 1
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">leap_frog</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x_0</span><span class="p">,</span> <span class="n">x_n</span><span class="p">,</span> <span class="n">y_0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span> 
-    
+
     <span class="c1"># add your code here</span>
 </pre></div>
 </div>
@@ -692,8 +721,7 @@ y(x) = (y_0 - 1) e^{-100x} + 1
 <p><strong>Exercise 10.12:</strong> Solve the decay equation for <a class="reference external" href="https://en.wikipedia.org/wiki/Isotopes_of_radium#Radium-226">Ra-226</a> using the Leap-frog method and compare the numerical and analytical solutions.</p>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>    
-<span class="c1"># add your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
 </pre></div>
 </div>
 </div>
@@ -707,7 +735,7 @@ y(x) = (y_0 - 1) e^{-100x} + 1
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">adams_bashforth</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x_0</span><span class="p">,</span> <span class="n">x_n</span><span class="p">,</span> <span class="n">y_0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span> 
-    
+
     <span class="c1"># add your code here</span>
 </pre></div>
 </div>
@@ -733,8 +761,7 @@ y(x) = (y_0 - 1) e^{-100x} + 1
 <p><strong>Exercise 10.12:</strong> Solve the decay equation for <a class="reference external" href="https://en.wikipedia.org/wiki/Isotopes_of_radium#Radium-226">Ra-226</a> using the Adams-Bashforth method and compare the numerical and analytical solutions.</p>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>    
-<span class="c1"># add your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
 </pre></div>
 </div>
 </div>
@@ -748,7 +775,7 @@ y(x) = (y_0 - 1) e^{-100x} + 1
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">adams_moulton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x_0</span><span class="p">,</span> <span class="n">x_n</span><span class="p">,</span> <span class="n">y_0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span> 
-    
+
     <span class="c1"># add your code here</span>
 </pre></div>
 </div>
@@ -774,8 +801,7 @@ y(x) = (y_0 - 1) e^{-100x} + 1
 <p><strong>Exercise 10.14:</strong> Solve the decay equation for <a class="reference external" href="https://en.wikipedia.org/wiki/Isotopes_of_radium#Radium-226">Ra-226</a> using the Adams-Moulton method and compare the numerical and analytical solutions.</p>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>    
-<span class="c1"># add your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
 </pre></div>
 </div>
 </div>
@@ -790,7 +816,7 @@ y(x) = (y_0 - 1) e^{-100x} + 1
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">predictor_corrector</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x_0</span><span class="p">,</span> <span class="n">x_n</span><span class="p">,</span> <span class="n">y_0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-    
+
     <span class="c1"># add your code here</span>
 </pre></div>
 </div>
@@ -816,8 +842,7 @@ y(x) = (y_0 - 1) e^{-100x} + 1
 <p><strong>Exercise 10.16:</strong> Solve the decay equation for <a class="reference external" href="https://en.wikipedia.org/wiki/Isotopes_of_radium#Radium-226">Ra-226</a> using the predictor-corrector method and compare the numerical and analytical solutions.</p>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>    
-<span class="c1"># add your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
 </pre></div>
 </div>
 </div>
@@ -831,7 +856,7 @@ y(x) = (y_0 - 1) e^{-100x} + 1
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bulirsch_stoer</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x_0</span><span class="p">,</span> <span class="n">x_n</span><span class="p">,</span> <span class="n">y_0</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span> 
-    
+
     <span class="c1"># add your code here</span>
 </pre></div>
 </div>
@@ -857,8 +882,7 @@ y(x) = (y_0 - 1) e^{-100x} + 1
 <p><strong>Exercise 10.18:</strong> Solve the decay equation for <a class="reference external" href="https://en.wikipedia.org/wiki/Isotopes_of_radium#Radium-226">Ra-226</a> using the Bulirsch-Stoer method and compare the numerical and analytical solutions.</p>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>    
-<span class="c1"># add your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
 </pre></div>
 </div>
 </div>
