@@ -26,8 +26,8 @@
     title: 09 Quadrature
   - file: tutorials/10-initial_value_problems
     title: 10 Initial value problems
-    #- file: tutorials/11-boundary_value_problems
-    #title: 11 Boundary value problems
+  - file: tutorials/11-boundary_value_problems
+    title: 11 Boundary value problems
   - file: tutorials/solutions
     title: Solutions
 
@@ -53,7 +53,7 @@
     title: Task 09
   - file: tasks/task_10
     title: Task 10
-    #- file: tasks/task_11
-    #title: Task 11
+  - file: tasks/task_11
+    title: Task 11
   - file: tasks/solutions
     title: Solutions
