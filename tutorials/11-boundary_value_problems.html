@@ -489,7 +489,8 @@ y_i^{\prime} \approx \frac{y_{i + 1} - y_{i}}{h} \quad \mathrm{and} \quad y_i^{\
 \tilde{p_i} y_{i - 1} + \tilde{q_i} y_i + \tilde{r_i} y_{i + 1} = \tilde{s_i}, \quad y_0 = \alpha, \quad y_{n - 1} = \beta.
 \]</div>
 <p>where <span class="math notranslate nohighlight">\( \tilde{p_i} = p_i \)</span>, <span class="math notranslate nohighlight">\( \tilde{q_i} = \left( -2 p_i - q_i h + r_i h^2 \right) \)</span>, <span class="math notranslate nohighlight">\( \tilde{r_i} = \left(p_i + q_i h \right) \)</span>, and <span class="math notranslate nohighlight">\( \tilde{s_i} = -s_i h^2 \)</span>. In the matrix form, system of equations <span class="math notranslate nohighlight">\( (4) \)</span> reads as</p>
-<p>$<span class="math notranslate nohighlight">\(
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{pmatrix}
 1 &amp;  &amp;  &amp;  &amp;  \\
 \tilde{p}_1 &amp; \tilde{q}_1 &amp; \tilde{r}_1 &amp; &amp;  \\
@@ -511,7 +512,7 @@ y_{n-1}
 \tilde{s}_{n-2} \\
 \beta
 \end{pmatrix}.
-\)</span>$.</p>
+\end{split}\]</div>
 <div class="alert alert-block alert-warning">
 <p><strong>Exercise 11.3:</strong> Implement the finite diference method for the <span class="math notranslate nohighlight">\( 2^{nd} \)</span> order linear ordinary differential equation.</p>
 </div><div class="cell docutils container">
@@ -617,7 +618,8 @@ y^{\prime \prime} \left( x \right) = f \left( x \right), \quad x \in \left[a, \,
 \frac{1}{h} q_{i - 1} - \frac{2}{h} q_{i} + \frac{1}{h} q_{i + 1} = \frac{x_{i + 1} - x_{i - 1}}{2} f \left( x_i \right), \quad q_0 = \alpha, \quad q_{n - 1} = \beta.
 \]</div>
 <p>In the matrix form, system of equations <span class="math notranslate nohighlight">\( (6) \)</span> reads as</p>
-<p>$<span class="math notranslate nohighlight">\(
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{pmatrix}
 1 &amp;  &amp;  &amp;  &amp;  \\
 1 / h &amp; -2 / h &amp; 1 / h &amp; &amp;  \\
@@ -639,7 +641,7 @@ q_{n-1}
 1 \, / \, 2 \left(x_{n - 1} - x_{n - 3} \right) f \left( x_{n - 2} \right) \\
 \beta
 \end{pmatrix}.
-\)</span>$.</p>
+\end{split}\]</div>
 <div class="alert alert-block alert-warning">
 <p><strong>Exercise 11.5:</strong> Implement the finite element method for the <span class="math notranslate nohighlight">\( 2^{nd} \)</span> order ordinary differential equation in the form <span class="math notranslate nohighlight">\( y^{\prime \prime} \left( x \right) = f \left( x \right) \)</span>.</p>
 </div><div class="cell docutils container">
