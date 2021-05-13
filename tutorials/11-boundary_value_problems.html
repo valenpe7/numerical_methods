@@ -390,7 +390,7 @@ y^{\prime \prime}(x) = f(x, y(x), y^{\prime}(x)), \quad x \in [a, b], \quad y(a)
 \[
 F(\gamma) = y(b; \, \gamma) - \beta.
 \]</div>
-<p>If <span class="math notranslate nohighlight">\( \gamma_0 \)</span> is a root of <span class="math notranslate nohighlight">\( F(\gamma) \)</span> then the solution <span class="math notranslate nohighlight">\( y(x; \gamma_0) \)</span> of initial value problem <span class="math notranslate nohighlight">\( \eqref{eq:shooting_ivp} \)</span> is also a solution of boundary value problem <span class="math notranslate nohighlight">\( \eqref{eq:shooting_bvp} \)</span>. The usual methods for finding roots may be employed here, such as the <a class="reference external" href="https://en.wikipedia.org/wiki/Bisection_method">bisection method</a> or <a class="reference external" href="https://en.wikipedia.org/wiki/Newton%27s_method">Newton-Raphson method</a>.</p>
+<p>If <span class="math notranslate nohighlight">\( \gamma^{*} \)</span> is a root of <span class="math notranslate nohighlight">\( F(\gamma) \)</span> then the solution <span class="math notranslate nohighlight">\( y(x; \gamma^{*}) \)</span> of initial value problem <span class="math notranslate nohighlight">\( \eqref{eq:shooting_ivp} \)</span> is also a solution of boundary value problem <span class="math notranslate nohighlight">\( \eqref{eq:shooting_bvp} \)</span>. The usual methods for finding roots may be employed here, such as the <a class="reference external" href="https://en.wikipedia.org/wiki/Bisection_method">bisection method</a> or <a class="reference external" href="https://en.wikipedia.org/wiki/Newton%27s_method">Newton-Raphson method</a>.</p>
 <div class="alert alert-block alert-info">
 <p><strong>Note:</strong> The <span class="math notranslate nohighlight">\( 2^{nd} \)</span> order explicit ordinary differential equation</p>
 <div class="math notranslate nohighlight">
@@ -571,6 +571,7 @@ y \left( x \right) = -\frac{\exp{\left( -t \right)} \sin \left[ 3 \sqrt{11} \lef
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
+    
 </pre></div>
 </div>
 </div>
@@ -607,7 +608,7 @@ y^{\prime \prime} \left( x \right) = f \left( x \right), \quad x \in \left[a, \,
 \phi_i(x) =
 \begin{cases} 
 \frac{x - x_{i - 1}}{h} &amp; \mathrm{if} \ x \in \left[x_{i - 1}, x_i \right) \\
-\frac{x_{i + i} - x}{h} &amp; \mathrm{if} \ x \in \left[x_{i}, x_{i + 1} \right] \\
+\frac{x_{i + 1} - x}{h} &amp; \mathrm{if} \ x \in \left[x_{i}, x_{i + 1} \right] \\
 0 &amp; \mathrm{otherwise}
 \end{cases}
 \end{split}\]</div>
@@ -615,16 +616,16 @@ y^{\prime \prime} \left( x \right) = f \left( x \right), \quad x \in \left[a, \,
 <div class="math notranslate nohighlight">
 \[
 \tag{6} \label{eq:fem_system}
-\frac{1}{h} q_{i - 1} - \frac{2}{h} q_{i} + \frac{1}{h} q_{i + 1} = \frac{x_{i + 1} - x_{i - 1}}{2} f \left( x_i \right), \quad q_0 = \alpha, \quad q_{n - 1} = \beta.
+q_{i - 1} - 2 q_{i} + q_{i + 1} = h^2 f \left( x_i \right), \quad q_0 = \alpha, \quad q_{n - 1} = \beta.
 \]</div>
 <p>In the matrix form, system of equations <span class="math notranslate nohighlight">\( \eqref{eq:fem_system} \)</span> reads as</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{pmatrix}
 1 &amp;  &amp;  &amp;  &amp;  \\
-1 / h &amp; -2 / h &amp; 1 / h &amp; &amp;  \\
+1 &amp; -2 &amp; 1 &amp; &amp;  \\
  &amp; \ddots &amp; \ddots  &amp; \ddots &amp; \\
- &amp;  &amp; 1 / h &amp; -2 / h &amp; 1 / h \\
+ &amp;  &amp; 1 &amp; -2 &amp; 1 \\
  &amp;  &amp;  &amp;  &amp; 1 \\
 \end{pmatrix} 
 \begin{pmatrix}
@@ -636,9 +637,9 @@ q_{n-1}
 \end{pmatrix} =
 \begin{pmatrix}
 \alpha \\
-1 \, / \, 2 \left(x_2 - x_0 \right) f \left( x_1 \right) \\
+h^2 f \left( x_1 \right) \\
 \vdots \\
-1 \, / \, 2 \left(x_{n - 1} - x_{n - 3} \right) f \left( x_{n - 2} \right) \\
+h^2 f \left( x_{n - 2} \right) \\
 \beta
 \end{pmatrix}.
 \end{split}\]</div>
