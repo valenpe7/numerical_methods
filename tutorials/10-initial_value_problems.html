@@ -758,7 +758,7 @@ y(x) = (y_0 - 1) e^{-100x} + 1
 </div>
 </div>
 <div class="alert alert-block alert-warning">
-<p><strong>Exercise 10.12:</strong> Solve the decay equation for <a class="reference external" href="https://en.wikipedia.org/wiki/Isotopes_of_radium#Radium-226">Ra-226</a> using the Adams-Bashforth method and compare the numerical and analytical solutions.</p>
+<p><strong>Exercise 10.14:</strong> Solve the decay equation for <a class="reference external" href="https://en.wikipedia.org/wiki/Isotopes_of_radium#Radium-226">Ra-226</a> using the Adams-Bashforth method and compare the numerical and analytical solutions.</p>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
@@ -771,7 +771,7 @@ y(x) = (y_0 - 1) e^{-100x} + 1
 <h3>Adams-Moulton method<a class="headerlink" href="#adams-moulton-method" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Linear_multistep_method#Adams%E2%80%93Moulton_methods">Adams-Moulton method</a></p>
 <div class="alert alert-block alert-warning">
-<p><strong>Exercise 10.13:</strong> Implement the Adams-Moulton method.</p>
+<p><strong>Exercise 10.15:</strong> Implement the Adams-Moulton method.</p>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">adams_moulton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x_0</span><span class="p">,</span> <span class="n">x_n</span><span class="p">,</span> <span class="n">y_0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span> 
@@ -798,7 +798,7 @@ y(x) = (y_0 - 1) e^{-100x} + 1
 </div>
 </div>
 <div class="alert alert-block alert-warning">
-<p><strong>Exercise 10.14:</strong> Solve the decay equation for <a class="reference external" href="https://en.wikipedia.org/wiki/Isotopes_of_radium#Radium-226">Ra-226</a> using the Adams-Moulton method and compare the numerical and analytical solutions.</p>
+<p><strong>Exercise 10.16:</strong> Solve the decay equation for <a class="reference external" href="https://en.wikipedia.org/wiki/Isotopes_of_radium#Radium-226">Ra-226</a> using the Adams-Moulton method and compare the numerical and analytical solutions.</p>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
@@ -812,7 +812,7 @@ y(x) = (y_0 - 1) e^{-100x} + 1
 <h2>Predictor-corrector methods<a class="headerlink" href="#predictor-corrector-methods" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Predictor%E2%80%93corrector_method">predictor-corrector method</a></p>
 <div class="alert alert-block alert-warning">
-<p><strong>Exercise 10.15:</strong> Implement the predictor-corrector method.</p>
+<p><strong>Exercise 10.17:</strong> Implement the predictor-corrector method.</p>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">predictor_corrector</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x_0</span><span class="p">,</span> <span class="n">x_n</span><span class="p">,</span> <span class="n">y_0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
@@ -839,7 +839,7 @@ y(x) = (y_0 - 1) e^{-100x} + 1
 </div>
 </div>
 <div class="alert alert-block alert-warning">
-<p><strong>Exercise 10.16:</strong> Solve the decay equation for <a class="reference external" href="https://en.wikipedia.org/wiki/Isotopes_of_radium#Radium-226">Ra-226</a> using the predictor-corrector method and compare the numerical and analytical solutions.</p>
+<p><strong>Exercise 10.18:</strong> Solve the decay equation for <a class="reference external" href="https://en.wikipedia.org/wiki/Isotopes_of_radium#Radium-226">Ra-226</a> using the predictor-corrector method and compare the numerical and analytical solutions.</p>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
@@ -852,7 +852,7 @@ y(x) = (y_0 - 1) e^{-100x} + 1
 <h2>Bulirsch-Stoer method<a class="headerlink" href="#bulirsch-stoer-method" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Bulirsch%E2%80%93Stoer_algorithm">Bulirsch-Stoer algorithm</a></p>
 <div class="alert alert-block alert-warning">
-<p><strong>Exercise 10.17:</strong> Implement the Bulirsch-Stoer method.</p>
+<p><strong>Exercise 10.19:</strong> Implement the Bulirsch-Stoer method.</p>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bulirsch_stoer</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x_0</span><span class="p">,</span> <span class="n">x_n</span><span class="p">,</span> <span class="n">y_0</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span> 
@@ -879,7 +879,7 @@ y(x) = (y_0 - 1) e^{-100x} + 1
 </div>
 </div>
 <div class="alert alert-block alert-warning">
-<p><strong>Exercise 10.18:</strong> Solve the decay equation for <a class="reference external" href="https://en.wikipedia.org/wiki/Isotopes_of_radium#Radium-226">Ra-226</a> using the Bulirsch-Stoer method and compare the numerical and analytical solutions.</p>
+<p><strong>Exercise 10.20:</strong> Solve the decay equation for <a class="reference external" href="https://en.wikipedia.org/wiki/Isotopes_of_radium#Radium-226">Ra-226</a> using the Bulirsch-Stoer method and compare the numerical and analytical solutions.</p>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add your code here</span>
