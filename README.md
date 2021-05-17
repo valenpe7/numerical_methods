@@ -1,19 +1,16 @@
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/valenpe7/numerical_methods/HEAD?filepath=tutorials)
+# About this course
 
-# 12NME1 - Numerical Methods
+This repository contains auxiliary study materials for undergraduate course <b>12NME1 - Numerical Methods</b> lectured at the [Faculty of Nuclear Sciences and Physical Engineering](https://www.fjfi.cvut.cz/en/), [Czech Technical University in Prague](https://www.cvut.cz/en).
 
-This repository contains auxiliary study materials for undergraduate course <b>12NME1 - Numerical Methods</b> lectured at the Faculty of Nuclear Sciences and Physical Engineering, Czech Technical University in Prague (https://petrvalenta.eu/teaching/numerical_methods/).
+The study materials currently consist of only the implementation of selected numerical methods and algorithms (without comments). For closer info, you should attend the tutorials. The methods are written in [Python 3](https://www.python.org/), and organized into a collection of [Jupyter](https://jupyter.org/) notebooks. In addition, they rely on several Python packages:
 
-### About the study materials:
+- [numpy](https://numpy.org/) (for data structures)
+- [scipy](https://www.scipy.org/) (for numerical algorithms)
+- [matplotlib](https://matplotlib.org/) (for visualization)
 
-The study materials currently consist of only the implementation of selected numerical methods and algorithms (without comments). For closer info, you should attend the tutorials. The methods are written in Python 3, and organized into a collection of Jupyter notebooks. In addition, they rely on several Python packages:
-- numpy (mainly for data structures)
-- scipy (for several numerical algorithms)
-- matplotlib (for visualization)
+Although all these packages can be installed one-by-one, I recommend to obtain them by installing [Anaconda](https://www.anaconda.com/).
 
-Although all these packages can be installed one-by-one, I recommend to obtain them by installing Anaconda.
-
-### What is Anaconda and how to install it:
+## What is Anaconda and how to install it
 
 Anaconda is a Python distribution for scientific computing. It includes Jupyter and dozens of the most popular Python packages for scientific computing, including numpy, scipy and matplotlib. 
 
@@ -22,14 +19,14 @@ To install Anaconda,
 2. download the suitable Anaconda installer for Windows/MacOS/Linux (you will find them at the bottom of the web page)
 3. install Anaconda using all of the defaults for installation except make sure to check that the Anaconda distribution is the default Python
 
-### How to obtain the notebooks:
+## How to obtain the notebooks
 
 All the notebooks are stored in this GitHub repository under the `tutorials` directory. You may either download all the notebooks as a .zip archive by selecting "Code" and then "Download ZIP", or use `git`:
 
 1. Clone the repository: ``` $> git clone https://github.com/valenpe7/numerical_methods.git ```
 2. Pull in new changes: ``` $> git pull ```
 
-### How to launch the notebooks:
+## How to launch the notebooks
 
 After you have installed Anaconda on your computer and obtained the notebooks, you are ready to run the notebook server. You can start the notebook server from the command line (Terminal on MacOS/Linux, Anaconda Prompt on Windows) by running:
 ```
@@ -39,16 +36,24 @@ This will print some information about the notebook server in your terminal, inc
 
 Alternatively, if you do not have installed Anaconda, you may launch the notebooks on-line using
 
-* **Jupyter NBViwever** (non-interactive): https://nbviewer.jupyter.org/github/valenpe7/numerical_methods/blob/master/index.ipynb
-* **Binder** (interactive): https://mybinder.org/v2/gh/valenpe7/numerical_methods/HEAD?filepath=tutorials
+* **[Jupyter NBViwever](https://nbviewer.jupyter.org/github/valenpe7/numerical_methods/blob/master/index.ipynb)** (non-interactive)
+* **[Binder](https://mybinder.org/v2/gh/valenpe7/numerical_methods/HEAD?filepath=tutorials)** (interactive)
 
-### Useful links (in Czech):
+## Recommended literature
 
-- Guidelines to lectures and seminars: http://kfe.fjfi.cvut.cz/~limpouch/numet/NMECvic.pdf
-- Outline of lecture: http://kfe.fjfi.cvut.cz/~limpouch/numet/sylnum.html
-- Transparencies of lectures: http://kfe.fjfi.cvut.cz/~limpouch/numet/lecnum.html
-- References to numerical methods: http://kfe.fjfi.cvut.cz/~limpouch/numet/refnum.html
-- Further study materials: http://kfe.fjfi.cvut.cz/~vachal/edu/nme/
+[1] W. H. Press, B. P. Flannery, S. A. Teukolsky, V. H. Vetterling, *Numerical Recipes: The art of scientific computing*, Cambridge University Press, Cambridge, 3rd edition 2007.
 
+[2] A. Ralston, P. Rabinowicz, *A First Course in Numerical Analysis*, McGraw-Hill 1965 (reprinted by Dover Publications, 2001).
+
+[3] R. W. Hamming, *Numerical Methods for Scientists and Engineers*, 2nd edition, Dover Publications 1986.
+
+## Useful links
+
+- [Main webpage of the course](http://kfe.fjfi.cvut.cz/~vachal/edu/nme/)
+- [Guidelines to lectures and seminars](http://kfe.fjfi.cvut.cz/~limpouch/numet/NMECvic.pdf)
+- [Outline of lecture](http://kfe.fjfi.cvut.cz/~limpouch/numet/sylnum.html)
+- [Transparencies of lectures](http://kfe.fjfi.cvut.cz/~limpouch/numet/lecnum.html)
+- [References to numerical methods](http://kfe.fjfi.cvut.cz/~limpouch/numet/refnum.html)
+- [Further study materials](http://kfe.fjfi.cvut.cz/~vachal/edu/nme/cviceni/index.html)
 
 The study materials are evolving quickly. Therefore, if you find any mistake, please submit an **[issue](https://github.com/valenpe7/numerical_methods/issues)** to this GitHub project repository.
