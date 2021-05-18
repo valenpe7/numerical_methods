@@ -1,6 +1,6 @@
 # About this course
 
-This repository contains auxiliary study materials for undergraduate course <b>12NME1 - Numerical Methods</b> lectured at the [Faculty of Nuclear Sciences and Physical Engineering](https://www.fjfi.cvut.cz/en/), [Czech Technical University in Prague](https://www.cvut.cz/en).
+This website contains auxiliary study materials for undergraduate course <b>12NME1 - Numerical Methods</b> lectured at the [Faculty of Nuclear Sciences and Physical Engineering](https://www.fjfi.cvut.cz/en/), [Czech Technical University in Prague](https://www.cvut.cz/en).
 
 The study materials currently contain only the implementation of selected numerical methods and a very brief description. For closer details, you should attend the tutorials. The methods are written in [Python 3](https://www.python.org/) and organized into a collection of [Jupyter](https://jupyter.org/) notebooks. In addition, they rely on several Python packages:
 
@@ -35,6 +35,6 @@ After you have installed Anaconda on your computer and obtained the notebooks, y
 ```
 $> jupyter notebook
 ```
-This will print some information about the notebook server in your terminal, including the URL of the web application (by default, `http://localhost:8888`), and open your default web browser to this URL. When Jupyter opens in your browser, you will see the "Notebook Dashboard", which will show a list of the notebooks, files, and subdirectories in the directory where the notebook server was started. By clicking on the downloaded `.ipynb` file you will launch the notebook.
+This will print some information about the notebook server in your terminal, including the URL of the web application (by default, `http://localhost:8888`), and open your default web browser to this URL. When Jupyter opens in your browser, you will see the "Notebook Dashboard", which will show a list of the notebooks, files, and subdirectories in the directory where the notebook server was started. By navigating and clicking on the downloaded `.ipynb` file you will launch the notebook.
 
 The study materials are evolving quickly. Therefore, if you find any mistake, please submit an [issue](https://github.com/valenpe7/numerical_methods/issues) to the GitHub project [repository](https://github.com/valenpe7/numerical_methods).
