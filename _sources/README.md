@@ -35,6 +35,6 @@ After you have installed Anaconda on your computer and obtained the notebooks, y
 ```
 $> jupyter notebook
 ```
-This will print some information about the notebook server in your terminal, including the URL of the web application (by default, `http://localhost:8888`), and open your default web browser to this URL. When Jupyter opens in your browser, you will see the "Notebook Dashboard", which will show a list of the notebooks, files, and subdirectories in the directory where the notebook server was started. By navigating and clicking on the downloaded `.ipynb` file you will launch the notebook.
+Note that the `$>` sign above represents the terminal's command-line prompt. This will print some information about the notebook server in your terminal, including the URL of the web application (by default, `http://localhost:8888`), and open your default web browser to this URL. When Jupyter opens in your browser, you will see the "Notebook Dashboard", which will show a list of the notebooks, files, and subdirectories in the directory where the notebook server was started. By navigating and clicking on the downloaded `.ipynb` file you will launch the notebook.
 
 The study materials are evolving quickly. Therefore, if you find any mistake, please submit an [issue](https://github.com/valenpe7/numerical_methods/issues) to the GitHub project [repository](https://github.com/valenpe7/numerical_methods).
