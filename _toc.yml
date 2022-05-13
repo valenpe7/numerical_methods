@@ -1,10 +1,14 @@
 # Table of content
 # Learn more at https://jupyterbook.org/customize/toc.html
 
-- file: README
+format: jb-book
+root: README
+options:
+  numbered: false
   title: About this course
-
-- part: Tutorials
+parts:
+- caption: Tutorials
+  numbered: false
   chapters:
   - file: tutorials/01-introduction
     title: 01 Intro to Python and Jupyter
@@ -30,8 +34,8 @@
     title: 11 Boundary value problems
   - file: tutorials/solutions
     title: Solutions
-
-- part: Assignment tasks
+- caption: Assignment tasks
+  numbered: false
   chapters:
   - file: tasks/task_01
     title: Task 01
@@ -57,8 +61,8 @@
     title: Task 11
   - file: tasks/solutions
     title: Solutions
-
-- part: Assignment tests
+- caption: Assignment tests
+  numbered: false
   chapters:
   - file: tests/test_2022
     title: Test 2022
