@@ -31,7 +31,7 @@
   - file: tutorials/solutions
     title: Solutions
 
-- part: Asignments tasks
+- part: Assignment tasks
   chapters:
   - file: tasks/task_01
     title: Task 01
@@ -56,4 +56,11 @@
   - file: tasks/task_11
     title: Task 11
   - file: tasks/solutions
+    title: Solutions
+
+- part: Assignment tests
+  chapters:
+  - file: tests/test_2022
+    title: Test 2022
+  - file: tests/solutions
     title: Solutions
