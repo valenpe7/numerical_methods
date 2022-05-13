@@ -61,7 +61,7 @@ parts:
     title: Task 11
   - file: tasks/solutions
     title: Solutions
-- caption: Assignment tests
+- caption: Assessment tests
   numbered: false
   chapters:
   - file: tests/test_2022
