@@ -4,7 +4,7 @@
 title: 12NME1 - Numerical methods
 author: Petr Valenta
 logo: ""
-copyright: "2021"
+copyright: "2022"
 only_build_toc_files: true
 
 # Force re-execution of notebooks on each build.
